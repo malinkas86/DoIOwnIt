@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Hmv-Cv-CKO">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Item-->
+        <scene sceneID="A9U-ku-KT2">
+            <objects>
+                <viewController id="90Q-Jm-uho" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oF8-53-e6p"/>
+                        <viewControllerLayoutGuide type="bottom" id="NQF-4J-mLM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bl4-4z-JIA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Sdz-W7-gmv"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="794-OR-c2A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1024.8" y="250.52473763118442"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="l2t-Zr-srg">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Hmv-Cv-CKO" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="G0C-I8-Ma8">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="90Q-Jm-uho" kind="relationship" relationship="viewControllers" id="D9K-Pf-94u"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kRm-ul-27Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="250.52473763118442"/>
+        </scene>
+    </scenes>
+</document>
