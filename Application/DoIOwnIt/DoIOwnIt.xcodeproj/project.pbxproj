@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		492B4C68C1DE2EA097C9678C /* Pods_DoIOwnIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */; };
+		7061457F1E5B706E00A18A7E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061457E1E5B706E00A18A7E /* UserRepository.swift */; };
+		706145811E5B70BE00A18A7E /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */; };
+		706145841E5B763500A18A7E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145831E5B763500A18A7E /* UserManager.swift */; };
+		706145871E5B8FD100A18A7E /* UserManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145861E5B8FD100A18A7E /* UserManagerProtocol.swift */; };
 		70DC75121E5627D900115439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75111E5627D900115439 /* AppDelegate.swift */; };
 		70DC75191E5627D900115439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75181E5627D900115439 /* Assets.xcassets */; };
 		70DC75271E5627D900115439 /* DoIOwnItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75261E5627D900115439 /* DoIOwnItTests.swift */; };
@@ -18,7 +22,7 @@
 		70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC753E1E563C7400115439 /* LoginViewModel.swift */; };
 		70DC75421E563CE500115439 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75411E563CE500115439 /* Response.swift */; };
 		70DC75471E563EF600115439 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75461E563EF600115439 /* AsynchronousOperation.swift */; };
-		70DC754A1E563F5600115439 /* UserPersistenceOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75491E563F5600115439 /* UserPersistenceOperation.swift */; };
+		70DC754A1E563F5600115439 /* UserRepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75491E563F5600115439 /* UserRepositoryOperation.swift */; };
 		70DC754D1E563FD800115439 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC754C1E563FD800115439 /* User.swift */; };
 		70DC75511E5658F100115439 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75501E5658F100115439 /* Movie.storyboard */; };
 		70DC75541E56598700115439 /* MovieListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75531E56598700115439 /* MovieListViewController.swift */; };
@@ -39,6 +43,10 @@
 		3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.release.xcconfig"; sourceTree = "<group>"; };
 		4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C726D724955055D6F069773 /* Pods-DoIOwnItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7061457E1E5B706E00A18A7E /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = Classes/Services/Repository/UserRepository.swift; sourceTree = "<group>"; };
+		706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepositoryProtocol.swift; path = Classes/Services/Repository/UserRepositoryProtocol.swift; sourceTree = "<group>"; };
+		706145831E5B763500A18A7E /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Classes/Managers/UserManager.swift; sourceTree = "<group>"; };
+		706145861E5B8FD100A18A7E /* UserManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManagerProtocol.swift; path = Classes/Managers/UserManagerProtocol.swift; sourceTree = "<group>"; };
 		70DC750E1E5627D900115439 /* DoIOwnIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoIOwnIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC75111E5627D900115439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70DC75181E5627D900115439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,8 +60,8 @@
 		70DC753B1E5638CA00115439 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		70DC753E1E563C7400115439 /* LoginViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewModel.swift; path = Classes/ViewModels/LoginViewModel.swift; sourceTree = "<group>"; };
 		70DC75411E563CE500115439 /* Response.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Response.swift; path = Classes/Utils/Response.swift; sourceTree = "<group>"; };
-		70DC75461E563EF600115439 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsynchronousOperation.swift; path = Classes/Services/AsynchronousOperation.swift; sourceTree = "<group>"; };
-		70DC75491E563F5600115439 /* UserPersistenceOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPersistenceOperation.swift; path = Classes/Services/Persistence/UserPersistenceOperation.swift; sourceTree = "<group>"; };
+		70DC75461E563EF600115439 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AsynchronousOperation.swift; path = Classes/Services/Operations/AsynchronousOperation.swift; sourceTree = "<group>"; };
+		70DC75491E563F5600115439 /* UserRepositoryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepositoryOperation.swift; path = Classes/Services/Operations/UserRepositoryOperation.swift; sourceTree = "<group>"; };
 		70DC754C1E563FD800115439 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		70DC75501E5658F100115439 /* Movie.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Movie.storyboard; path = Storyboards/Movie.storyboard; sourceTree = "<group>"; };
 		70DC75531E56598700115439 /* MovieListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieListViewController.swift; path = Classes/ViewControllers/Movie/MovieListViewController.swift; sourceTree = "<group>"; };
@@ -91,6 +99,24 @@
 				4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		706145821E5B761500A18A7E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				706145831E5B763500A18A7E /* UserManager.swift */,
+				706145861E5B8FD100A18A7E /* UserManagerProtocol.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		706145851E5B77CD00A18A7E /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				70DC75461E563EF600115439 /* AsynchronousOperation.swift */,
+				70DC75491E563F5600115439 /* UserRepositoryOperation.swift */,
+			);
+			name = Operations;
 			sourceTree = "<group>";
 		};
 		70DC75051E5627D900115439 = {
@@ -148,6 +174,7 @@
 		70DC75361E56336300115439 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				706145821E5B761500A18A7E /* Managers */,
 				70DC754B1E563FBC00115439 /* Models */,
 				70DC75451E563ED200115439 /* Services */,
 				70DC75401E563CC100115439 /* Utils */,
@@ -193,18 +220,19 @@
 		70DC75451E563ED200115439 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				70DC75481E563F2600115439 /* Persistence */,
-				70DC75461E563EF600115439 /* AsynchronousOperation.swift */,
+				706145851E5B77CD00A18A7E /* Operations */,
+				70DC75481E563F2600115439 /* Repository */,
 			);
 			name = Services;
 			sourceTree = "<group>";
 		};
-		70DC75481E563F2600115439 /* Persistence */ = {
+		70DC75481E563F2600115439 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				70DC75491E563F5600115439 /* UserPersistenceOperation.swift */,
+				7061457E1E5B706E00A18A7E /* UserRepository.swift */,
+				706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */,
 			);
-			name = Persistence;
+			name = Repository;
 			sourceTree = "<group>";
 		};
 		70DC754B1E563FBC00115439 /* Models */ = {
@@ -440,11 +468,15 @@
 			files = (
 				70DC75421E563CE500115439 /* Response.swift in Sources */,
 				70DC753A1E5633EF00115439 /* LoginViewController.swift in Sources */,
+				706145811E5B70BE00A18A7E /* UserRepositoryProtocol.swift in Sources */,
 				70DC75471E563EF600115439 /* AsynchronousOperation.swift in Sources */,
+				706145871E5B8FD100A18A7E /* UserManagerProtocol.swift in Sources */,
 				70DC75541E56598700115439 /* MovieListViewController.swift in Sources */,
 				70DC75121E5627D900115439 /* AppDelegate.swift in Sources */,
-				70DC754A1E563F5600115439 /* UserPersistenceOperation.swift in Sources */,
+				70DC754A1E563F5600115439 /* UserRepositoryOperation.swift in Sources */,
+				7061457F1E5B706E00A18A7E /* UserRepository.swift in Sources */,
 				70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */,
+				706145841E5B763500A18A7E /* UserManager.swift in Sources */,
 				70DC754D1E563FD800115439 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

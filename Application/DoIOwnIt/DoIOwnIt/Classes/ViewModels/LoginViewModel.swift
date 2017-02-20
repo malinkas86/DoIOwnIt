@@ -11,41 +11,28 @@ import Firebase
 
 class LoginViewModel: NSObject {
 
-    lazy var userPersistenceQueue : OperationQueue = {
-        var queue = OperationQueue()
-        queue.name = "userPersistenceQueue"
-        queue.maxConcurrentOperationCount = 2
-        return queue
-    }()
+    
+    let userManager = UserManager(userRepository: UserRepository())
     
     func signInUser(withEmail email : String, password : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user,error) in
-            guard let _ = user, error == nil else {
-                print(error!.localizedDescription)
-                completionHandler(Response.error((error?.localizedDescription)! ))
-                return
+        userManager.signInUser(withEmail: email, password: password, completionHandler: { response in
+            switch response {
+            case let .success(user):
+                completionHandler(Response.success(user))
+            case let .error(error) :
+                completionHandler(Response.error(error))
             }
-            
-            completionHandler(Response.success(true))
         })
     }
     
     func signInUser(withCredential credential : FIRAuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
-            
-            guard let user = user, error == nil else {
-                print(error!.localizedDescription)
-                completionHandler(Response.error((error?.localizedDescription)! ))
-                return
+        userManager.signInUser(withCredential: credential, completionHandler: {response in
+            switch response {
+            case let .success(user):
+                completionHandler(Response.success(user))
+            case let .error(error) :
+                completionHandler(Response.error(error))
             }
-            
-            let operation = UserPersistenceOperation(userOperationType : .checkandsaveuser , completionHandler : {response in
-                completionHandler(response)
-            })
-            operation.user = user
-            operation.username = user.email
-            
-            self.userPersistenceQueue.addOperation(operation)
-        }
+        })
     }
 }
