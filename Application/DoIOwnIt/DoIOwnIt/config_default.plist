@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>config</key>
+	<dict>
+		<key>movieDBImageBaseURL</key>
+		<string>https://image.tmdb.org/t/p/w500</string>
+		<key>movieDBApiKey</key>
+		<string>017f60b4ea5007f6f267d0b83b0c814e</string>
+		<key>movieDBBaseURL</key>
+		<string>https://api.themoviedb.org/3/</string>
+	</dict>
+</dict>
+</plist>
