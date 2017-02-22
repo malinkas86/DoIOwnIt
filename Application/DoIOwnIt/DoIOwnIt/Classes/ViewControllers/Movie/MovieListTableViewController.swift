@@ -14,6 +14,8 @@ class MovieListTableViewController: UITableViewController {
     
     let movieListViewModel = MovieListViewModel()
     var isFetchingData = false
+    var isCancelled = false
+    var searchQuery = ""
     let searchController = UISearchController(searchResultsController: nil)
     
     override func viewDidLoad() {
@@ -23,7 +25,7 @@ class MovieListTableViewController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        getMovies(bySearchQuery: "titanic")
+        //getMovies(bySearchQuery: "titanic")
         
     }
     
@@ -38,6 +40,7 @@ class MovieListTableViewController: UITableViewController {
                     log.error(error)
                 }
                 self.isFetchingData = false
+                self.isCancelled = false
             })
         }
         
@@ -98,7 +101,7 @@ class MovieListTableViewController: UITableViewController {
         print("deltaoffset \(deltaOffset)")
         
         if deltaOffset <= 0 && !isFetchingData {
-            getMovies(bySearchQuery: "titanic")
+            getMovies(bySearchQuery: searchQuery)
         }
     }
     
@@ -161,17 +164,24 @@ extension MovieListTableViewController: UISearchResultsUpdating {
 
 // Handles search actions
 extension MovieListTableViewController : UISearchBarDelegate {
+    
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         //retrieve all the books of the user hits on cancel.
+        isCancelled = true
         
     }
     
     public func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
-        let searchText = searchBar.text!
-        movieListViewModel.movies = []
-        movieListViewModel.currentPage = 1
-        movieListViewModel.totalPages = 0
-        getMovies(bySearchQuery: searchText)
+        if !isCancelled {
+            searchQuery = searchBar.text!
+            
+            movieListViewModel.movies = []
+            movieListViewModel.currentPage = 1
+            movieListViewModel.totalPages = 0
+            getMovies(bySearchQuery: searchQuery)
+        }
+        
+        
         
     }
 }

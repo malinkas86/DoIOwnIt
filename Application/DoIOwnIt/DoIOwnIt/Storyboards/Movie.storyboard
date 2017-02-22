@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Add Books to Library-->
         <scene sceneID="N9w-es-Cc0">
             <objects>
                 <tableViewController id="xbi-07-bTQ" customClass="MovieListTableViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,11 +54,11 @@
                             <outlet property="delegate" destination="xbi-07-bTQ" id="iAx-Wj-5iC"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Item" id="7Pb-hE-pmC"/>
+                    <navigationItem key="navigationItem" title="Add Books to Library" id="4Ku-eu-GfA"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CQB-tG-xac" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1100" y="146.17691154422789"/>
+            <point key="canvasLocation" x="2039.2" y="146.17691154422789"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="sqA-q4-kB0">
@@ -71,12 +71,31 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="xbi-07-bTQ" kind="relationship" relationship="viewControllers" id="801-v3-aqO"/>
+                        <segue destination="aQh-wg-PPj" kind="relationship" relationship="viewControllers" id="801-v3-aqO"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BJm-p0-zaH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="146.17691154422789"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="gu8-Ry-CjT">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aQh-wg-PPj" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7Pb-hE-pmC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oj1-nR-2CL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xbi-07-bTQ" kind="relationship" relationship="rootViewController" id="o8e-tW-jwd"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JgT-8g-YM1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1100" y="146.17691154422789"/>
         </scene>
     </scenes>
 </document>
