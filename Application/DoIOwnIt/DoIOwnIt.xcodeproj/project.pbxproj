@@ -194,6 +194,7 @@
 		70DC75101E5627D900115439 /* DoIOwnIt */ = {
 			isa = PBXGroup;
 			children = (
+				DB1D93AD1E5E43550056ABDE /* Samples */,
 				70DC75361E56336300115439 /* Classes */,
 				70DC75311E56316E00115439 /* Storyboards */,
 				70DC75111E5627D900115439 /* AppDelegate.swift */,
@@ -318,6 +319,13 @@
 				7899E2F13DEAFF2E443F2BB9 /* Pods_DoIOwnItTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB1D93AD1E5E43550056ABDE /* Samples */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Samples;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
