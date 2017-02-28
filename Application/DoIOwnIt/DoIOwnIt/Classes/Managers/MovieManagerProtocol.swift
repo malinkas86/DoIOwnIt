@@ -10,4 +10,6 @@ import Foundation
 
 protocol MovieManagerProtocol {
     
+    func searchMovies(query : String , page : Int, completionHandler : @escaping (_ response : Response<Any>) -> ())
+    func getMovieDetailsById(id : Int, completionHandler : @escaping (_ response : Response<Any>) -> ())
 }

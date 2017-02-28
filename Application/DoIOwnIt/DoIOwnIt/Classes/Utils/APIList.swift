@@ -11,4 +11,6 @@ import UIKit
 class APIList: NSObject {
 
     static let MOVIE_SEARCH_API = "search/movie"
+    static let MOVIE_DETAILS_API = "movie/"
+    static let MOVIE_CREDITS_API = "movie/%d/credits"
 }

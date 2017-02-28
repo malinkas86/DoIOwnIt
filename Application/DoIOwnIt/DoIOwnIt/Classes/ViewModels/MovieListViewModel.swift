@@ -16,10 +16,10 @@ class MovieListViewModel: NSObject {
     var movies : [Movie] = []
     let movieManager = MovieManager(httpRequest: HTTPRequest())
     
-    func searchBooks(query : String, completionHandler : @escaping (_ httpResponse : Response<Any>) -> ()){
+    func searchMovies(query : String, completionHandler : @escaping (_ httpResponse : Response<Any>) -> ()){
         
         if currentPage == 1 || currentPage < totalPages! {
-            movieManager.searchBooks(query: query, page: self.currentPage, completionHandler: { response in
+            movieManager.searchMovies(query: query, page: self.currentPage, completionHandler: { response in
                 switch response {
                 case let .success(movieList as MovieList):
                     self.currentPage = self.currentPage + 1

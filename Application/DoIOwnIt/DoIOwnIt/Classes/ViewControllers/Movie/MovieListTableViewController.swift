@@ -17,6 +17,8 @@ class MovieListTableViewController: UITableViewController {
     var isCancelled = false
     var searchQuery = ""
     let searchController = UISearchController(searchResultsController: nil)
+    let showMovieSegueIdentifier = "showMovie"
+    var selectedIndex : IndexPath?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +27,14 @@ class MovieListTableViewController: UITableViewController {
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        //getMovies(bySearchQuery: "titanic")
+        getMovies(bySearchQuery: "titanic")
         
     }
     
     func getMovies(bySearchQuery query : String){
         if query.characters.count != 0 {
             isFetchingData = true
-            movieListViewModel.searchBooks(query: query, completionHandler: {response in
+            movieListViewModel.searchMovies(query: query, completionHandler: {response in
                 switch response {
                 case .success(_) :
                     self.tableView.reloadData()
@@ -141,15 +143,20 @@ class MovieListTableViewController: UITableViewController {
     }
     */
 
-    /*
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
+        performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+        movieDetailsViewController.id = movieListViewModel.movies[(selectedIndex?.row)!].id
     }
-    */
+    
 
 }
 
