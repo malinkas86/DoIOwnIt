@@ -17,6 +17,7 @@ class Movie: NSObject {
     var overview : String?
     var castList : [Int : Cast]?
     var crewList : [Int : Crew]?
+    var storageMethods : [StorageType : StorageMethod]?
     
     init(withDictionary dictionary : [String : Any]){
         if let id = dictionary["id"] as? Int? {
@@ -32,7 +33,7 @@ class Movie: NSObject {
         }else{
             self.posterPath = ""
         }
-        if let releasedDate = dictionary["released_date"] as? String? {
+        if let releasedDate = dictionary["release_date"] as? String? {
             self.releasedDate = releasedDate
         }else{
             self.releasedDate = ""
@@ -48,6 +49,50 @@ class Movie: NSObject {
             self.overview = ""
         }
         
+    }
+    
+    init(id : Int, title : String, posterPath : String, releasedDate : String, storageMethods : [StorageType : StorageMethod] = [:]){
+        self.id = id
+        self.title = title
+        self.posterPath = posterPath
+        self.releasedDate = releasedDate
+        self.storageMethods = storageMethods
+    }
+    
+    func toDictionary() -> [String : Any] {
+        var dictionary : [String : Any] = [:]
+        if self.id != nil {
+            dictionary["id"] = self.id
+        }
+        if self.title != nil {
+            dictionary["title"] = self.title
+        }
+        if self.posterPath != nil {
+            dictionary["poster_path"] = self.posterPath
+        }
+        if self.releasedDate != nil {
+            dictionary["release_date"] = self.releasedDate
+        }
+        if self.storageMethods != nil {
+            var serialized : [String : Any] = [:]
+            for (type,method) in storageMethods! {
+                serialized[type.rawValue] = method.toDictionary()
+            }
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: serialized, options: [])
+                
+                let serializedStorageMethods = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
+                
+                print("serializedStorageMethods \(serializedStorageMethods)")
+                dictionary["storage_methods"] = serializedStorageMethods
+                
+                
+                
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        return dictionary
     }
     
 }

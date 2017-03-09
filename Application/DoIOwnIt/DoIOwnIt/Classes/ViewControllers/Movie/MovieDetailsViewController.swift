@@ -58,6 +58,18 @@ class MovieDetailsViewController: UIViewController {
     }
     
 
+    @IBAction func addToLibraryAction(_ sender: Any) {
+        let popoverVc = UIStoryboard(name: "Movie", bundle: nil).instantiateViewController(withIdentifier: "sbStorageSelection") as! StorageSelectionViewController
+        popoverVc.movieId = self.movieDetailsViewModel.id
+        popoverVc.movieTitle = self.movieDetailsViewModel.title
+        popoverVc.posterPath = self.movieDetailsViewModel.posterPath
+        popoverVc.releasedDate = self.movieDetailsViewModel.releasedDate
+        print("releasedDate \(self.movieDetailsViewModel.releasedDate)")
+        self.addChildViewController(popoverVc)
+        popoverVc.view.frame = self.view.frame
+        self.view.addSubview(popoverVc.view)
+        popoverVc.didMove(toParentViewController: self)
+    }
     /*
     // MARK: - Navigation
 

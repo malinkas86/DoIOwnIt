@@ -29,6 +29,9 @@
 		70749B7C1E5F371100F2CC8C /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B7B1E5F371100F2CC8C /* MovieDetailsViewModel.swift */; };
 		70749B7E1E61EF2C00F2CC8C /* Cast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B7D1E61EF2C00F2CC8C /* Cast.swift */; };
 		70749B801E61F06600F2CC8C /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B7F1E61F06600F2CC8C /* Crew.swift */; };
+		70749B821E65CEC100F2CC8C /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B811E65CEC100F2CC8C /* StorageType.swift */; };
+		70749B841E65D00800F2CC8C /* StorageMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B831E65D00800F2CC8C /* StorageMethod.swift */; };
+		70749B861E66579900F2CC8C /* StorageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */; };
 		70DC75121E5627D900115439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75111E5627D900115439 /* AppDelegate.swift */; };
 		70DC75191E5627D900115439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75181E5627D900115439 /* Assets.xcassets */; };
 		70DC75271E5627D900115439 /* DoIOwnItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75261E5627D900115439 /* DoIOwnItTests.swift */; };
@@ -42,6 +45,14 @@
 		70DC754A1E563F5600115439 /* UserRepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75491E563F5600115439 /* UserRepositoryOperation.swift */; };
 		70DC754D1E563FD800115439 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC754C1E563FD800115439 /* User.swift */; };
 		70DC75511E5658F100115439 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75501E5658F100115439 /* Movie.storyboard */; };
+		70EDA6441E6D3EA600A7FA42 /* StorageDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA6431E6D3EA600A7FA42 /* StorageDetailTableViewCell.swift */; };
+		70EDA6471E6E1C0800A7FA42 /* RadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA6461E6E1C0800A7FA42 /* RadioButton.swift */; };
+		70EDA6491E6E984800A7FA42 /* StorageSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA6481E6E984800A7FA42 /* StorageSelectionViewModel.swift */; };
+		70EDA64B1E6F348D00A7FA42 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA64A1E6F348D00A7FA42 /* StorageManager.swift */; };
+		70EDA64D1E6F361D00A7FA42 /* UserMovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA64C1E6F361D00A7FA42 /* UserMovieRepository.swift */; };
+		70EDA64F1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA64E1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift */; };
+		70EDA6511E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA6501E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift */; };
+		70EDA6531E6F859100A7FA42 /* StorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA6521E6F859100A7FA42 /* StorageManagerProtocol.swift */; };
 		8568CAFF9EAE757733F4FBDE /* Pods_DoIOwnItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7899E2F13DEAFF2E443F2BB9 /* Pods_DoIOwnItTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -80,6 +91,9 @@
 		70749B7B1E5F371100F2CC8C /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieDetailsViewModel.swift; path = Classes/ViewModels/MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		70749B7D1E61EF2C00F2CC8C /* Cast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Cast.swift; path = Classes/Models/Cast.swift; sourceTree = "<group>"; };
 		70749B7F1E61F06600F2CC8C /* Crew.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Crew.swift; path = Classes/Models/Crew.swift; sourceTree = "<group>"; };
+		70749B811E65CEC100F2CC8C /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageType.swift; path = Classes/Models/StorageType.swift; sourceTree = "<group>"; };
+		70749B831E65D00800F2CC8C /* StorageMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageMethod.swift; path = Classes/Models/StorageMethod.swift; sourceTree = "<group>"; };
+		70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewController.swift; path = Classes/ViewControllers/Movie/StorageSelectionViewController.swift; sourceTree = "<group>"; };
 		70DC750E1E5627D900115439 /* DoIOwnIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoIOwnIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC75111E5627D900115439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70DC75181E5627D900115439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +111,14 @@
 		70DC75491E563F5600115439 /* UserRepositoryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepositoryOperation.swift; path = Classes/Services/Operations/UserRepositoryOperation.swift; sourceTree = "<group>"; };
 		70DC754C1E563FD800115439 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = User.swift; path = Classes/Models/User.swift; sourceTree = "<group>"; };
 		70DC75501E5658F100115439 /* Movie.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Movie.storyboard; path = Storyboards/Movie.storyboard; sourceTree = "<group>"; };
+		70EDA6431E6D3EA600A7FA42 /* StorageDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageDetailTableViewCell.swift; path = Classes/TableViewCells/Movie/StorageDetailTableViewCell.swift; sourceTree = "<group>"; };
+		70EDA6461E6E1C0800A7FA42 /* RadioButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RadioButton.swift; path = Classes/UIComponents/RadioButton.swift; sourceTree = "<group>"; };
+		70EDA6481E6E984800A7FA42 /* StorageSelectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewModel.swift; path = Classes/ViewModels/StorageSelectionViewModel.swift; sourceTree = "<group>"; };
+		70EDA64A1E6F348D00A7FA42 /* StorageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageManager.swift; path = Classes/Managers/StorageManager.swift; sourceTree = "<group>"; };
+		70EDA64C1E6F361D00A7FA42 /* UserMovieRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMovieRepository.swift; path = Classes/Services/Repository/UserMovieRepository.swift; sourceTree = "<group>"; };
+		70EDA64E1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMovieRepositoryOperation.swift; path = Classes/Services/Operations/UserMovieRepositoryOperation.swift; sourceTree = "<group>"; };
+		70EDA6501E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMovieRespositoryProtocol.swift; path = Classes/Services/Repository/UserMovieRespositoryProtocol.swift; sourceTree = "<group>"; };
+		70EDA6521E6F859100A7FA42 /* StorageManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageManagerProtocol.swift; path = Classes/Managers/StorageManagerProtocol.swift; sourceTree = "<group>"; };
 		7899E2F13DEAFF2E443F2BB9 /* Pods_DoIOwnItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIOwnItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1D17D30A4C91173DEC659B5 /* Pods-DoIOwnIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.debug.xcconfig"; sourceTree = "<group>"; };
 		C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIOwnIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -140,6 +162,8 @@
 				706145861E5B8FD100A18A7E /* UserManagerProtocol.swift */,
 				70749B5A1E5BC15F00F2CC8C /* MovieManagerProtocol.swift */,
 				70749B5C1E5BC18E00F2CC8C /* MovieManager.swift */,
+				70EDA64A1E6F348D00A7FA42 /* StorageManager.swift */,
+				70EDA6521E6F859100A7FA42 /* StorageManagerProtocol.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -150,6 +174,7 @@
 				70DC75461E563EF600115439 /* AsynchronousOperation.swift */,
 				70DC75491E563F5600115439 /* UserRepositoryOperation.swift */,
 				70749B691E5BEA0400F2CC8C /* NetworkOperation.swift */,
+				70EDA64E1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -175,6 +200,7 @@
 			isa = PBXGroup;
 			children = (
 				70749B761E5D328B00F2CC8C /* MovieListTableViewCell.swift */,
+				70EDA6431E6D3EA600A7FA42 /* StorageDetailTableViewCell.swift */,
 			);
 			name = Movie;
 			sourceTree = "<group>";
@@ -235,6 +261,7 @@
 		70DC75361E56336300115439 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				70EDA6451E6E1BA200A7FA42 /* UIComponents */,
 				70749B731E5D320300F2CC8C /* TableViewCells */,
 				706145821E5B761500A18A7E /* Managers */,
 				70DC754B1E563FBC00115439 /* Models */,
@@ -269,6 +296,7 @@
 				70DC753E1E563C7400115439 /* LoginViewModel.swift */,
 				70749B6B1E5BF2BC00F2CC8C /* MovieListViewModel.swift */,
 				70749B7B1E5F371100F2CC8C /* MovieDetailsViewModel.swift */,
+				70EDA6481E6E984800A7FA42 /* StorageSelectionViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -298,6 +326,8 @@
 			children = (
 				7061457E1E5B706E00A18A7E /* UserRepository.swift */,
 				706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */,
+				70EDA64C1E6F361D00A7FA42 /* UserMovieRepository.swift */,
+				70EDA6501E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -310,6 +340,8 @@
 				70749B711E5D08F800F2CC8C /* MovieList.swift */,
 				70749B7D1E61EF2C00F2CC8C /* Cast.swift */,
 				70749B7F1E61F06600F2CC8C /* Crew.swift */,
+				70749B811E65CEC100F2CC8C /* StorageType.swift */,
+				70749B831E65D00800F2CC8C /* StorageMethod.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -319,8 +351,17 @@
 			children = (
 				70749B581E5BC0DC00F2CC8C /* MovieListTableViewController.swift */,
 				70749B781E5E60E200F2CC8C /* MovieDetailsViewController.swift */,
+				70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */,
 			);
 			name = Movie;
+			sourceTree = "<group>";
+		};
+		70EDA6451E6E1BA200A7FA42 /* UIComponents */ = {
+			isa = PBXGroup;
+			children = (
+				70EDA6461E6E1C0800A7FA42 /* RadioButton.swift */,
+			);
+			name = UIComponents;
 			sourceTree = "<group>";
 		};
 		97EBB49BB6FB7889AADCCB8A /* Frameworks */ = {
@@ -543,27 +584,38 @@
 				70749B701E5CFF9E00F2CC8C /* Movie.swift in Sources */,
 				70749B591E5BC0DC00F2CC8C /* MovieListTableViewController.swift in Sources */,
 				70DC75421E563CE500115439 /* Response.swift in Sources */,
+				70EDA6491E6E984800A7FA42 /* StorageSelectionViewModel.swift in Sources */,
 				70749B7E1E61EF2C00F2CC8C /* Cast.swift in Sources */,
 				70749B5D1E5BC18E00F2CC8C /* MovieManager.swift in Sources */,
 				70749B641E5BE5EE00F2CC8C /* ConfigUtil.swift in Sources */,
+				70749B861E66579900F2CC8C /* StorageSelectionViewController.swift in Sources */,
 				70749B681E5BE98B00F2CC8C /* APIList.swift in Sources */,
 				70DC753A1E5633EF00115439 /* LoginViewController.swift in Sources */,
 				706145811E5B70BE00A18A7E /* UserRepositoryProtocol.swift in Sources */,
 				70749B791E5E60E200F2CC8C /* MovieDetailsViewController.swift in Sources */,
 				70749B6A1E5BEA0400F2CC8C /* NetworkOperation.swift in Sources */,
+				70EDA6441E6D3EA600A7FA42 /* StorageDetailTableViewCell.swift in Sources */,
+				70749B841E65D00800F2CC8C /* StorageMethod.swift in Sources */,
 				70749B621E5BE56A00F2CC8C /* HTTPRequest.swift in Sources */,
+				70EDA64B1E6F348D00A7FA42 /* StorageManager.swift in Sources */,
+				70EDA64D1E6F361D00A7FA42 /* UserMovieRepository.swift in Sources */,
 				70DC75471E563EF600115439 /* AsynchronousOperation.swift in Sources */,
 				706145871E5B8FD100A18A7E /* UserManagerProtocol.swift in Sources */,
+				70749B821E65CEC100F2CC8C /* StorageType.swift in Sources */,
 				70DC75121E5627D900115439 /* AppDelegate.swift in Sources */,
+				70EDA6531E6F859100A7FA42 /* StorageManagerProtocol.swift in Sources */,
 				70749B5B1E5BC15F00F2CC8C /* MovieManagerProtocol.swift in Sources */,
 				70DC754A1E563F5600115439 /* UserRepositoryOperation.swift in Sources */,
 				7061457F1E5B706E00A18A7E /* UserRepository.swift in Sources */,
+				70EDA6471E6E1C0800A7FA42 /* RadioButton.swift in Sources */,
+				70EDA6511E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift in Sources */,
 				70749B721E5D08F800F2CC8C /* MovieList.swift in Sources */,
 				70749B601E5BE4BA00F2CC8C /* HTTPRequestProtocol.swift in Sources */,
 				70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */,
 				706145841E5B763500A18A7E /* UserManager.swift in Sources */,
 				70DC754D1E563FD800115439 /* User.swift in Sources */,
 				70749B6C1E5BF2BC00F2CC8C /* MovieListViewModel.swift in Sources */,
+				70EDA64F1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift in Sources */,
 				70749B771E5D328B00F2CC8C /* MovieListTableViewCell.swift in Sources */,
 				70749B801E61F06600F2CC8C /* Crew.swift in Sources */,
 			);

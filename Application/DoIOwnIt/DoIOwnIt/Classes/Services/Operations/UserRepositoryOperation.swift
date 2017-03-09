@@ -38,13 +38,25 @@ class UserRepositoryOperation: AsynchronousOperation {
         
         switch self.userOperationType {
         case .saveuser:
-            userRepository.saveUserInfo(user : user!, username : (user?.email!)!, firstName : firstName!, lastName : lastName!, completionHandler : completionHandler)
+            userRepository.saveUserInfo(user : user!, username : (user?.email!)!, firstName : firstName!, lastName : lastName!, completionHandler : { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         case .checkandsaveuser:
-            userRepository.checkUserAndSave(user : user!, username : (user?.email!)!, completionHandler : completionHandler)
+            userRepository.checkUserAndSave(user : user!, username : (user?.email!)!, completionHandler : { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         case .signinwithemail :
-            userRepository.signInUser(withEmail : email!, password : password!, completionHandler : completionHandler)
+            userRepository.signInUser(withEmail : email!, password : password!, completionHandler : { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         case .signinwithcredentials :
-            userRepository.signInUser(withCredential : credential! , completionHandler : completionHandler)
+            userRepository.signInUser(withCredential : credential! , completionHandler : { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
             
         }
     }

@@ -12,7 +12,9 @@ class MovieListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var isOwnedSwitch: UISwitch!
+    
+    @IBOutlet weak var isOwnedButton: RadioButton!
+    var movieListViewController : MovieListTableViewController!
     
     
     override func awakeFromNib() {
@@ -20,6 +22,14 @@ class MovieListTableViewCell: UITableViewCell {
         // Initialization code
     }
 
+    @IBAction func didTapIsOwned(_ sender: RadioButton) {
+        print("did tap is owned")
+        let popoverVc = UIStoryboard(name: "Movie", bundle: nil).instantiateViewController(withIdentifier: "sbStorageSelection") as! StorageSelectionViewController
+        movieListViewController.addChildViewController(popoverVc)
+        popoverVc.view.frame = movieListViewController.view.frame
+        movieListViewController.view.addSubview(popoverVc.view)
+        popoverVc.didMove(toParentViewController: movieListViewController)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

@@ -16,7 +16,7 @@ class MovieListViewModel: NSObject {
     var movies : [Movie] = []
     let movieManager = MovieManager(httpRequest: HTTPRequest())
     
-    func searchMovies(query : String, completionHandler : @escaping (_ httpResponse : Response<Any>) -> ()){
+    func searchMovies(query : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
         
         if currentPage == 1 || currentPage < totalPages! {
             movieManager.searchMovies(query: query, page: self.currentPage, completionHandler: { response in
