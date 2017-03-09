@@ -36,7 +36,11 @@ class UserMovieRepositoryOperation: AsynchronousOperation {
                 self.completionHandler(response)
                 self.completeOperation()
             })
-        default : break
+        case .getusermovie :
+            userMovieRepository.getUserMovies(completionHandler: { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         }
     }
 }

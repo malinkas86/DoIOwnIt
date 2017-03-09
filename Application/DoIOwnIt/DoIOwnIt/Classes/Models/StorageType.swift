@@ -12,4 +12,6 @@ enum StorageType : String{
     case cloud = "Cloud"
     case disk = "Disk"
     case digital = "Digital"
+    
+    
 }

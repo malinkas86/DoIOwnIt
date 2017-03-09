@@ -48,6 +48,16 @@ class Movie: NSObject {
         }else{
             self.overview = ""
         }
+        storageMethods = [:]
+        if let storageMethodsString = dictionary["storage_methods"] as! String? {
+            let storageMethodsDictionary = JSON.convertToDictionary(text: storageMethodsString)
+            
+            for (_, dictionary) in storageMethodsDictionary as! [String : [String : String]] {
+                for (storageType, storageMethodString) in dictionary {
+                    storageMethods?[StorageType(rawValue:storageType)!] = StorageMethod(storageType : StorageType(rawValue:storageType)!, methods : storageMethodString)
+                }
+            }
+        }
         
     }
     
@@ -83,7 +93,7 @@ class Movie: NSObject {
                 
                 let serializedStorageMethods = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)! as String
                 
-                print("serializedStorageMethods \(serializedStorageMethods)")
+                log.debug("serializedStorageMethods \(serializedStorageMethods)")
                 dictionary["storage_methods"] = serializedStorageMethods
                 
                 

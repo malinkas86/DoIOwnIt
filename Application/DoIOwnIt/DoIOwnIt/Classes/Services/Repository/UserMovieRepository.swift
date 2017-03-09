@@ -20,4 +20,30 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
         self.ref.child("user-movies").child("\(user.uid)").child(String(format : "%d",movie.id!)).setValue(movie.toDictionary())
         completionHandler(Response.success(user))
     }
+    
+    func getUserMovies(completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+        
+        self.ref = FIRDatabase.database().reference()
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            ref.child("user-movies").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+                // Get user value
+                var movies = [Movie]()
+                if let moviesDictionary = snapshot.value as? [String : Any] {
+                    
+                    for (_, movieDictionary) in moviesDictionary {
+                        
+                        movies.append(Movie(withDictionary: movieDictionary as! [String : Any]))
+                        
+                    }
+                }
+                completionHandler(Response.success(movies))
+                
+                
+                // ...
+            }) { (error) in
+                completionHandler(Response.error(error))
+            }
+        }
+    }
 }
