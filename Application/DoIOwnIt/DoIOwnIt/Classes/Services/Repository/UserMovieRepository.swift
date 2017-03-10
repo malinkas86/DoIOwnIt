@@ -46,4 +46,20 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
             }
         }
     }
+    
+    func removeUserMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+        
+        self.ref = FIRDatabase.database().reference()
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            ref.child("user-movies").child(user.uid).child("\(movieId)").removeValue(completionBlock: { (error, ref) in
+                if error != nil {
+                    completionHandler(Response.error(error!))
+                }else{
+                    completionHandler(Response.success(true))
+                }
+            })
+            
+        }
+    }
 }

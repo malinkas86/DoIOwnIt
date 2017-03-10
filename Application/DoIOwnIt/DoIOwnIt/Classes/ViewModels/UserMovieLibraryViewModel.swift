@@ -28,4 +28,18 @@ class UserMovieLibraryViewModel: NSObject {
             
         })
     }
+    
+    func removeMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+        
+        userMovieManager.removeUserMovie(movieId: movieId, completionHandler: { response in
+            switch response {
+            case .success(_):
+                completionHandler(Response.success(true))
+            case .error(_) :
+                completionHandler(Response.error("Error occurred while retreiving data"))
+            
+            }
+            
+        })
+    }
 }

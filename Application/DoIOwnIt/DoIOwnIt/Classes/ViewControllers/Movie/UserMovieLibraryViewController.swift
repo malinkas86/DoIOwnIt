@@ -74,6 +74,10 @@ extension UserMovieLibraryViewController : UITableViewDataSource{
         let movie = userMovieLibraryViewModel.movies[indexPath.row]
         
         cell.titleLabel.text = movie.title
+        cell.movieId = movie.id
+        cell.indexPath = indexPath
+        cell.tableView = tableView
+        cell.userMovieLibraryViewModel = userMovieLibraryViewModel
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
         return cell
         

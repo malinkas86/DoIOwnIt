@@ -41,6 +41,11 @@ class UserMovieRepositoryOperation: AsynchronousOperation {
                 self.completionHandler(response)
                 self.completeOperation()
             })
+        case .removeusermovie :
+            userMovieRepository.removeUserMovie(movieId: movieId!, completionHandler: { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         }
     }
 }
