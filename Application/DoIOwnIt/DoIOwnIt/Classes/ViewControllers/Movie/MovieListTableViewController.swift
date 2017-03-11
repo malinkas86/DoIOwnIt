@@ -116,6 +116,14 @@ extension MovieListTableViewController : UITableViewDataSource {
         
         let movie = movieListViewModel.movies[indexPath.row]
         
+        let userMovies = movieListViewModel.userMovies
+        
+        if userMovies[movie.id!] != nil {
+            cell.isOwnedButton.isChecked = true
+        }else{
+            cell.isOwnedButton.isChecked = false
+        }
+        
         cell.titleLabel.text = movie.title
         cell.movieListViewController = self
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))

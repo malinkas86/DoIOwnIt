@@ -18,6 +18,7 @@ class Movie: NSObject {
     var castList : [Int : Cast]?
     var crewList : [Int : Crew]?
     var storageMethods : [StorageType : StorageMethod]?
+    var isOwned : Bool?
     
     init(withDictionary dictionary : [String : Any]){
         if let id = dictionary["id"] as? Int? {

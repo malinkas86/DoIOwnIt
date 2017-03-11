@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O7N-ED-Xw5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="O7N-ED-Xw5">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -30,40 +30,53 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="196"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7bq-DJ-Ayl" id="HGC-Wn-5jR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="195"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="196"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wca-fu-1sT">
-                                                    <rect key="frame" x="8" y="8" width="167" height="179"/>
+                                                    <rect key="frame" x="8" y="8" width="172" height="179"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Evg-II-4nm">
-                                                    <rect key="frame" x="227" y="39" width="123" height="41"/>
+                                                    <rect key="frame" x="188" y="8" width="162" height="73"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRq-OY-TWl" customClass="RadioButton" customModule="DoIOwnIt" customModuleProvider="target">
-                                                    <rect key="frame" x="306" y="120" width="46" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pRq-OY-TWl" customClass="RadioButton" customModule="DoIOwnIt" customModuleProvider="target">
+                                                    <rect key="frame" x="322" y="120" width="30" height="30"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="Ief-7D-1az"/>
+                                                        <constraint firstAttribute="width" constant="30" id="GiR-OZ-WeL"/>
                                                     </constraints>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" image="radio-button-unchecked"/>
                                                     <connections>
                                                         <action selector="didTapIsOwned:" destination="7bq-DJ-Ayl" eventType="touchUpInside" id="lLz-ZU-5Z2"/>
                                                     </connections>
                                                 </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do I own it?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pl1-nk-ahs">
+                                                    <rect key="frame" x="234" y="125" width="77" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="6tI-vc-2vW"/>
+                                                        <constraint firstAttribute="width" constant="77" id="fwG-rl-2yz"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="wca-fu-1sT" firstAttribute="leading" secondItem="HGC-Wn-5jR" secondAttribute="leadingMargin" id="1rG-YR-vHB"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="Evg-II-4nm" secondAttribute="trailing" constant="17" id="Bs1-8Z-MkD"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="pRq-OY-TWl" secondAttribute="trailing" constant="15" id="FfP-Z9-ZzI"/>
-                                                <constraint firstItem="Evg-II-4nm" firstAttribute="top" secondItem="HGC-Wn-5jR" secondAttribute="topMargin" constant="31" id="M1i-sj-DzI"/>
-                                                <constraint firstItem="pRq-OY-TWl" firstAttribute="top" secondItem="Evg-II-4nm" secondAttribute="bottom" constant="40" id="Moi-iu-ik3"/>
-                                                <constraint firstItem="wca-fu-1sT" firstAttribute="bottom" secondItem="HGC-Wn-5jR" secondAttribute="bottomMargin" id="Q8Z-ia-qDX"/>
-                                                <constraint firstItem="Evg-II-4nm" firstAttribute="leading" secondItem="wca-fu-1sT" secondAttribute="trailing" constant="52" id="elX-SJ-FIA"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="pRq-OY-TWl" secondAttribute="bottom" constant="37" id="lK5-ml-Lh4"/>
-                                                <constraint firstItem="wca-fu-1sT" firstAttribute="top" secondItem="HGC-Wn-5jR" secondAttribute="topMargin" id="mA6-z2-aSo"/>
-                                                <constraint firstItem="pRq-OY-TWl" firstAttribute="leading" secondItem="wca-fu-1sT" secondAttribute="trailing" constant="131" id="y8P-9F-zBe"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Evg-II-4nm" secondAttribute="trailing" constant="17" id="EvG-Gn-cV2"/>
+                                                <constraint firstItem="wca-fu-1sT" firstAttribute="top" secondItem="Evg-II-4nm" secondAttribute="top" id="HRz-J9-qak"/>
+                                                <constraint firstItem="pl1-nk-ahs" firstAttribute="top" secondItem="Evg-II-4nm" secondAttribute="bottom" constant="44" id="HbO-V5-lY7"/>
+                                                <constraint firstItem="wca-fu-1sT" firstAttribute="bottom" secondItem="HGC-Wn-5jR" secondAttribute="bottomMargin" id="IdE-8q-2IP"/>
+                                                <constraint firstItem="pl1-nk-ahs" firstAttribute="leading" secondItem="wca-fu-1sT" secondAttribute="trailing" constant="54" id="UJH-Jd-2PR"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="pRq-OY-TWl" secondAttribute="bottom" constant="37" id="VB7-XX-htm"/>
+                                                <constraint firstItem="pRq-OY-TWl" firstAttribute="leading" secondItem="pl1-nk-ahs" secondAttribute="trailing" constant="11" id="Vaz-sy-x3W"/>
+                                                <constraint firstItem="wca-fu-1sT" firstAttribute="leading" secondItem="HGC-Wn-5jR" secondAttribute="leadingMargin" id="cDF-lN-1sx"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="pRq-OY-TWl" secondAttribute="trailing" constant="15" id="lgs-10-Q5u"/>
+                                                <constraint firstItem="wca-fu-1sT" firstAttribute="top" secondItem="HGC-Wn-5jR" secondAttribute="topMargin" id="rKy-8G-m7j"/>
+                                                <constraint firstItem="pl1-nk-ahs" firstAttribute="centerY" secondItem="pRq-OY-TWl" secondAttribute="centerY" id="sme-8o-1dT"/>
+                                                <constraint firstItem="Evg-II-4nm" firstAttribute="leading" secondItem="wca-fu-1sT" secondAttribute="trailing" constant="8" symbolic="YES" id="uJp-BE-Jey"/>
+                                                <constraint firstItem="pRq-OY-TWl" firstAttribute="top" secondItem="Evg-II-4nm" secondAttribute="bottom" constant="39" id="xAa-IL-ec4"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -120,7 +133,7 @@
                                                 <rect key="frame" x="0.0" y="28" width="265" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8l8-8R-tQd" id="xMu-gq-Zcm">
-                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="49"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUx-61-vM9">
@@ -169,7 +182,7 @@
                                                 <rect key="frame" x="0.0" y="78" width="265" height="50"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9Io-5u-OiK" id="0yg-QP-erB">
-                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="49"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="265" height="49.5"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dca-vE-NJa">
@@ -451,7 +464,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="153"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yP8-7R-JaG" id="J5v-XB-tzr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="152.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fv3-my-dZW">
@@ -524,4 +537,7 @@
             <point key="canvasLocation" x="1116" y="948.57571214392806"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="radio-button-unchecked" width="626" height="626"/>
+    </resources>
 </document>
