@@ -10,4 +10,6 @@ import UIKit
 
 protocol UserMovieManagerProtocol {
     func getUserMovies(completionHandler : @escaping (Response<Any>) -> ())
+    func getUserMovieById(movieId : Int, completionHandler : @escaping (Response<Any>) -> ())
+    func removeUserMovie(movieId : Int, completionHandler : @escaping (Response<Any>) -> ())
 }

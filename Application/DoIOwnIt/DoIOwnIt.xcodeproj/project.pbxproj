@@ -32,6 +32,7 @@
 		70749B821E65CEC100F2CC8C /* StorageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B811E65CEC100F2CC8C /* StorageType.swift */; };
 		70749B841E65D00800F2CC8C /* StorageMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B831E65D00800F2CC8C /* StorageMethod.swift */; };
 		70749B861E66579900F2CC8C /* StorageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */; };
+		70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */; };
 		70DC75121E5627D900115439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75111E5627D900115439 /* AppDelegate.swift */; };
 		70DC75191E5627D900115439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75181E5627D900115439 /* Assets.xcassets */; };
 		70DC75271E5627D900115439 /* DoIOwnItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75261E5627D900115439 /* DoIOwnItTests.swift */; };
@@ -100,6 +101,7 @@
 		70749B811E65CEC100F2CC8C /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageType.swift; path = Classes/Models/StorageType.swift; sourceTree = "<group>"; };
 		70749B831E65D00800F2CC8C /* StorageMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageMethod.swift; path = Classes/Models/StorageMethod.swift; sourceTree = "<group>"; };
 		70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewController.swift; path = Classes/ViewControllers/Movie/StorageSelectionViewController.swift; sourceTree = "<group>"; };
+		70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterUtil.swift; path = Classes/Utils/NotificationCenterUtil.swift; sourceTree = "<group>"; };
 		70DC750E1E5627D900115439 /* DoIOwnIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoIOwnIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC75111E5627D900115439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70DC75181E5627D900115439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				70749B631E5BE5EE00F2CC8C /* ConfigUtil.swift */,
 				70749B671E5BE98B00F2CC8C /* APIList.swift */,
 				70EDA6541E7127D400A7FA42 /* JSON.swift */,
+				70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -638,6 +641,7 @@
 				70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */,
 				706145841E5B763500A18A7E /* UserManager.swift in Sources */,
 				70DC754D1E563FD800115439 /* User.swift in Sources */,
+				70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */,
 				70749B6C1E5BF2BC00F2CC8C /* MovieListViewModel.swift in Sources */,
 				70EDA64F1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift in Sources */,
 				70749B771E5D328B00F2CC8C /* MovieListTableViewCell.swift in Sources */,

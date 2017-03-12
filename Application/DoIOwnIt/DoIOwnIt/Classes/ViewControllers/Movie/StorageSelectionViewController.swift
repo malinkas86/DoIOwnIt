@@ -22,6 +22,7 @@ class StorageSelectionViewController: UIViewController {
     var movieTitle : String?
     var posterPath : String?
     var releasedDate : String?
+    var storageMethods : [String : String]?
     
     
     override func viewDidLoad() {
@@ -61,16 +62,6 @@ class StorageSelectionViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     @IBAction func saveAction(_ sender: Any) {
         print("hit on save button")
         var storageMethods : [StorageType : String] = [:]
@@ -88,6 +79,7 @@ class StorageSelectionViewController: UIViewController {
             case .success(_):
                 DispatchQueue.main.async {
                     self.removeAnimate()
+                    NotificationCenterUtil.postNotification(name: "StorageMethodsSaved", value: [:])
                 }
                 
             case .error(_):
@@ -105,6 +97,12 @@ extension StorageSelectionViewController : UITableViewDataSource {
             cell.storageTypeLabel.text = storageTypeCell.title.rawValue
             cell.storageDescriptionField.placeholder = storageTypeCell.placeHolder
             cell.storageType = storageTypeCell.title
+            
+            if let storageMethod = storageMethods?[storageTypeCell.title.rawValue] {
+                cell.storageDescriptionField.text = storageMethod
+                cell.isOwned.isChecked = true
+            }
+            
             return cell
         }
         return tableView.dequeueReusableCell(withIdentifier: "SaveButtonCell")!

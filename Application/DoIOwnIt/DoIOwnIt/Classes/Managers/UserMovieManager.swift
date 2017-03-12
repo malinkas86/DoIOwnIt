@@ -36,6 +36,21 @@ class UserMovieManager: UserMovieManagerProtocol {
         userMovieRepositoryQueue.addOperation(operation)
     }
     
+    func getUserMovieById(movieId : Int, completionHandler : @escaping (Response<Any>) -> ()){
+        let operation = UserMovieRepositoryOperation(userMovieOperationType: .getusermoviebyid, userMovieRepository: self.userMovieRepository!, completionHandler: { response in
+            switch response {
+            case let .success(movie as Movie) :
+                completionHandler(Response.success(movie))
+            case let .error(error) :
+                completionHandler(Response.error(error))
+            default : break
+                
+            }
+        })
+        operation.movieId = movieId
+        userMovieRepositoryQueue.addOperation(operation)
+    }
+    
     func removeUserMovie(movieId : Int, completionHandler : @escaping (Response<Any>) -> ()){
         let operation = UserMovieRepositoryOperation(userMovieOperationType: .removeusermovie, userMovieRepository: self.userMovieRepository!, completionHandler: { response in
             switch response {

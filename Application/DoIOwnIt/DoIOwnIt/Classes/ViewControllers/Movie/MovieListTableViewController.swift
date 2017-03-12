@@ -16,22 +16,27 @@ class MovieListTableViewController: UIViewController {
     let movieListViewModel = MovieListViewModel()
     var isFetchingData = false
     var isCancelled = false
-    var searchQuery = ""
+    var searchQuery = "batman"
     let searchController = UISearchController(searchResultsController: nil)
     let showMovieSegueIdentifier = "showMovie"
     var selectedIndex : IndexPath?
+    var searchText : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        let nc = NotificationCenter.default // Note that default is now a property, not a method call
+        nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
+            notification in
+            // Handle notification
+            self.getMovies(bySearchQuery: self.searchQuery)
+        }
         
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        getMovies(bySearchQuery: "titanic")
+        getMovies(bySearchQuery: searchQuery)
         
     }
     
@@ -70,26 +75,13 @@ class MovieListTableViewController: UIViewController {
 }
 
 extension MovieListTableViewController : UIScrollViewDelegate {
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        print("scrollViewWillBeginDragging")
-    }
-    
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print("scrollViewDidEndDragging")
-    }
-    
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        print("scrollViewDidEndDecelerating")
-    }
-    
-    
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print("did scroll")
+        log.debug("did scroll")
         let currentOffset = scrollView.contentOffset.y
         let maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height
         let deltaOffset = maximumOffset - currentOffset
-        print("deltaoffset \(deltaOffset)")
+        log.debug("deltaoffset \(deltaOffset)")
         
         if deltaOffset <= 0 && !isFetchingData {
             getMovies(bySearchQuery: searchQuery)
@@ -125,10 +117,9 @@ extension MovieListTableViewController : UITableViewDataSource {
         }
         
         cell.titleLabel.text = movie.title
+        cell.movieId = movie.id
         cell.movieListViewController = self
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
-        
-        // Configure the cell...
         
         return cell
     }

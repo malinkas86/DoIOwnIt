@@ -23,13 +23,27 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var directorsLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
+    
+    @IBOutlet weak var ownLabel: UILabel!
+    
+    
     let movieDetailsViewModel = MovieDetailsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getMovie()
+        let nc = NotificationCenter.default // Note that default is now a property, not a method call
+        nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
+            notification in
+            // Handle notification
+            self.getMovie()
+        }
+        
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getMovie()
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,6 +66,12 @@ class MovieDetailsViewController: UIViewController {
                 
                 self.titleLabel.text = self.movieDetailsViewModel.title
                 
+                
+                
+                // set label Attribute
+                
+                self.ownLabel.attributedText = self.prepareAttributedString()
+                
             default : break
             }
         })
@@ -64,7 +84,7 @@ class MovieDetailsViewController: UIViewController {
         popoverVc.movieTitle = self.movieDetailsViewModel.title
         popoverVc.posterPath = self.movieDetailsViewModel.posterPath
         popoverVc.releasedDate = self.movieDetailsViewModel.releasedDate
-        print("releasedDate \(self.movieDetailsViewModel.releasedDate)")
+        popoverVc.storageMethods = self.movieDetailsViewModel.storageMethods
         self.addChildViewController(popoverVc)
         popoverVc.view.frame = self.view.frame
         self.view.addSubview(popoverVc.view)
@@ -80,4 +100,22 @@ class MovieDetailsViewController: UIViewController {
     }
     */
 
+    func prepareAttributedString() -> NSAttributedString {
+        let storageMethods = self.movieDetailsViewModel.storageMethods
+        let finalAttrString = NSMutableAttributedString()
+        if (storageMethods?.count)! > 0 {
+            for (type, methods) in storageMethods! {
+                var myMutableString = NSMutableAttributedString()
+                myMutableString = NSMutableAttributedString(string: type, attributes: [:])
+                myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.purple, range: NSRange(location:0,length:myMutableString.length))
+                myMutableString.append(NSMutableAttributedString(string: String(format : " - %@\n",methods), attributes: [:]))
+                finalAttrString.append(myMutableString)
+            }
+        }else{
+            finalAttrString.append(NSMutableAttributedString(string: "N/A\n", attributes: [:]))
+        }
+        
+        return finalAttrString
+        
+    }
 }

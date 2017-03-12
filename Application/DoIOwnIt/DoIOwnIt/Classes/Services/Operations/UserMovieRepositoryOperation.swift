@@ -46,6 +46,11 @@ class UserMovieRepositoryOperation: AsynchronousOperation {
                 self.completionHandler(response)
                 self.completeOperation()
             })
+        case .getusermoviebyid :
+            userMovieRepository.getUserMovieById(movieId: movieId!, completionHandler: { response in
+                self.completionHandler(response)
+                self.completeOperation()
+            })
         }
     }
 }

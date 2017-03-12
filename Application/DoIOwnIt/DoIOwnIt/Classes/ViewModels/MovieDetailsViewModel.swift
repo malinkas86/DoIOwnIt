@@ -17,8 +17,10 @@ class MovieDetailsViewModel: NSObject {
     var overview : String?
     var formattedCastString : String?
     var formattedDirectorsString : String?
+    var storageMethods : [String : String]?
 
     let movieManager = MovieManager(httpRequest: HTTPRequest())
+    let userMovieManager = UserMovieManager(userMovieRepository: UserMovieRepository())
     func getMovie(id : Int, completionHandler : @escaping (_ httpResponse : Response<Any>) -> ()){
         
         movieManager.getMovieDetailsById(id: id, completionHandler: {response in
@@ -45,11 +47,28 @@ class MovieDetailsViewModel: NSObject {
                     self.formattedDirectorsString = self.formattedDirectorsString! + String(format: "%@\n", director.value.name!)
                 }
                 
-                completionHandler(Response.success(true))
+                
+                self.userMovieManager.getUserMovieById(movieId: id, completionHandler: { movieResponse in
+                    self.storageMethods = [:]
+                    
+                    switch movieResponse {
+                    case let .success(userMovie as Movie) :
+                        for (_ , method) in userMovie.storageMethods! {
+                            self.storageMethods?[(method.storageType?.rawValue)!] = method.methods
+                        }
+                        completionHandler(Response.success(true))
+                    case .error(_ as RepositoryError<String>) :
+                        completionHandler(Response.success(true))
+                    default : completionHandler(Response.error("Error occurred while retrieving data"))
+                    }
+                    
+                    
+                })
+                
+                
             case .error(_) :
-                completionHandler(Response.error("Error occurred while retreiving data"))
-            default :
-                break
+                completionHandler(Response.error("Error occurred while retrieving data"))
+            default : break
             }
         })
     }

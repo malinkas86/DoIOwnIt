@@ -9,6 +9,10 @@
 import UIKit
 import Firebase
 
+enum RepositoryError<T> : Error {
+    case objectnotfound(T)
+}
+
 class UserMovieRepository: UserMovieRespositoryProtocol {
     var ref: FIRDatabaseReference!
     func saveUserMovie(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : StorageMethod], completionHandler : @escaping (_ response : Response<Any>) -> ()) {
@@ -45,6 +49,26 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
                 completionHandler(Response.error(error))
             }
         }
+    }
+    
+    func getUserMovieById(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+        
+        self.ref = FIRDatabase.database().reference()
+        
+        if let user = FIRAuth.auth()?.currentUser {
+            ref.child("user-movies").child(user.uid).child("\(movieId)").observeSingleEvent(of: .value, with: { (snapshot) in
+                
+                if let movieDictionary = snapshot.value as? [String : Any] {
+                    
+                    completionHandler(Response.success(Movie(withDictionary: movieDictionary)))
+                }else{
+                    completionHandler(Response.error(RepositoryError.objectnotfound("Movie not found")))
+                }
+            }) { (error) in
+                completionHandler(Response.error(error))
+            }
+        }
+        
     }
     
     func removeUserMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
