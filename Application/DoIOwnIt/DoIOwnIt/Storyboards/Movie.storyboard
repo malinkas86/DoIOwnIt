@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Add books to library-->
+        <!--Add to library-->
         <scene sceneID="upz-s7-EeS">
             <objects>
                 <viewController id="ngo-SH-lbc" customClass="MovieListTableViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -100,7 +100,7 @@
                             <constraint firstAttribute="trailing" secondItem="Pcj-bK-5V2" secondAttribute="trailing" id="uPO-dS-w9F"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add books to library" id="uTW-LR-nE8"/>
+                    <navigationItem key="navigationItem" title="Add to library" id="uTW-LR-nE8"/>
                     <connections>
                         <outlet property="tableView" destination="Pcj-bK-5V2" id="qg1-PZ-2jg"/>
                         <segue destination="lpn-YK-l9u" kind="show" identifier="showMovie" id="daF-qM-FAf"/>
@@ -450,13 +450,14 @@
             </objects>
             <point key="canvasLocation" x="160.80000000000001" y="146.17691154422789"/>
         </scene>
-        <!--Item-->
+        <!--Search-->
         <scene sceneID="gu8-Ry-CjT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aQh-wg-PPj" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="7Pb-hE-pmC"/>
+                    <tabBarItem key="tabBarItem" title="Search" id="7Pb-hE-pmC"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="oj1-nR-2CL">
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oj1-nR-2CL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -469,7 +470,7 @@
             </objects>
             <point key="canvasLocation" x="1100" y="146.17691154422789"/>
         </scene>
-        <!--User Movie Library View Controller-->
+        <!--My Library-->
         <scene sceneID="qgM-D5-dDp">
             <objects>
                 <viewController id="6Fn-93-j9V" customClass="UserMovieLibraryViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -534,7 +535,7 @@
                             <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="hYc-VL-7Gf" secondAttribute="bottom" id="veR-qj-7gS"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8ZC-Mp-1iu"/>
+                    <navigationItem key="navigationItem" title="My Library" id="8ZC-Mp-1iu"/>
                     <connections>
                         <outlet property="tableView" destination="hYc-VL-7Gf" id="XKe-1X-wNz"/>
                     </connections>
@@ -543,13 +544,13 @@
             </objects>
             <point key="canvasLocation" x="2055.1999999999998" y="948.57571214392806"/>
         </scene>
-        <!--Item-->
+        <!--Library-->
         <scene sceneID="Y1f-dE-vjc">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7sf-Gr-hHb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="EKq-J9-Ze3"/>
+                <navigationController title="Library" automaticallyAdjustsScrollViewInsets="NO" id="7sf-Gr-hHb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Library" id="EKq-J9-Ze3"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="tUx-t1-2A9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tUx-t1-2A9">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -566,4 +567,5 @@
     <resources>
         <image name="radio-button-unchecked" width="626" height="626"/>
     </resources>
+    <color key="tintColor" red="0.4941176471" green="0.4039215686" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
 </document>
