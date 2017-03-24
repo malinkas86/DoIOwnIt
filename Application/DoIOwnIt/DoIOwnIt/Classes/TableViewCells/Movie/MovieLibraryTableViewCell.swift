@@ -23,7 +23,7 @@ class MovieLibraryTableViewCell: UITableViewCell {
     }
 
     @IBAction func didTapRemove(_ sender: UIButton) {
-        log.debug("indexpath \(self.indexPath!)")
+        
         userMovieLibraryViewModel?.removeMovie(movieId: movieId!, completionHandler: { response in
             self.userMovieLibraryViewModel?.movies.remove(at: (self.indexPath?.row)!)
             

@@ -15,6 +15,7 @@ class StorageSelectionViewController: UIViewController {
         var placeHolder : String?
     }
 
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
     let storageTypeCells : [StorageTypeCell] = [StorageTypeCell(title : .cloud, placeHolder : "ex : iCloud"), StorageTypeCell(title : .disk, placeHolder : "ex : DVD, Bluray"), StorageTypeCell(title : .digital, placeHolder : "ex : Hard drive")]
     
@@ -30,6 +31,11 @@ class StorageSelectionViewController: UIViewController {
         showAnimate()
         print("releasedDate \(releasedDate)")
         // Do any additional setup after loading the view.
+        mainView.backgroundColor = UIColor.white
+        mainView.layer.cornerRadius = 10.0
+        mainView.layer.borderColor = UIColor.gray.cgColor
+        mainView.layer.borderWidth = 0.5
+        mainView.clipsToBounds = true
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -111,6 +117,12 @@ extension StorageSelectionViewController : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
+    }
+    
+    public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        print("indexpath \(indexPath)")
+        return 50
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

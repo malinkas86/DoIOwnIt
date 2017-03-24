@@ -10,6 +10,9 @@ import UIKit
 
 class UserMovieLibraryViewController: UIViewController {
     
+    let showMovieSegueIdentifier = "showMovieFromLibrary"
+    var selectedIndex : IndexPath?
+    
     @IBOutlet weak var tableView: UITableView!
     let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     var movies : [Movie] = []
@@ -47,20 +50,20 @@ class UserMovieLibraryViewController: UIViewController {
     }
     
 
-    /*
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+        movieDetailsViewController.id = userMovieLibraryViewModel.movies[(selectedIndex?.row)!].id
+        movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
     }
-    */
-
-}
-
-extension UserMovieLibraryViewController : UITableViewDelegate{
     
+
 }
 
 extension UserMovieLibraryViewController : UITableViewDataSource{
@@ -81,5 +84,12 @@ extension UserMovieLibraryViewController : UITableViewDataSource{
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
         return cell
         
+    }
+}
+
+extension UserMovieLibraryViewController : UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedIndex = indexPath
+        performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
     }
 }

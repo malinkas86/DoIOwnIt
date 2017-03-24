@@ -26,11 +26,24 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet weak var ownLabel: UILabel!
     
+    @IBOutlet weak var actionButton: UIButton!
+    var fromViewController : String!
+    
+    @IBOutlet weak var editBarButton: UIBarButtonItem!
     
     let movieDetailsViewModel = MovieDetailsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        self.navigationItem.backBarButtonItem?.title = "Back"
+        if fromViewController != nil {
+            if fromViewController == String(describing: UserMovieLibraryViewController.self) {
+                actionButton.setTitle("Remove from Library",for: .normal)
+            }else if fromViewController == String(describing: MovieListTableViewController.self){
+                actionButton.setTitle("Add to Library",for: .normal)
+                self.navigationItem.rightBarButtonItem = nil
+            }
+        }
         let nc = NotificationCenter.default // Note that default is now a property, not a method call
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
             notification in
@@ -43,7 +56,14 @@ class MovieDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
+        
         getMovie()
+    }
+    
+    
+    @IBAction func didTapEdit(_ sender: Any) {
+        showStoragePopUp()
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,6 +99,28 @@ class MovieDetailsViewController: UIViewController {
     
 
     @IBAction func addToLibraryAction(_ sender: Any) {
+        
+        
+        if fromViewController != nil {
+            if fromViewController == String(describing: UserMovieLibraryViewController.self) {
+                movieDetailsViewModel.removeMovie(movieId: movieDetailsViewModel.id!, completionHandler: { response in
+                    switch response {
+                    case .success(_) :
+                        _ = self.navigationController?.popViewController(animated: true)
+                    case let .error(error) :
+                        log.error(error)
+                    }
+                })
+            }else if fromViewController == String(describing: MovieListTableViewController.self){
+                showStoragePopUp()
+            }
+        }
+        
+        
+        
+    }
+    
+    func showStoragePopUp(){
         let popoverVc = UIStoryboard(name: "Movie", bundle: nil).instantiateViewController(withIdentifier: "sbStorageSelection") as! StorageSelectionViewController
         popoverVc.movieId = self.movieDetailsViewModel.id
         popoverVc.movieTitle = self.movieDetailsViewModel.title

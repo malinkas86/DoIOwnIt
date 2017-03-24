@@ -18,7 +18,7 @@ class MovieListTableViewController: UIViewController {
     var isCancelled = false
     var searchQuery = "batman"
     let searchController = UISearchController(searchResultsController: nil)
-    let showMovieSegueIdentifier = "showMovie"
+    let showMovieSegueIdentifier = "showMovieFromSearch"
     var selectedIndex : IndexPath?
     var searchText : String?
     
@@ -69,6 +69,7 @@ class MovieListTableViewController: UIViewController {
         // Pass the selected object to the new view controller.
         let movieDetailsViewController = segue.destination as! MovieDetailsViewController
         movieDetailsViewController.id = movieListViewModel.movies[(selectedIndex?.row)!].id
+        movieDetailsViewController.fromViewController = String(describing: MovieListTableViewController.self)
     }
     
 
