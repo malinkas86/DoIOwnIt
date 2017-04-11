@@ -149,7 +149,7 @@ class MovieDetailsViewController: UIViewController {
             for (type, methods) in storageMethods! {
                 var myMutableString = NSMutableAttributedString()
                 myMutableString = NSMutableAttributedString(string: type, attributes: [:])
-                myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.purple, range: NSRange(location:0,length:myMutableString.length))
+                myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor(red: 235/255, green: 186/255, blue: 9/255, alpha: 1), range: NSRange(location:0,length:myMutableString.length))
                 myMutableString.append(NSMutableAttributedString(string: String(format : " - %@\n",methods), attributes: [:]))
                 finalAttrString.append(myMutableString)
             }

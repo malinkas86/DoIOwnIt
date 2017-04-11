@@ -18,8 +18,8 @@ class RadioButton: UIButton {
     }
     */
     // Images
-    let checkedImage = UIImage(named: "radio-button-checked")! as UIImage!
-    let uncheckedImage = UIImage(named: "radio-button-unchecked")! as UIImage!
+    let checkedImage = UIImage(named: "checkmark")! as UIImage!
+    let uncheckedImage = UIImage(named: "plus-sign")! as UIImage!
     
     // Bool property
     var isChecked: Bool = false {

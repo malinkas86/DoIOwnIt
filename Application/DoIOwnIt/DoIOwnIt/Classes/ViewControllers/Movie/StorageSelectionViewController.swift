@@ -32,7 +32,7 @@ class StorageSelectionViewController: UIViewController {
         print("releasedDate \(releasedDate)")
         // Do any additional setup after loading the view.
         mainView.backgroundColor = UIColor.white
-        mainView.layer.cornerRadius = 10.0
+//        mainView.layer.cornerRadius = 10.0
         mainView.layer.borderColor = UIColor.gray.cgColor
         mainView.layer.borderWidth = 0.5
         mainView.clipsToBounds = true
@@ -75,7 +75,7 @@ class StorageSelectionViewController: UIViewController {
             let cell:StorageDetailTableViewCell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as! StorageDetailTableViewCell
             print(cell.storageDescriptionField.text!)
             if cell.isOwned.isChecked {
-                storageMethods[cell.storageType!] = cell.storageDescriptionField.text!
+                storageMethods[cell.storageType] = cell.storageDescriptionField.text!
             }
         }
         
@@ -97,26 +97,23 @@ class StorageSelectionViewController: UIViewController {
 
 extension StorageSelectionViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "StorageCell", for: indexPath) as! StorageDetailTableViewCell
-            let storageTypeCell = storageTypeCells[indexPath.row]
-            cell.storageTypeLabel.text = storageTypeCell.title.rawValue
-            cell.storageDescriptionField.placeholder = storageTypeCell.placeHolder
-            cell.storageType = storageTypeCell.title
-            
-            if let storageMethod = storageMethods?[storageTypeCell.title.rawValue] {
-                cell.storageDescriptionField.text = storageMethod
-                cell.isOwned.isChecked = true
-            }
-            
-            return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "StorageCell", for: indexPath) as! StorageDetailTableViewCell
+        let storageTypeCell = storageTypeCells[indexPath.row]
+        //            cell.storageTypeLabel.text = storageTypeCell.title.rawValue
+        cell.storageDescriptionField.placeholder = storageTypeCell.placeHolder
+        cell.storageType = storageTypeCell.title
+        
+        if let storageMethod = storageMethods?[storageTypeCell.title.rawValue] {
+            cell.storageDescriptionField.text = storageMethod
+            cell.isOwned.isChecked = true
         }
-        return tableView.dequeueReusableCell(withIdentifier: "SaveButtonCell")!
+        
+        return cell
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     public func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -126,9 +123,6 @@ extension StorageSelectionViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return storageTypeCells.count
-        }
-        return 1
+        return storageTypeCells.count
     }
 }

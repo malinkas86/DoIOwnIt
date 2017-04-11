@@ -110,11 +110,12 @@ extension MovieListTableViewController : UITableViewDataSource {
         let movie = movieListViewModel.movies[indexPath.row]
         
         let userMovies = movieListViewModel.userMovies
-        
+        cell.addedLabel.isHidden = true
+        cell.isOwnedButton.isHidden = false
         if userMovies[movie.id!] != nil {
-            cell.isOwnedButton.isChecked = true
-        }else{
-            cell.isOwnedButton.isChecked = false
+            cell.addedLabel.isHidden = false
+//            cell.isOwnedButton.isChecked = true
+            cell.isOwnedButton.isHidden = true
         }
         
         cell.titleLabel.text = movie.title
@@ -151,17 +152,14 @@ extension MovieListTableViewController : UISearchBarDelegate {
         
     }
     
-    public func searchBarTextDidEndEditing(_ searchBar: UISearchBar){
-        if !isCancelled {
-            searchQuery = searchBar.text!
-            
-            movieListViewModel.movies = []
-            movieListViewModel.currentPage = 1
-            movieListViewModel.totalPages = 0
-            getMovies(bySearchQuery: searchQuery)
-        }
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        searchQuery = searchBar.text!
         
-        
-        
+        movieListViewModel.movies = []
+        movieListViewModel.currentPage = 1
+        movieListViewModel.totalPages = 0
+        getMovies(bySearchQuery: searchQuery)
     }
+    
+    
 }
