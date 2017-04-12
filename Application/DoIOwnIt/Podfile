@@ -6,8 +6,8 @@ target 'DoIOwnIt' do
   use_frameworks!
 
   # Pods for DoIOwnIt
-  pod 'XCGLogger', '~> 4.0.0'
-  pod 'Alamofire', '~> 4.0.0'
+  pod 'XCGLogger'
+  pod 'Alamofire'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
