@@ -23,7 +23,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="37" y="550" width="300" height="76"/>
+                                <rect key="frame" x="37" y="580" width="300" height="46"/>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blurry Photo Grid" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-wQ-Iry">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -58,7 +58,7 @@
                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leading" id="29X-bC-7og"/>
-                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" constant="550" id="6Wa-ad-uhP"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" constant="580" id="6Wa-ad-uhP"/>
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="41" id="7Wv-5x-F4u"/>
                             <constraint firstItem="Dfx-yf-LZg" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" constant="42" id="8bY-JL-ZT9"/>
                             <constraint firstItem="Dfx-yf-LZg" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="51" id="CYA-Sf-55w"/>
