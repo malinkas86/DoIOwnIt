@@ -29,7 +29,7 @@ class StorageSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnimate()
-        print("releasedDate \(releasedDate)")
+        print("releasedDate \(String(describing: releasedDate))")
         // Do any additional setup after loading the view.
         mainView.backgroundColor = UIColor.white
 //        mainView.layer.cornerRadius = 10.0

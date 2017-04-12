@@ -67,9 +67,12 @@ class MovieListTableViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let movieDetailsViewController = segue.destination as! MovieDetailsViewController
-        movieDetailsViewController.id = movieListViewModel.movies[(selectedIndex?.row)!].id
-        movieDetailsViewController.fromViewController = String(describing: MovieListTableViewController.self)
+        if segue.identifier == "showMovieFromSearch" {
+            let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+            movieDetailsViewController.id = movieListViewModel.movies[(selectedIndex?.row)!].id
+            movieDetailsViewController.fromViewController = String(describing: MovieListTableViewController.self)
+        }
+        
     }
     
 

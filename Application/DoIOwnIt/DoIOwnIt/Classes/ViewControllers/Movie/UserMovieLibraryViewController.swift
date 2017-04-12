@@ -24,6 +24,8 @@ class UserMovieLibraryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func unwindToUserLibraryViewController(segue: UIStoryboardSegue) { }
+    
     override func viewDidAppear(_ animated: Bool) {
         userMovieLibraryViewModel.getUserMovies(completionHandler: { response in
             switch response {
@@ -36,7 +38,7 @@ class UserMovieLibraryViewController: UIViewController {
                     
                     let storageMethods = movie.storageMethods
                     for (key, value) in storageMethods! {
-                        log.debug("key \(key) methods \(value.methods)")
+                        log.debug("key \(key) methods \(String(describing: value.methods))")
                     }
                 }
             default : break
@@ -58,9 +60,12 @@ class UserMovieLibraryViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let movieDetailsViewController = segue.destination as! MovieDetailsViewController
-        movieDetailsViewController.id = userMovieLibraryViewModel.movies[(selectedIndex?.row)!].id
-        movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
+        if segue.identifier == "showMovieFromLibrary" {
+            let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+            movieDetailsViewController.id = userMovieLibraryViewModel.movies[(selectedIndex?.row)!].id
+            movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
+        }
+        
     }
     
 
