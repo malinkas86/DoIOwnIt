@@ -16,7 +16,7 @@ class MovieListTableViewController: UIViewController {
     let movieListViewModel = MovieListViewModel()
     var isFetchingData = false
     var isCancelled = false
-    var searchQuery = "batman"
+    var searchQuery = "batman" // Safe to remove this default search term? 
     let searchController = UISearchController(searchResultsController: nil)
     let showMovieSegueIdentifier = "showMovieFromSearch"
     var selectedIndex : IndexPath?

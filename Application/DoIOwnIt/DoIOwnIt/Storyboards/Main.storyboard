@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,22 +22,69 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="67" y="298" width="240" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Blurry Photo Grid" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-wQ-Iry">
+                                <rect key="frame" x="-44.5" y="0.0" width="464" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
+                                <rect key="frame" x="67" y="62" width="230" height="230"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="230" id="B43-Km-uLd"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO I OWN IT?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-g2-48e">
+                                <rect key="frame" x="16" y="300" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="rM4-Vi-Gv1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catalog all your movies no matter where you store them… cloud, digital or disc we’ve got you covered. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-eK-pbk">
+                                <rect key="frame" x="35" y="361" width="304" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="N3q-8V-BS4"/>
+                                    <constraint firstAttribute="width" constant="304" id="syD-br-Eee"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="37" y="550" width="300" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FQT-ck-b0q"/>
+                                    <constraint firstAttribute="height" constant="76" id="R2E-Jr-awZ"/>
+                                </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Dfx-yf-LZg" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" constant="42" id="3BX-92-T61"/>
+                            <constraint firstItem="Ils-g2-48e" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="GBX-dt-EjJ"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="o7M-wQ-Iry" secondAttribute="bottom" constant="-117" id="R0g-wK-Fk2"/>
+                            <constraint firstItem="Ils-g2-48e" firstAttribute="centerX" secondItem="MR1-eK-pbk" secondAttribute="centerX" id="Zym-fK-2Dj"/>
+                            <constraint firstItem="MR1-eK-pbk" firstAttribute="centerX" secondItem="o7M-wQ-Iry" secondAttribute="centerX" id="slv-iH-dAV"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="o7M-wQ-Iry" secondAttribute="centerX" id="xMb-po-vSf"/>
+                            <constraint firstItem="MR1-eK-pbk" firstAttribute="top" secondItem="Ils-g2-48e" secondAttribute="bottom" constant="21" id="xxZ-oo-26j"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dfx-yf-LZg" secondAttribute="trailing" constant="62" id="xyF-4N-12I"/>
+                            <constraint firstItem="Ils-g2-48e" firstAttribute="trailing" secondItem="jPH-ZO-QdV" secondAttribute="trailingMargin" id="yCd-M0-D93"/>
+                            <constraint firstItem="Dfx-yf-LZg" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="51" id="zYx-Ug-FPw"/>
+                            <constraint firstItem="Ils-g2-48e" firstAttribute="top" secondItem="Dfx-yf-LZg" secondAttribute="bottom" constant="8" symbolic="YES" id="zkw-7g-G26"/>
+                        </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="fbLoginButtonView" destination="6MP-LY-wza" id="SRG-Ew-OJ7"/>
+                        <outlet property="headerLabel" destination="Ils-g2-48e" id="thd-tR-S9T"/>
                         <segue destination="RZw-Q2-guW" kind="show" identifier="ShowApplication" id="izN-fL-MN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auI-3K-ztr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="175"/>
+            <point key="canvasLocation" x="117.59999999999999" y="174.96251874062969"/>
         </scene>
         <!--Movie-->
         <scene sceneID="4wx-G8-WK5">
@@ -47,4 +95,8 @@
             <point key="canvasLocation" x="778" y="71"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="App Icon" width="252" height="252"/>
+        <image name="Blurry Photo Grid" width="464" height="738"/>
+    </resources>
 </document>

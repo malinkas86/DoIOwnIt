@@ -13,14 +13,25 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet var headerLabel: UILabel!
     @IBOutlet weak var fbLoginButtonView: FBSDKLoginButton!
     let loginViewModel = LoginViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         fbLoginButtonView.delegate = self
         fbLoginButtonView.readPermissions = ["public_profile", "email"]
         
-        // Do any additional setup after loading the view.
+        headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
+        
+        for family: String in UIFont.familyNames
+        {
+            print("\(family)")
+            for names: String in UIFont.fontNames(forFamilyName: family)
+            {
+                print("== \(names)")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
