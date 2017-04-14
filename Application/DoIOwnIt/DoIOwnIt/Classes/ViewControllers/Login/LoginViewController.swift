@@ -24,14 +24,14 @@ class LoginViewController: UIViewController {
         
         headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
         
-        for family: String in UIFont.familyNames
-        {
-            print("\(family)")
-            for names: String in UIFont.fontNames(forFamilyName: family)
-            {
-                print("== \(names)")
-            }
-        }
+//        for family: String in UIFont.familyNames
+//        {
+//            print("\(family)")
+//            for names: String in UIFont.fontNames(forFamilyName: family)
+//            {
+//                print("== \(names)")
+//            }
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

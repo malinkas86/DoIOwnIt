@@ -12,13 +12,21 @@ class UserMovieLibraryViewController: UIViewController {
     
     let showMovieSegueIdentifier = "showMovieFromLibrary"
     var selectedIndex : IndexPath?
+    let minimumInteritemSpacing: CGFloat = 1
+    var iphoneRowCount : CGFloat = 2
     
+    @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     var movies : [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        
+        layout.minimumInteritemSpacing = minimumInteritemSpacing
+        layout.minimumLineSpacing = 0.5
+        collectionView!.collectionViewLayout = layout
         
 
         // Do any additional setup after loading the view.
@@ -31,7 +39,7 @@ class UserMovieLibraryViewController: UIViewController {
             switch response {
             case .success(_):
                 self.movies = self.userMovieLibraryViewModel.movies
-                self.tableView.reloadData()
+                self.collectionView.reloadData()
                 for movie in self.movies {
                     log.debug(movie.title)
                     log.debug(movie.posterPath)
@@ -69,6 +77,48 @@ class UserMovieLibraryViewController: UIViewController {
     }
     
 
+}
+
+extension UserMovieLibraryViewController : UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieLibraryCollectionViewCell
+        
+        let movie = userMovieLibraryViewModel.movies[indexPath.row]
+        
+        cell.titleLabel.text = movie.title
+//        cell.movieId = movie.id
+//        cell.indexPath = indexPath
+//        cell.tableView = tableView
+//        cell.userMovieLibraryViewModel = userMovieLibraryViewModel
+        cell.movieImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
+        return cell
+        
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return userMovieLibraryViewModel.movies.count
+    }
+}
+
+extension UserMovieLibraryViewController : UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath
+        performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
+    }
+}
+
+extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = (collectionView.bounds.size.width-((iphoneRowCount-1)*minimumInteritemSpacing))/iphoneRowCount
+        
+        
+        let height = width*3/2
+        return CGSize(width: width, height: CGFloat(height))
+    }
 }
 
 extension UserMovieLibraryViewController : UITableViewDataSource{

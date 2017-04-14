@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		492B4C68C1DE2EA097C9678C /* Pods_DoIOwnIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */; };
+		705D9E831EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D9E821EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift */; };
 		7061457F1E5B706E00A18A7E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061457E1E5B706E00A18A7E /* UserRepository.swift */; };
 		706145811E5B70BE00A18A7E /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */; };
 		706145841E5B763500A18A7E /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145831E5B763500A18A7E /* UserManager.swift */; };
@@ -77,6 +78,7 @@
 		3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.release.xcconfig"; sourceTree = "<group>"; };
 		4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C726D724955055D6F069773 /* Pods-DoIOwnItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.debug.xcconfig"; sourceTree = "<group>"; };
+		705D9E821EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieLibraryCollectionViewCell.swift; path = Classes/CollectionViewCells/Movie/MovieLibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7061457E1E5B706E00A18A7E /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = Classes/Services/Repository/UserRepository.swift; sourceTree = "<group>"; };
 		706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepositoryProtocol.swift; path = Classes/Services/Repository/UserRepositoryProtocol.swift; sourceTree = "<group>"; };
 		706145831E5B763500A18A7E /* UserManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserManager.swift; path = Classes/Managers/UserManager.swift; sourceTree = "<group>"; };
@@ -167,6 +169,22 @@
 				4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		705D9E7E1EA04187007E9DE9 /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				705D9E7F1EA0419D007E9DE9 /* Movie */,
+			);
+			name = CollectionViewCells;
+			sourceTree = "<group>";
+		};
+		705D9E7F1EA0419D007E9DE9 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				705D9E821EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift */,
+			);
+			name = Movie;
 			sourceTree = "<group>";
 		};
 		706145821E5B761500A18A7E /* Managers */ = {
@@ -278,6 +296,7 @@
 		70DC75361E56336300115439 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				705D9E7E1EA04187007E9DE9 /* CollectionViewCells */,
 				70EDA6451E6E1BA200A7FA42 /* UIComponents */,
 				70749B731E5D320300F2CC8C /* TableViewCells */,
 				706145821E5B761500A18A7E /* Managers */,
@@ -642,6 +661,7 @@
 				706145841E5B763500A18A7E /* UserManager.swift in Sources */,
 				70DC754D1E563FD800115439 /* User.swift in Sources */,
 				70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */,
+				705D9E831EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift in Sources */,
 				70749B6C1E5BF2BC00F2CC8C /* MovieListViewModel.swift in Sources */,
 				70EDA64F1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift in Sources */,
 				70749B771E5D328B00F2CC8C /* MovieListTableViewCell.swift in Sources */,
