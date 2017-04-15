@@ -12,8 +12,9 @@ class UserMovieLibraryViewController: UIViewController {
     
     let showMovieSegueIdentifier = "showMovieFromLibrary"
     var selectedIndex : IndexPath?
-    let minimumInteritemSpacing: CGFloat = 1
-    var iphoneRowCount : CGFloat = 2
+    
+    fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 15.0, bottom: 10.0, right: 15.0) // cell padding
+    fileprivate let itemsPerRow: CGFloat = 2
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
@@ -22,14 +23,7 @@ class UserMovieLibraryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-        
-        layout.minimumInteritemSpacing = minimumInteritemSpacing
-        layout.minimumLineSpacing = 0.5
-        collectionView!.collectionViewLayout = layout
-        
-
-        // Do any additional setup after loading the view.
+       
     }
     
     @IBAction func unwindToUserLibraryViewController(segue: UIStoryboardSegue) { }
@@ -54,6 +48,8 @@ class UserMovieLibraryViewController: UIViewController {
         })
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -84,13 +80,12 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieLibraryCollectionViewCell
         
         let movie = userMovieLibraryViewModel.movies[indexPath.row]
-        
-        cell.titleLabel.text = movie.title
-//        cell.movieId = movie.id
-//        cell.indexPath = indexPath
-//        cell.tableView = tableView
-//        cell.userMovieLibraryViewModel = userMovieLibraryViewModel
         cell.movieImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
+        
+        cell.backgroundColor = UIColor.black
+        cell.layer.cornerRadius = 8
+        cell.clipsToBounds = true
+        
         return cell
         
     }
@@ -111,13 +106,41 @@ extension UserMovieLibraryViewController : UICollectionViewDelegate {
     }
 }
 
-extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
+/*extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = (collectionView.bounds.size.width-((iphoneRowCount-1)*minimumInteritemSpacing))/iphoneRowCount
         
         
         let height = width*3/2
         return CGSize(width: width, height: CGFloat(height))
+    }
+}*/
+
+extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
+    //1. is responsible for telling the layout the size of a given cell
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        //2. Here, you work out the total amount of space taken up by padding.
+        let paddingSpace = sectionInsets.left * (itemsPerRow + 1)
+        let availableWidth = view.frame.width - paddingSpace
+        let widthPerItem = availableWidth / itemsPerRow
+        
+        return CGSize(width: widthPerItem, height: (widthPerItem * 1.5)) // 3:2 Movie Poster Aspect Ratio
+    }
+    
+    //3. returns the spacing between the cells, headers, and footers. A constant is used to store the value.
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return sectionInsets
+    }
+    
+    // 4. This method controls the spacing between each line in the layout. You want this to match the padding at the left and right.
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return sectionInsets.left
     }
 }
 
@@ -137,6 +160,7 @@ extension UserMovieLibraryViewController : UITableViewDataSource{
         cell.tableView = tableView
         cell.userMovieLibraryViewModel = userMovieLibraryViewModel
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
+    
         return cell
         
     }
