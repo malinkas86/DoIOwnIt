@@ -125,6 +125,7 @@ extension MovieListTableViewController : UITableViewDataSource {
         cell.movieId = movie.id
         cell.movieListViewController = self
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
+        cell.releasedDateLabel.text = StringUtil.formatReleaseDate(strValue: movie.releasedDate!, offsetBy: 4)
         
         return cell
     }

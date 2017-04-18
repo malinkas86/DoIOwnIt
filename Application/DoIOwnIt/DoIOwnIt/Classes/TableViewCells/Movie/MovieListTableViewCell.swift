@@ -18,6 +18,7 @@ class MovieListTableViewCell: UITableViewCell {
     var movieListViewController : MovieListTableViewController!
     var movieId : Int?
     
+    @IBOutlet weak var releasedDateLabel: UILabel!
     
     
     

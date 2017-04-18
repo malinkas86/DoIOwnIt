@@ -31,6 +31,7 @@ class MovieDetailsViewController: UIViewController {
     
     @IBOutlet weak var editBarButton: UIBarButtonItem!
     
+    @IBOutlet weak var yearLabel: UILabel!
     let movieDetailsViewModel = MovieDetailsViewModel()
     
     override func viewDidLoad() {
@@ -85,6 +86,8 @@ class MovieDetailsViewController: UIViewController {
                 self.directorsLabel.sizeToFit()
                 
                 self.titleLabel.text = self.movieDetailsViewModel.title
+                
+                self.yearLabel.text = StringUtil.formatReleaseDate(strValue: self.movieDetailsViewModel.releasedDate!, offsetBy: 4)
                 
                 
                 
@@ -160,4 +163,8 @@ class MovieDetailsViewController: UIViewController {
         return finalAttrString
         
     }
+    
+    
 }
+
+

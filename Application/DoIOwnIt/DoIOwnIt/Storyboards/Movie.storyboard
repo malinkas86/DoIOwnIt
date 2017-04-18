@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7sf-Gr-hHb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7sf-Gr-hHb">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,7 +20,7 @@
                         <viewControllerLayoutGuide type="top" id="nE7-9G-BIn"/>
                         <viewControllerLayoutGuide type="bottom" id="R1X-D2-vJy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="2gl-P8-O6F">
+                    <view key="view" contentMode="scaleToFill" id="2gl-P8-O6F">
                         <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -33,7 +33,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7bq-DJ-Ayl" id="HGC-Wn-5jR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="128.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Blank Poster Art" translatesAutoresizingMaskIntoConstraints="NO" id="wca-fu-1sT">
@@ -76,6 +76,7 @@
                                             <outlet property="addedLabel" destination="pl1-nk-ahs" id="5vg-Gn-qRq"/>
                                             <outlet property="isOwnedButton" destination="pRq-OY-TWl" id="Fd3-VP-j4g"/>
                                             <outlet property="posterImageView" destination="wca-fu-1sT" id="ku8-Mh-ZGA"/>
+                                            <outlet property="releasedDateLabel" destination="bPO-lO-YJn" id="J37-b5-MEj"/>
                                             <outlet property="titleLabel" destination="Evg-II-4nm" id="65a-Ri-bgc"/>
                                         </connections>
                                     </tableViewCell>
@@ -254,7 +255,7 @@
                         <viewControllerLayoutGuide type="top" id="KvC-5C-Xxr"/>
                         <viewControllerLayoutGuide type="bottom" id="hHV-QS-trV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="Qgl-oJ-tgA">
+                    <view key="view" contentMode="scaleToFill" id="Qgl-oJ-tgA">
                         <rect key="frame" x="0.0" y="64" width="414" height="1136"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -422,6 +423,7 @@
                         <outlet property="ownLabel" destination="erk-OG-kMD" id="319-C2-xIi"/>
                         <outlet property="posterImageView" destination="60U-RL-Z85" id="xPK-xQ-zL2"/>
                         <outlet property="titleLabel" destination="BVT-uX-gFc" id="CVl-GO-JJg"/>
+                        <outlet property="yearLabel" destination="3Wb-LT-a2m" id="S7b-cM-j8U"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2QC-9e-DlD" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,7 +462,7 @@
                         <viewControllerLayoutGuide type="top" id="ktD-Eg-zhG"/>
                         <viewControllerLayoutGuide type="bottom" id="YqX-Pz-K6Y"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" misplaced="YES" id="htR-WU-3hI">
+                    <view key="view" contentMode="scaleToFill" id="htR-WU-3hI">
                         <rect key="frame" x="0.0" y="64" width="414" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
