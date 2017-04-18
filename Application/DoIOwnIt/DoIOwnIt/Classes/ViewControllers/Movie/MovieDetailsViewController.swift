@@ -9,6 +9,8 @@
 import UIKit
 import SDWebImage
 
+let labelFont = UIFont(name: "DINCond-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
+
 class MovieDetailsViewController: UIViewController {
     
     var id : Int?
@@ -16,15 +18,23 @@ class MovieDetailsViewController: UIViewController {
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var ownStatusLabel: UILabel!
     
+    @IBOutlet weak var plotTitle: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
     
+    @IBOutlet weak var castTitle: UILabel!
     @IBOutlet weak var castLabel: UILabel!
     
+    @IBOutlet weak var directorTitle: UILabel!
     @IBOutlet weak var directorsLabel: UILabel!
     
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var ownLabel: UILabel!
+    
+    @IBOutlet weak var ownTitle: UILabel!
+    
+    
+    
     
     @IBOutlet weak var actionButton: UIButton!
     var fromViewController : String!
@@ -60,6 +70,14 @@ class MovieDetailsViewController: UIViewController {
         
         
         getMovie()
+        titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
+        
+        ownTitle.font = labelFont
+        plotTitle.font = labelFont
+        castTitle.font = labelFont
+        directorTitle.font = labelFont
+        
+
     }
     
     
