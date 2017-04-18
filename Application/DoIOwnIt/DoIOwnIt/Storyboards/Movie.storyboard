@@ -255,8 +255,8 @@
                         <viewControllerLayoutGuide type="bottom" id="hHV-QS-trV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Qgl-oJ-tgA">
-                    <rect key="frame" x="0.0" y="64" width="414" height="1136"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="1136"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" indicatorStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="kfj-At-03B">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="1136"/>
@@ -384,8 +384,8 @@
                                 <constraints>
                                     <constraint firstItem="lpQ-Gu-ceW" firstAttribute="top" secondItem="kfj-At-03B" secondAttribute="topMargin" id="1wi-Xw-h3Q"/>
                                     <constraint firstAttribute="trailing" secondItem="lpQ-Gu-ceW" secondAttribute="trailing" id="82B-Xz-c8k"/>
+                                    <constraint firstAttribute="bottom" secondItem="2d6-bB-XZQ" secondAttribute="bottom" constant="210" id="Bna-N5-RsB"/>
                                     <constraint firstItem="2d6-bB-XZQ" firstAttribute="top" secondItem="lpQ-Gu-ceW" secondAttribute="bottom" constant="42" id="QEl-bs-WLi"/>
-                                    <constraint firstAttribute="bottom" secondItem="lpQ-Gu-ceW" secondAttribute="bottom" id="fTW-eL-oWn"/>
                                     <constraint firstItem="2d6-bB-XZQ" firstAttribute="centerX" secondItem="kfj-At-03B" secondAttribute="centerX" id="mil-we-Aab"/>
                                     <constraint firstItem="lpQ-Gu-ceW" firstAttribute="leading" secondItem="kfj-At-03B" secondAttribute="leadingMargin" id="stj-nG-FgO"/>
                                 </constraints>
