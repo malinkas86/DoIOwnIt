@@ -15,6 +15,7 @@ class JSON: NSObject {
             do {
                 return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
             } catch {
+                
                 log.error(error.localizedDescription)
             }
         }
