@@ -14,6 +14,7 @@ target 'DoIOwnIt' do
   pod 'FirebaseUI'
   pod 'FBSDKLoginKit'
   pod 'SDWebImage'
+  pod 'IHKeyboardAvoiding'
   target 'DoIOwnItTests' do
     inherit! :search_paths
     # Pods for testing

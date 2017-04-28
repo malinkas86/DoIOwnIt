@@ -1,0 +1,6 @@
+framework module Pods_DoIOwnItTests {
+  umbrella header "Pods-DoIOwnItTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

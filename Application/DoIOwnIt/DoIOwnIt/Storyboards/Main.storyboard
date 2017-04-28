@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,9 +24,15 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="37" y="580" width="300" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="kBN-86-AAc"/>
+                                </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blurry Photo Grid" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-wQ-Iry">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="667" id="gen-Wm-3rW"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
                                 <rect key="frame" x="67" y="62" width="230" height="230"/>
@@ -58,22 +64,27 @@
                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leading" id="29X-bC-7og"/>
-                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" constant="580" id="6Wa-ad-uhP"/>
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="41" id="7Wv-5x-F4u"/>
                             <constraint firstItem="Dfx-yf-LZg" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" constant="42" id="8bY-JL-ZT9"/>
                             <constraint firstItem="Dfx-yf-LZg" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="51" id="CYA-Sf-55w"/>
                             <constraint firstItem="Ils-g2-48e" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="G8s-Qt-h4B"/>
-                            <constraint firstItem="MR1-eK-pbk" firstAttribute="centerX" secondItem="6MP-LY-wza" secondAttribute="centerX" id="Gsg-5X-DMn"/>
                             <constraint firstItem="Ils-g2-48e" firstAttribute="centerX" secondItem="MR1-eK-pbk" secondAttribute="centerX" id="J4b-ZO-aCf"/>
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="o7M-wQ-Iry" secondAttribute="bottom" id="JUc-q6-5uB"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="MR1-eK-pbk" secondAttribute="centerX" id="SlS-o8-OzC"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="21" id="UNm-0B-TQD"/>
                             <constraint firstItem="MR1-eK-pbk" firstAttribute="top" secondItem="Ils-g2-48e" secondAttribute="bottom" constant="21" id="beD-Fl-1ah"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dfx-yf-LZg" secondAttribute="trailing" constant="62" id="g3X-be-mq3"/>
                             <constraint firstItem="Ils-g2-48e" firstAttribute="top" secondItem="Dfx-yf-LZg" secondAttribute="bottom" constant="8" symbolic="YES" id="iCW-8N-FXE"/>
                             <constraint firstItem="Ils-g2-48e" firstAttribute="trailing" secondItem="jPH-ZO-QdV" secondAttribute="trailingMargin" id="oh7-iE-AFe"/>
                             <constraint firstAttribute="trailing" secondItem="o7M-wQ-Iry" secondAttribute="trailing" id="uBB-oq-rQP"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="MR1-eK-pbk" secondAttribute="bottom" constant="147" id="um8-mO-Tj7"/>
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" id="zmy-vb-Jsd"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="o7M-wQ-Iry"/>
+                            </mask>
+                        </variation>
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>

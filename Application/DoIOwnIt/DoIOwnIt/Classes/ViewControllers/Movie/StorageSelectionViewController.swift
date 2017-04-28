@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IHKeyboardAvoiding
 
 class StorageSelectionViewController: UIViewController {
     
@@ -36,6 +37,7 @@ class StorageSelectionViewController: UIViewController {
         mainView.layer.borderColor = UIColor.gray.cgColor
         mainView.layer.borderWidth = 0.5
         mainView.clipsToBounds = true
+        KeyboardAvoiding.avoidingView = self.mainView
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -102,6 +104,7 @@ extension StorageSelectionViewController : UITableViewDataSource {
         //            cell.storageTypeLabel.text = storageTypeCell.title.rawValue
         cell.storageDescriptionField.placeholder = storageTypeCell.placeHolder
         cell.storageType = storageTypeCell.title
+        cell.storageDescriptionField.delegate = self
         
         if let storageMethod = storageMethods?[storageTypeCell.title.rawValue] {
             cell.storageDescriptionField.text = storageMethod
@@ -124,5 +127,12 @@ extension StorageSelectionViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return storageTypeCells.count
+    }
+}
+
+extension StorageSelectionViewController: UITextFieldDelegate {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
     }
 }
