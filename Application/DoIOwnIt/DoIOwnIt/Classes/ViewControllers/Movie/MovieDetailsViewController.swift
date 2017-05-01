@@ -113,7 +113,18 @@ class MovieDetailsViewController: UIViewController {
                 
                 self.ownLabel.attributedText = self.prepareAttributedString()
                 
-            default : break
+            case .error(_):
+                let alert = UIAlertController(title: "Error", message: "Having problems retreiving information\nPlease check your network connectivity", preferredStyle: UIAlertControllerStyle.alert)
+                self.present(alert, animated: true, completion: nil)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in
+                    switch action.style{
+                    case .default:
+                        _ = self.navigationController?.popViewController(animated: true)
+                        
+                    default:
+                        break
+                    }
+                }))
             }
         })
     }

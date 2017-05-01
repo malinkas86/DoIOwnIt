@@ -18,6 +18,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     func saveUserMovie(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : StorageMethod], completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
         self.ref = FIRDatabase.database().reference()
+        self.ref.keepSynced(true)
         
         let user : FIRUser = (FIRAuth.auth()?.currentUser)!
         let movie = Movie(id: movieId, title: title, posterPath: posterPath, releasedDate: releasedDate, storageMethods : storageMethods)
@@ -28,7 +29,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     func getUserMovies(completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
         self.ref = FIRDatabase.database().reference()
-        
+        self.ref.keepSynced(true)
         if let user = FIRAuth.auth()?.currentUser {
             ref.child("user-movies").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
@@ -54,7 +55,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     func getUserMovieById(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
         self.ref = FIRDatabase.database().reference()
-        
+        self.ref.keepSynced(true)
         if let user = FIRAuth.auth()?.currentUser {
             ref.child("user-movies").child(user.uid).child("\(movieId)").observeSingleEvent(of: .value, with: { (snapshot) in
                 
@@ -74,7 +75,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     func removeUserMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
         self.ref = FIRDatabase.database().reference()
-        
+        self.ref.keepSynced(true)
         if let user = FIRAuth.auth()?.currentUser {
             ref.child("user-movies").child(user.uid).child("\(movieId)").removeValue(completionBlock: { (error, ref) in
                 if error != nil {
