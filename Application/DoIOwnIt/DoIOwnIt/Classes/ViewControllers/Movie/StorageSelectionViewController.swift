@@ -18,7 +18,7 @@ class StorageSelectionViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    let storageTypeCells : [StorageTypeCell] = [StorageTypeCell(title : .cloud, placeHolder : "ex : iCloud"), StorageTypeCell(title : .disk, placeHolder : "ex : DVD, Bluray"), StorageTypeCell(title : .digital, placeHolder : "ex : Hard drive")]
+    let storageTypeCells : [StorageTypeCell] = [StorageTypeCell(title : .cloud, placeHolder : "iCloud"), StorageTypeCell(title : .disk, placeHolder : "Bluray"), StorageTypeCell(title : .digital, placeHolder : "Hard drive")]
     
     var movieId : Int?
     var movieTitle : String?
@@ -27,36 +27,50 @@ class StorageSelectionViewController: UIViewController {
     var storageMethods : [String : String]?
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         showAnimate()
         print("releasedDate \(String(describing: releasedDate))")
         // Do any additional setup after loading the view.
-        mainView.backgroundColor = UIColor.white
+        //mainView.backgroundColor = UIColor.white
 //        mainView.layer.cornerRadius = 10.0
-        mainView.layer.borderColor = UIColor.gray.cgColor
-        mainView.layer.borderWidth = 0.5
+        //mainView.layer.borderColor = UIColor.gray.cgColor
+        //mainView.layer.borderWidth = 0.5
         mainView.clipsToBounds = true
         KeyboardAvoiding.avoidingView = self.mainView
+        
+        
+        
+        
+       
+        
+        
     }
     
     @IBAction func closeAction(_ sender: Any) {
         removeAnimate()
     }
+    
     func showAnimate(){
-        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
-        self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
-        self.view.alpha = 0.0
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 1.0
-            self.view.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
+
+        
+        UIView.animate(withDuration: 0.20, delay: 0.0, options: [.curveEaseInOut],
+            animations: {
+            self.view.center.y -= self.view.bounds.width
+             
+        },
+        completion: nil
+        )
+        
+        
     }
     
     func removeAnimate(){
-        UIView.animate(withDuration: 0.25, animations: {
-            self.view.alpha = 0.0
-            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        UIView.animate(withDuration: 0.125, animations: {
+            //self.view.alpha = 0.0
+            //self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+            self.view.center.y += self.view.bounds.width
         }, completion: { finished in
             if finished {
                 self.view.removeFromSuperview()
