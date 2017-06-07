@@ -14,13 +14,13 @@ enum RepositoryError<T> : Error {
 }
 
 class UserMovieRepository: UserMovieRespositoryProtocol {
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
     func saveUserMovie(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : StorageMethod], completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = Database.database().reference()
         self.ref.keepSynced(true)
         
-        let user : FIRUser = (FIRAuth.auth()?.currentUser)!
+        let user : User = (Auth.auth().currentUser)!
         let movie = Movie(id: movieId, title: title, posterPath: posterPath, releasedDate: releasedDate, storageMethods : storageMethods)
         self.ref.child("user-movies").child("\(user.uid)").child(String(format : "%d",movie.id!)).setValue(movie.toDictionary())
         completionHandler(Response.success(user))
@@ -28,9 +28,9 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     
     func getUserMovies(completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = Database.database().reference()
         self.ref.keepSynced(true)
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             ref.child("user-movies").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 var movies = [Movie]()
@@ -54,9 +54,9 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     
     func getUserMovieById(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = Database.database().reference()
         self.ref.keepSynced(true)
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             ref.child("user-movies").child(user.uid).child("\(movieId)").observeSingleEvent(of: .value, with: { (snapshot) in
                 
                 if let movieDictionary = snapshot.value as? [String : Any] {
@@ -74,9 +74,9 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     
     func removeUserMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = Database.database().reference()
         self.ref.keepSynced(true)
-        if let user = FIRAuth.auth()?.currentUser {
+        if let user = Auth.auth().currentUser {
             ref.child("user-movies").child(user.uid).child("\(movieId)").removeValue(completionBlock: { (error, ref) in
                 if error != nil {
                     completionHandler(Response.error(error!))
