@@ -11,11 +11,11 @@ import Firebase
 
 class UserRepository: UserRepositoryProtocol {
     
-    var ref: FIRDatabaseReference!
+    var ref: DatabaseReference!
     
 
-    func checkUserAndSave(user : FIRUser, username : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
-        self.ref = FIRDatabase.database().reference()
+    func checkUserAndSave(user : User, username : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+        self.ref = Database.database().reference()
         
         self.ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             var fullNameArr = user.displayName?.components(separatedBy: " ")
@@ -33,11 +33,11 @@ class UserRepository: UserRepositoryProtocol {
     }
     
     
-    func saveUserInfo(user : FIRUser, username : String, firstName : String, lastName : String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func saveUserInfo(user : User, username : String, firstName : String, lastName : String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
-        self.ref = FIRDatabase.database().reference()
+        self.ref = Database.database().reference()
         
-        let changeRequest = FIRAuth.auth()?.currentUser?.profileChangeRequest()
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequest?.displayName = "\(firstName) \(lastName)"
         changeRequest?.commitChanges(){ (error) in
             
@@ -46,14 +46,14 @@ class UserRepository: UserRepositoryProtocol {
                 return
             }
             
-            self.ref.child("users").child((user.uid)).setValue(User(username: username, firstName: firstName, lastName: lastName).toDictionary())
+            self.ref.child("users").child((user.uid)).setValue(DomainUser(username: username, firstName: firstName, lastName: lastName).toDictionary())
             completionHandler(Response.success(user))
         }
     }
     
     
     func signInUser(withEmail email : String, password : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
-        FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user,error) in
+        Auth.auth().signIn(withEmail: email, password: password, completion: { (user,error) in
             guard let user = user, error == nil else {
                 print(error!.localizedDescription)
                 completionHandler(Response.error((error?.localizedDescription)! ))
@@ -64,8 +64,8 @@ class UserRepository: UserRepositoryProtocol {
         })
     }
     
-    func signInUser(withCredential credential : FIRAuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
-        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+        Auth.auth().signIn(with: credential) { (user, error) in
             
             guard let user = user, error == nil else {
                 print(error!.localizedDescription)

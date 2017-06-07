@@ -17,9 +17,9 @@ class UserRepositoryOperation: AsynchronousOperation {
     var userOperationType : UserOperationType
     var userRepository : UserRepositoryProtocol
     var completionHandler : (_ response : Response<Any>) -> ()
-    var user : FIRUser?
+    var user : User?
     var email : String?
-    var credential : FIRAuthCredential?
+    var credential : AuthCredential?
     var password : String?
     var username : String?
     var firstName : String?

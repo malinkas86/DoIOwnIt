@@ -11,6 +11,6 @@ import Firebase
 
 protocol UserManagerProtocol {
     func signInUser(withEmail email : String, password : String, completionHandler : @escaping (_ response : Response<Any>) -> ())
-    func signInUser(withCredential credential : FIRAuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ())
+    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ())
     
 }

@@ -35,7 +35,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        if FIRAuth.auth()?.currentUser != nil {
+        if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
             
         }
@@ -74,7 +74,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
         print(FBSDKAccessToken.current().tokenString)
         
         if !result.isCancelled {
-            let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+            let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
             loginViewModel.signInUser(withCredential: credential, completionHandler: { response in
                 switch response {
@@ -96,10 +96,10 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User logged out from FB")
-        let firebaseAuth = FIRAuth.auth()
+        let firebaseAuth = Auth.auth()
         
         do {
-            try firebaseAuth?.signOut()
+            try firebaseAuth.signOut()
             
         }catch let signoutError as NSError {
             print(signoutError)

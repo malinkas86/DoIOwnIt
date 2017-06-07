@@ -25,7 +25,7 @@ class LoginViewModel: NSObject {
         })
     }
     
-    func signInUser(withCredential credential : FIRAuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
         userManager.signInUser(withCredential: credential, completionHandler: {response in
             switch response {
             case let .success(user):

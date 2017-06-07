@@ -39,7 +39,7 @@ class UserManager: UserManagerProtocol {
         
     }
     
-    func signInUser(withCredential credential : FIRAuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
         let operation = UserRepositoryOperation(userOperationType: .signinwithcredentials, userRepository: userRepository!, completionHandler: { response in
             switch response {
             case let .success(user) :

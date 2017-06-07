@@ -8,7 +8,7 @@
 
 import UIKit
 
-class User: NSObject {
+class DomainUser: NSObject {
     var username : String?
     var firstName : String?
     var lastName : String?
