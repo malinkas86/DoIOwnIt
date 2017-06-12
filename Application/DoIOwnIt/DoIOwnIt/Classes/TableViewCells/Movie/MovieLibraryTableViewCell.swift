@@ -25,7 +25,7 @@ class MovieLibraryTableViewCell: UITableViewCell {
     @IBAction func didTapRemove(_ sender: UIButton) {
         
         userMovieLibraryViewModel?.removeMovie(movieId: movieId!, completionHandler: { response in
-            self.userMovieLibraryViewModel?.movies.remove(at: (self.indexPath?.row)!)
+            userMovies.remove(at: (self.indexPath?.row)!)
             
             DispatchQueue.main.async {
                 self.tableView?.deleteRows(at: [self.indexPath!], with: UITableViewRowAnimation.fade)

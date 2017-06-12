@@ -15,7 +15,7 @@ let log = XCGLogger.default
 let themeColor = UIColor(red: 0.92, green: 0.73, blue: 0.04, alpha: 1.0) // gold color
 let navbarColor = UIColor(red: 0.11, green: 0.11, blue: 0.11, alpha:1.0) // #1C1C1C
 let navbarFont = UIFont(name: "DINCond-Medium", size: 22) ?? UIFont.systemFont(ofSize: 17)
-
+var userMovies : [Movie] = []
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

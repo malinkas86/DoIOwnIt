@@ -9,39 +9,28 @@
 import UIKit
 import SDWebImage
 
-let labelFont = UIFont(name: "DINCond-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
-
 class MovieDetailsViewController: UIViewController {
     
-    var id : Int?
-
     @IBOutlet weak var posterImageView: UIImageView!
     @IBOutlet weak var ownStatusLabel: UILabel!
-    
     @IBOutlet weak var plotTitle: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
-    
     @IBOutlet weak var castTitle: UILabel!
     @IBOutlet weak var castLabel: UILabel!
-    
     @IBOutlet weak var directorTitle: UILabel!
     @IBOutlet weak var directorsLabel: UILabel!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
     @IBOutlet weak var ownLabel: UILabel!
-    
     @IBOutlet weak var ownTitle: UILabel!
-    
-    
-    
-    
     @IBOutlet weak var actionButton: UIButton!
-    var fromViewController : String!
-    
     @IBOutlet weak var editBarButton: UIBarButtonItem!
-    
     @IBOutlet weak var yearLabel: UILabel!
+    
+    let labelFont = UIFont(name: "DINCond-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
+    
+    var fromViewController : String!
+    var id : Int?
+    var isOwned: Bool = false
     let movieDetailsViewModel = MovieDetailsViewModel()
     
     override func viewDidLoad() {
@@ -55,6 +44,10 @@ class MovieDetailsViewController: UIViewController {
                 self.navigationItem.rightBarButtonItem = nil
             }
         }
+        if isOwned {
+            actionButton.setTitle("Remove from Library",for: .normal)
+        }
+        
         let nc = NotificationCenter.default // Note that default is now a property, not a method call
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
             notification in
@@ -62,24 +55,18 @@ class MovieDetailsViewController: UIViewController {
             self.getMovie()
         }
         
-
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         
-        
         getMovie()
         titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
-        
         ownTitle.font = labelFont
         plotTitle.font = labelFont
         castTitle.font = labelFont
         directorTitle.font = labelFont
-        
-
-    }
     
+    }
     
     @IBAction func didTapEdit(_ sender: Any) {
         showStoragePopUp()
@@ -99,18 +86,13 @@ class MovieDetailsViewController: UIViewController {
                 self.overviewLabel.sizeToFit()
                 self.castLabel.text = self.movieDetailsViewModel.formattedCastString
                 self.castLabel.sizeToFit()
-                
                 self.directorsLabel.text = self.movieDetailsViewModel.formattedDirectorsString
                 self.directorsLabel.sizeToFit()
-                
                 self.titleLabel.text = self.movieDetailsViewModel.title
                 
                 self.yearLabel.text = StringUtil.formatReleaseDate(strValue: self.movieDetailsViewModel.releasedDate!, offsetBy: 4)
-                
-                
-                
+            
                 // set label Attribute
-                
                 self.ownLabel.attributedText = self.prepareAttributedString()
                 
             case .error(_):
@@ -132,9 +114,8 @@ class MovieDetailsViewController: UIViewController {
 
     @IBAction func addToLibraryAction(_ sender: Any) {
         
-        
         if fromViewController != nil {
-            if fromViewController == String(describing: UserMovieLibraryViewController.self) {
+            if fromViewController == String(describing: UserMovieLibraryViewController.self) || isOwned {
                 movieDetailsViewModel.removeMovie(movieId: movieDetailsViewModel.id!, completionHandler: { response in
                     switch response {
                     case .success(_) :
@@ -147,8 +128,6 @@ class MovieDetailsViewController: UIViewController {
                 showStoragePopUp()
             }
         }
-        
-        
         
     }
     
@@ -164,15 +143,6 @@ class MovieDetailsViewController: UIViewController {
         self.view.addSubview(popoverVc.view)
         popoverVc.didMove(toParentViewController: self)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
     func prepareAttributedString() -> NSAttributedString {
         let storageMethods = self.movieDetailsViewModel.storageMethods
@@ -190,10 +160,6 @@ class MovieDetailsViewController: UIViewController {
         }
         
         return finalAttrString
-        
     }
     
-    
 }
-
-

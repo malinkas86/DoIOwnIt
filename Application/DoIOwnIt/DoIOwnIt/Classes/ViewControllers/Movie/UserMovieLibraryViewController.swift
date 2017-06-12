@@ -32,7 +32,7 @@ class UserMovieLibraryViewController: UIViewController {
         userMovieLibraryViewModel.getUserMovies(completionHandler: { response in
             switch response {
             case .success(_):
-                self.movies = self.userMovieLibraryViewModel.movies
+                self.movies = userMovies
                 self.collectionView.reloadData()
                 for movie in self.movies {
                     log.debug(movie.title)
@@ -66,7 +66,7 @@ class UserMovieLibraryViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "showMovieFromLibrary" {
             let movieDetailsViewController = segue.destination as! MovieDetailsViewController
-            movieDetailsViewController.id = userMovieLibraryViewModel.movies[(selectedIndex?.row)!].id
+            movieDetailsViewController.id = userMovies[(selectedIndex?.row)!].id
             movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
         }
         
@@ -79,7 +79,7 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieLibraryCollectionViewCell
         
-        let movie = userMovieLibraryViewModel.movies[indexPath.row]
+        let movie = userMovies[indexPath.row]
         cell.movieImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
         
         cell.backgroundColor = UIColor.black
@@ -95,7 +95,7 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userMovieLibraryViewModel.movies.count
+        return userMovies.count
     }
 }
 
@@ -146,13 +146,13 @@ extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
 
 extension UserMovieLibraryViewController : UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return userMovieLibraryViewModel.movies.count
+        return userMovies.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieCell", for: indexPath) as! MovieLibraryTableViewCell
         
-        let movie = userMovieLibraryViewModel.movies[indexPath.row]
+        let movie = userMovies[indexPath.row]
         
         cell.titleLabel.text = movie.title
         cell.movieId = movie.id

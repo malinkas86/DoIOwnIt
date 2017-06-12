@@ -9,7 +9,7 @@
 import UIKit
 
 class UserMovieLibraryViewModel: NSObject {
-    var movies : [Movie] = []
+    
     let userMovieManager = UserMovieManager(userMovieRepository: UserMovieRepository())
     
     func getUserMovies(completionHandler : @escaping (_ response : Response<Any>) -> ()){
@@ -17,8 +17,8 @@ class UserMovieLibraryViewModel: NSObject {
         userMovieManager.getUserMovies(completionHandler: { response in
             switch response {
             case let .success(movies as [Movie]):
-                self.movies = movies
-                log.info("movie count\(self.movies.count)")
+                userMovies = movies
+                log.info("movie count\(userMovies.count)")
                 completionHandler(Response.success(true))
             case .error(_) :
                 completionHandler(Response.error("Error occurred while retreiving data"))

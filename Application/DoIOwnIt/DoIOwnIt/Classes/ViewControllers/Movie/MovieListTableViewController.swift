@@ -49,8 +49,12 @@ class MovieListTableViewController: UIViewController {
 
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        getMovies(bySearchQuery: searchQuery)
         
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getMovies(bySearchQuery: searchQuery)
     }
     
     func getMovies(bySearchQuery query : String){
@@ -81,7 +85,9 @@ class MovieListTableViewController: UIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showMovieFromSearch" {
+            print(movieListViewModel.movies[(selectedIndex?.row)!].isOwned ?? "")
             let movieDetailsViewController = segue.destination as! MovieDetailsViewController
+            movieDetailsViewController.isOwned = movieListViewModel.movies[(selectedIndex?.row)!].isOwned!
             movieDetailsViewController.id = movieListViewModel.movies[(selectedIndex?.row)!].id
             movieDetailsViewController.fromViewController = String(describing: MovieListTableViewController.self)
         }
@@ -125,13 +131,13 @@ extension MovieListTableViewController : UITableViewDataSource {
         
         let movie = movieListViewModel.movies[indexPath.row]
         
-        let userMovies = movieListViewModel.userMovies
+        let userMovies = movieListViewModel.localUserMovies
         cell.addedLabel.isHidden = true
         cell.isOwnedButton.isHidden = false
         if userMovies[movie.id!] != nil {
             cell.addedLabel.isHidden = false
-//            cell.isOwnedButton.isChecked = true
             cell.isOwnedButton.isHidden = true
+            movie.isOwned = true
         }
         
         cell.titleLabel.text = movie.title

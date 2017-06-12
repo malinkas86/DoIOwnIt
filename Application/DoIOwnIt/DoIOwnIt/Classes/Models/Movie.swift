@@ -49,6 +49,7 @@ class Movie: NSObject {
         }else{
             self.overview = ""
         }
+        self.isOwned = false
         storageMethods = [:]
         if let storageMethodsString = dictionary["storage_methods"] as! String? {
             let storageMethodsDictionary = JSON.convertToDictionary(text: storageMethodsString)

@@ -40,12 +40,6 @@ class StorageSelectionViewController: UIViewController {
         mainView.clipsToBounds = true
         KeyboardAvoiding.avoidingView = self.mainView
         
-        
-        
-        
-       
-        
-        
     }
     
     @IBAction func closeAction(_ sender: Any) {
@@ -53,23 +47,19 @@ class StorageSelectionViewController: UIViewController {
     }
     
     func showAnimate(){
-
-        
-        UIView.animate(withDuration: 0.20, delay: 0.0, options: [.curveEaseInOut],
+//        self.view.backgroundColor = UIColor.black.withAlphaComponent(0.8)
+        UIView.animate(withDuration: 0.5, delay: 0.0, options: [.curveEaseInOut],
             animations: {
-            self.view.center.y -= self.view.bounds.width
-             
+                //self.view.center.y -= self.view.bounds.width
         },
         completion: nil
         )
-        
-        
     }
     
     func removeAnimate(){
-        UIView.animate(withDuration: 0.125, animations: {
-            //self.view.alpha = 0.0
-            //self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
+        UIView.animate(withDuration: 0.5, animations: {
+            self.view.alpha = 0.0
+            self.view.transform = CGAffineTransform(scaleX: 1.3, y: 1.3)
             self.view.center.y += self.view.bounds.width
         }, completion: { finished in
             if finished {

@@ -78,6 +78,14 @@ class MovieDetailsViewModel: NSObject {
         userMovieManager.removeUserMovie(movieId: movieId, completionHandler: { response in
             switch response {
             case .success(_):
+                self.userMovieManager.getUserMovies(completionHandler: { userMovieResponse in
+                    switch userMovieResponse {
+                    case let .success(movies):
+                        userMovies = movies as! [Movie]
+                    case .error(_):
+                        completionHandler(Response.error("Error occurred while retreiving data"))
+                    }
+                })
                 completionHandler(Response.success(true))
             case .error(_) :
                 completionHandler(Response.error("Error occurred while retreiving data"))
