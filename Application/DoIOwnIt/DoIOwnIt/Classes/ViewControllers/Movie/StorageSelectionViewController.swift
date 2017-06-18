@@ -31,7 +31,7 @@ class StorageSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.logEvent("screen_view", parameters: ["screen_name": "storage_methods",
+        Analytics.logEvent("view_screen", parameters: ["screen_name": "storage_methods",
                                                        "movie_id": movieId!])
         showAnimate()
         print("releasedDate \(String(describing: releasedDate))")
@@ -47,6 +47,7 @@ class StorageSelectionViewController: UIViewController {
     
     @IBAction func closeAction(_ sender: Any) {
         Analytics.logEvent("close_storage_preferences", parameters: nil)
+        NotificationCenterUtil.postNotification(name: "StorageMethodsCancelled", value: [:])
         removeAnimate()
     }
     
@@ -79,7 +80,6 @@ class StorageSelectionViewController: UIViewController {
     
 
     @IBAction func saveAction(_ sender: Any) {
-        print("hit on save button")
         var storageMethods : [StorageType : String] = [:]
         for row in 0 ..< tableView.numberOfRows(inSection: 0) {
             let cell:StorageDetailTableViewCell = tableView.cellForRow(at: IndexPath(row: row, section: 0)) as! StorageDetailTableViewCell

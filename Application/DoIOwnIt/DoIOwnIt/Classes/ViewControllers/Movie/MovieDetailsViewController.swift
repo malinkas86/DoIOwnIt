@@ -53,13 +53,20 @@ class MovieDetailsViewController: UIViewController {
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
             notification in
             // Handle notification
+            self.editBarButton.isEnabled = true
             self.getMovie()
+        }
+        
+        nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsCancelled"),object:nil, queue:nil) {
+            notification in
+            // Handle notification
+            self.editBarButton.isEnabled = true
         }
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Analytics.logEvent("screen_view", parameters: ["screen_name": "movie_details"])
+        Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
         getMovie()
         titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
         ownTitle.font = labelFont
@@ -144,6 +151,7 @@ class MovieDetailsViewController: UIViewController {
         popoverVc.view.frame = self.view.frame
         self.view.addSubview(popoverVc.view)
         popoverVc.didMove(toParentViewController: self)
+        editBarButton.isEnabled = false
     }
 
     func prepareAttributedString() -> NSAttributedString {

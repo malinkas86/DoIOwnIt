@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
             Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
         } else {
-            Analytics.logEvent("screen_view", parameters: ["screen_name": "login"])
+            Analytics.logEvent("view_screen", parameters: ["screen_name": "login"])
         }
     }
     

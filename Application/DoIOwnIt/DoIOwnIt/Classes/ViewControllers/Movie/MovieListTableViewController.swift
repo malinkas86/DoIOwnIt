@@ -57,7 +57,7 @@ class MovieListTableViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Analytics.logEvent("screen_view", parameters: ["screen_name": "search_movies"])
+        Analytics.logEvent("view_screen", parameters: ["screen_name": "search_movies"])
         getMovies(bySearchQuery: searchQuery)
     }
     
