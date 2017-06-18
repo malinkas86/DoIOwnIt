@@ -19,9 +19,9 @@ class LoginViewModel: NSObject {
             switch response {
             case let .success(user as User):
                 Analytics.setUserID(user.uid)
-                Analytics.setUserProperty(user.uid, forName: "userId")
+                Analytics.setUserProperty(user.uid, forName: "user_id")
                 Analytics.logEvent("login", parameters: ["status": "success",
-                                                         "username": email])
+                                                         "user_id": email])
                 completionHandler(Response.success(user))
             case let .error(error) :
                 Analytics.logEvent("login", parameters: ["status": "failure",
@@ -39,9 +39,9 @@ class LoginViewModel: NSObject {
             switch response {
             case let .success(user as User):
                 Analytics.setUserID(user.uid)
-                Analytics.setUserProperty(user.uid, forName: "userId")
+                Analytics.setUserProperty(user.uid, forName: "user_id")
                 Analytics.logEvent("login", parameters: ["status": "success",
-                                                         "username": user.uid])
+                                                         "user_id": user.uid])
                 completionHandler(Response.success(user))
             case let .error(error) :
                 completionHandler(Response.error(error))

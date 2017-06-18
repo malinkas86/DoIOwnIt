@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         if Auth.auth().currentUser != nil {
+            Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
         } else {
             Analytics.logEvent("screen_view", parameters: ["screen_name": "login"])
@@ -42,8 +43,6 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController : FBSDKLoginButtonDelegate {
-    
-    
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
