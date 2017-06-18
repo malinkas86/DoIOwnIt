@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import IHKeyboardAvoiding
 
 class StorageSelectionViewController: UIViewController {
@@ -30,6 +31,8 @@ class StorageSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Analytics.logEvent("screen_view", parameters: ["screen_name": "storage_methods",
+                                                       "movie_id": movieId!])
         showAnimate()
         print("releasedDate \(String(describing: releasedDate))")
         // Do any additional setup after loading the view.
@@ -43,6 +46,7 @@ class StorageSelectionViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
+        Analytics.logEvent("close_storage_preferences", parameters: nil)
         removeAnimate()
     }
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class StorageSelectionViewModel: NSObject {
     let storageManager = StorageManager(userMovieRepository: UserMovieRepository())
@@ -17,6 +18,12 @@ class StorageSelectionViewModel: NSObject {
             
             switch response {
             case .success(_):
+                Analytics.logEvent("save_storage_preferences", parameters: ["status": "success",
+                                                                            "movie_id": movieId,
+                                                                            "title": title,
+                                                                            "storage_methods": storageMethods])
+                Analytics.logEvent("add_movie", parameters: ["status": "success",
+                                                                "movie_id": movieId])
                 self.userMovieManager.getUserMovies(completionHandler: { userMovieResponse in
                     switch userMovieResponse {
                     case let .success(movies):
@@ -27,6 +34,11 @@ class StorageSelectionViewModel: NSObject {
                 })
                 completionHandler(Response.success(true))
             case .error(_):
+                Analytics.logEvent("save_storage_preferences", parameters: ["status": "failure",
+                                                                            "movie_id": movieId,
+                                                                            "title": title])
+                Analytics.logEvent("add_movie", parameters: ["status": "success",
+                                                                "movie_id": movieId])
                 completionHandler(Response.error(false))
             }
         })

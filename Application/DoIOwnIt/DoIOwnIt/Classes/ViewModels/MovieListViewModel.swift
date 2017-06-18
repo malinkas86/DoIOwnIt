@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class MovieListViewModel: NSObject {
     var currentPage : Int = 1
@@ -34,9 +35,15 @@ class MovieListViewModel: NSObject {
                     self.totalResults = movieList.totalResults
                     self.movies = self.movies + movieList.movies!
                     log.info("movie count\(self.movies.count)")
+                    Analytics.logEvent("movie_search", parameters: ["status": "success",
+                                                             "query": query,
+                                                             "page": self.currentPage - 1,
+                                                             "record_count": movieList.totalResults ?? "0"])
                     self.totalPages = movieList.totalPages
                     completionHandler(Response.success(true))
                 case .error(_) :
+                    Analytics.logEvent("movie_search", parameters: ["status": "failure",
+                                                                    "query": query])
                     completionHandler(Response.error("Error occurred while retreiving data"))
                 default :
                     break

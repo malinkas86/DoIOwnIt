@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserMovieLibraryViewModel: NSObject {
     
@@ -34,8 +35,13 @@ class UserMovieLibraryViewModel: NSObject {
         userMovieManager.removeUserMovie(movieId: movieId, completionHandler: { response in
             switch response {
             case .success(_):
+                Analytics.logEvent("remove_movie", parameters: ["status": "success",
+                                                                "movie_id": movieId])
                 completionHandler(Response.success(true))
             case .error(_) :
+                Analytics.logEvent("remove_movie", parameters: ["status": "failure",
+                                                                "movie_id": movieId])
+
                 completionHandler(Response.error("Error occurred while retreiving data"))
             
             }

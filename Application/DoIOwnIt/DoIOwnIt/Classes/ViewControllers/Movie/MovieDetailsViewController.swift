@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import SDWebImage
 
 class MovieDetailsViewController: UIViewController {
@@ -58,7 +59,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
+        Analytics.logEvent("screen_view", parameters: ["screen_name": "movie_details"])
         getMovie()
         titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
         ownTitle.font = labelFont
@@ -69,6 +70,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func didTapEdit(_ sender: Any) {
+        Analytics.logEvent("edit_storage_methods", parameters: ["movie_id": self.id!])
         showStoragePopUp()
     }
 
