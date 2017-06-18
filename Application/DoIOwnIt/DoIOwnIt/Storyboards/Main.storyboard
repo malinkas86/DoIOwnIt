@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16D30" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,70 +23,66 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="37" y="580" width="300" height="46"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="kBN-86-AAc"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blurry Photo Grid" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-wQ-Iry">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="667" id="gen-Wm-3rW"/>
-                                </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
-                                <rect key="frame" x="67" y="62" width="230" height="230"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="16" y="597" width="343" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="230" id="9He-mO-996"/>
+                                    <constraint firstAttribute="height" constant="50" id="kBN-86-AAc"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO I OWN IT?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-g2-48e">
-                                <rect key="frame" x="16" y="300" width="343" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="vrT-iF-0uk"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Catalog all your movies no matter where you store them… cloud, digital or disc we’ve got you covered. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-eK-pbk">
-                                <rect key="frame" x="35" y="361" width="304" height="72"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="304" id="Aey-K2-YBD"/>
-                                    <constraint firstAttribute="height" constant="72" id="GqI-iz-BaG"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-j7-IEW">
+                                <rect key="frame" x="32" y="20" width="311" height="449"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="311"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="9He-mO-996"/>
+                                            <constraint firstAttribute="width" secondItem="Dfx-yf-LZg" secondAttribute="height" multiplier="1:1" id="TP8-K3-SQe"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="9He-mO-996"/>
+                                            </mask>
+                                        </variation>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="esI-SM-5zg">
+                                        <rect key="frame" x="0.0" y="319" width="311" height="130"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO I OWN IT?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-g2-48e">
+                                                <rect key="frame" x="0.0" y="0.0" width="311" height="57.5"/>
+                                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Catalog all your movies no matter where you store them… cloud, digital or disc we’ve got you covered. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-eK-pbk">
+                                                <rect key="frame" x="0.0" y="65.5" width="311" height="64.5"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leading" id="29X-bC-7og"/>
-                            <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="41" id="7Wv-5x-F4u"/>
-                            <constraint firstItem="Dfx-yf-LZg" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" constant="42" id="8bY-JL-ZT9"/>
-                            <constraint firstItem="Dfx-yf-LZg" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="51" id="CYA-Sf-55w"/>
-                            <constraint firstItem="Ils-g2-48e" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="G8s-Qt-h4B"/>
-                            <constraint firstItem="Ils-g2-48e" firstAttribute="centerX" secondItem="MR1-eK-pbk" secondAttribute="centerX" id="J4b-ZO-aCf"/>
+                            <constraint firstItem="o7M-wQ-Iry" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" id="7BO-gs-jyQ"/>
+                            <constraint firstAttribute="trailing" secondItem="o7M-wQ-Iry" secondAttribute="trailing" id="9jE-zM-6X6"/>
+                            <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="20" id="FDx-RN-52G"/>
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="o7M-wQ-Iry" secondAttribute="bottom" id="JUc-q6-5uB"/>
-                            <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="MR1-eK-pbk" secondAttribute="centerX" id="SlS-o8-OzC"/>
-                            <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="21" id="UNm-0B-TQD"/>
-                            <constraint firstItem="MR1-eK-pbk" firstAttribute="top" secondItem="Ils-g2-48e" secondAttribute="bottom" constant="21" id="beD-Fl-1ah"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Dfx-yf-LZg" secondAttribute="trailing" constant="62" id="g3X-be-mq3"/>
-                            <constraint firstItem="Ils-g2-48e" firstAttribute="top" secondItem="Dfx-yf-LZg" secondAttribute="bottom" constant="8" symbolic="YES" id="iCW-8N-FXE"/>
-                            <constraint firstItem="Ils-g2-48e" firstAttribute="trailing" secondItem="jPH-ZO-QdV" secondAttribute="trailingMargin" id="oh7-iE-AFe"/>
-                            <constraint firstAttribute="trailing" secondItem="o7M-wQ-Iry" secondAttribute="trailing" id="uBB-oq-rQP"/>
-                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="MR1-eK-pbk" secondAttribute="bottom" constant="147" id="um8-mO-Tj7"/>
-                            <constraint firstItem="o7M-wQ-Iry" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" id="zmy-vb-Jsd"/>
+                            <constraint firstItem="lrk-j7-IEW" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" id="QMW-Hn-aXn"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="ftt-G5-Vo2"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="jPH-ZO-QdV" secondAttribute="centerX" id="he9-Yo-dYq"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lrk-j7-IEW" secondAttribute="trailing" constant="16" id="ljg-CJ-Jh8"/>
+                            <constraint firstItem="lrk-j7-IEW" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="16" id="qBc-ve-26Q"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="o7M-wQ-Iry"/>
-                            </mask>
-                        </variation>
                     </view>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
