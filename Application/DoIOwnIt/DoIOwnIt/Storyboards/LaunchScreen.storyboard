@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -28,24 +28,16 @@
                                     <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="17"/>
                                 </textAttributes>
                                 <items>
-                                    <navigationItem title="DO I OWN IT?" id="bPP-kf-J0f"/>
+                                    <navigationItem id="bPP-kf-J0f"/>
                                 </items>
                             </navigationBar>
-                            <searchBar contentMode="redraw" barStyle="black" translatesAutoresizingMaskIntoConstraints="NO" id="jGn-hu-ULJ">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <color key="barTintColor" red="0.10980392156862745" green="0.10980392156862745" blue="0.10980392156862745" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="jGn-hu-ULJ" firstAttribute="top" secondItem="ViY-ug-6lM" secondAttribute="bottom" id="HxA-NF-8x4"/>
                             <constraint firstItem="ViY-ug-6lM" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Nue-SE-AfB"/>
                             <constraint firstItem="ViY-ug-6lM" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="QUu-uR-Ns4"/>
-                            <constraint firstItem="jGn-hu-ULJ" firstAttribute="leading" secondItem="ViY-ug-6lM" secondAttribute="leading" id="izd-3F-49m"/>
                             <constraint firstAttribute="trailing" secondItem="ViY-ug-6lM" secondAttribute="trailing" id="kid-St-cPb"/>
-                            <constraint firstItem="jGn-hu-ULJ" firstAttribute="trailing" secondItem="ViY-ug-6lM" secondAttribute="trailing" id="t2c-nq-eke"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
