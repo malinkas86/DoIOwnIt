@@ -16,7 +16,7 @@ class MovieListTableViewController: UIViewController {
     let movieListViewModel = MovieListViewModel()
     var isFetchingData = false
     var isCancelled = false
-    var searchQuery = "" // Safe to remove this default search term?
+    var searchQuery = ""
     let searchController = UISearchController(searchResultsController: nil)
     let showMovieSegueIdentifier = "showMovieFromSearch"
     var selectedIndex : IndexPath?
@@ -35,11 +35,13 @@ class MovieListTableViewController: UIViewController {
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
         
+        searchController.searchBar.barTintColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.13, alpha: 1.0)
+        
         for view in searchController.searchBar.subviews {
             for subview in view.subviews {
                 if subview is UITextField {
                     let textField: UITextField = subview as! UITextField
-                    textField.backgroundColor = navbarColor
+                    textField.backgroundColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.03, alpha: 1.0)
                     textField.textColor = themeColor
                 }else{
                     subview.backgroundColor = navbarColor
