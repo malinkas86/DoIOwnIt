@@ -64,6 +64,10 @@
 		702013061EFF0552002E2132 /* config_default.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70749B651E5BE6F400F2CC8C /* config_default.plist */; };
 		702013071EFF0552002E2132 /* GoogleService-beta-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702012CB1EFEF738002E2132 /* GoogleService-beta-Info.plist */; };
 		702013081EFF0552002E2132 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75321E5631EB00115439 /* LaunchScreen.storyboard */; };
+		702013101EFF1389002E2132 /* DoIOwnIt-beta-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7020130F1EFF0552002E2132 /* DoIOwnIt-beta-Info.plist */; };
+		702013111EFF138A002E2132 /* DoIOwnIt-beta-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7020130F1EFF0552002E2132 /* DoIOwnIt-beta-Info.plist */; };
+		702013121EFF1394002E2132 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70DC751D1E5627D900115439 /* Info.plist */; };
+		702013131EFF1395002E2132 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70DC751D1E5627D900115439 /* Info.plist */; };
 		705D9E831EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705D9E821EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift */; };
 		7061457F1E5B706E00A18A7E /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7061457E1E5B706E00A18A7E /* UserRepository.swift */; };
 		706145811E5B70BE00A18A7E /* UserRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */; };
@@ -137,7 +141,7 @@
 		6C726D724955055D6F069773 /* Pods-DoIOwnItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		702012CB1EFEF738002E2132 /* GoogleService-beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-beta-Info.plist"; sourceTree = "<group>"; };
 		7020130E1EFF0552002E2132 /* DoIOwnIt-beta.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DoIOwnIt-beta.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7020130F1EFF0552002E2132 /* DoIOwnIt-beta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DoIOwnIt-beta-Info.plist"; path = "/Users/malinkas/Documents/Projects/malinka-git/DoIOwnIt/Application/DoIOwnIt/DoIOwnIt-beta-Info.plist"; sourceTree = "<absolute>"; };
+		7020130F1EFF0552002E2132 /* DoIOwnIt-beta-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "DoIOwnIt-beta-Info.plist"; path = "/Users/malinkas/Documents/Projects/malinka-git/DoIOwnIt/Application/DoIOwnIt/DoIOwnIt/DoIOwnIt-beta-Info.plist"; sourceTree = "<absolute>"; };
 		705D9E821EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieLibraryCollectionViewCell.swift; path = Classes/CollectionViewCells/Movie/MovieLibraryCollectionViewCell.swift; sourceTree = "<group>"; };
 		7061457E1E5B706E00A18A7E /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepository.swift; path = Classes/Services/Repository/UserRepository.swift; sourceTree = "<group>"; };
 		706145801E5B70BE00A18A7E /* UserRepositoryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserRepositoryProtocol.swift; path = Classes/Services/Repository/UserRepositoryProtocol.swift; sourceTree = "<group>"; };
@@ -602,6 +606,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				702013021EFF0552002E2132 /* Movie.storyboard in Resources */,
+				702013111EFF138A002E2132 /* DoIOwnIt-beta-Info.plist in Resources */,
+				702013131EFF1395002E2132 /* Info.plist in Resources */,
 				702013031EFF0552002E2132 /* Main.storyboard in Resources */,
 				702013041EFF0552002E2132 /* GoogleService-Info.plist in Resources */,
 				702013051EFF0552002E2132 /* Assets.xcassets in Resources */,
@@ -616,6 +622,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				70DC75511E5658F100115439 /* Movie.storyboard in Resources */,
+				702013101EFF1389002E2132 /* DoIOwnIt-beta-Info.plist in Resources */,
+				702013121EFF1394002E2132 /* Info.plist in Resources */,
 				70DC75351E56322900115439 /* Main.storyboard in Resources */,
 				70DC753C1E5638CA00115439 /* GoogleService-Info.plist in Resources */,
 				70DC75191E5627D900115439 /* Assets.xcassets in Resources */,

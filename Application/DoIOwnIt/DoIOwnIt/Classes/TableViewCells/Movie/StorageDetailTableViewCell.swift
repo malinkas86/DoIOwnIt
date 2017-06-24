@@ -35,11 +35,23 @@ class StorageDetailTableViewCell: UITableViewCell {
     }
 
     @IBAction func storageDescriptionEndEditingAction(_ sender: UITextField) {
-        if (sender.text?.characters.count)! > 0 {
-            self.isOwned.isChecked = true
-            self.isOwned.isHidden = false
+        if let text = sender.text {
+            if !text.isEmpty {
+                self.isOwned.isChecked = true
+                self.isOwned.isHidden = false
+            }
         }
     }
+    
+    @IBAction func textDidChanged(_ sender: UITextField) {
+        if let text = sender.text {
+            if !text.isEmpty {
+                self.isOwned.isChecked = true
+                self.isOwned.isHidden = false
+            }
+        }
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
