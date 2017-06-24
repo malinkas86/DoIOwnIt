@@ -25,8 +25,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
-        Database.database().isPersistenceEnabled = true
+        
+        if  let infoPlist = Bundle.main.infoDictionary,
+            let googleInfoPlistLocation = infoPlist["GoogleInfoPlist"] as? String,
+            let filePath = Bundle.main.path(forResource:googleInfoPlistLocation, ofType: "plist"),
+            let firbaseOptions = FirebaseOptions(contentsOfFile: filePath) {
+            
+            FirebaseApp.configure(options: firbaseOptions)
+            Database.database().isPersistenceEnabled = true
+            
+        }
+        
+        
         
         window?.tintColor = themeColor
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, // DIN Condensed
