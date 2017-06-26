@@ -37,17 +37,7 @@ class MovieDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationItem.backBarButtonItem?.title = "Back"
-        if fromViewController != nil {
-            if fromViewController == String(describing: UserMovieLibraryViewController.self) {
-                actionButton.setTitle("Remove from Library",for: .normal)
-            }else if fromViewController == String(describing: MovieListTableViewController.self){
-                actionButton.setTitle("Add to Library",for: .normal)
-                self.navigationItem.rightBarButtonItem = nil
-            }
-        }
-        if isOwned {
-            actionButton.setTitle("Remove from Library",for: .normal)
-        }
+        self.editBarButton.isEnabled = false
         
         let nc = NotificationCenter.default // Note that default is now a property, not a method call
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
@@ -70,7 +60,9 @@ class MovieDetailsViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        
         Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
+        
         getMovie()
         titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
         ownTitle.font = labelFont
@@ -108,6 +100,25 @@ class MovieDetailsViewController: UIViewController {
                 // set label Attribute
                 self.ownLabel.attributedText = self.prepareAttributedString()
                 
+                if self.fromViewController != nil {
+                    if self.fromViewController == String(describing: MovieListTableViewController.self){
+                        self.actionButton.setTitle("Add to Library",for: .normal)
+                    }
+                }
+                
+                if let storageMethods =  self.movieDetailsViewModel.storageMethods {
+                    if !storageMethods.isEmpty {
+                        self.isOwned = true
+                        self.editBarButton.isEnabled = true
+                        self.actionButton.setTitle("Remove from Library",for: .normal)
+                    } else {
+                        self.editBarButton.isEnabled = false
+                    }
+                    
+                }
+                
+                
+                
             case .error(_):
                 let alert = UIAlertController(title: "Error", message: "Having problems retreiving information\nPlease check your network connectivity", preferredStyle: UIAlertControllerStyle.alert)
                 self.present(alert, animated: true, completion: nil)
@@ -129,14 +140,31 @@ class MovieDetailsViewController: UIViewController {
         
         if fromViewController != nil {
             if fromViewController == String(describing: UserMovieLibraryViewController.self) || isOwned {
-                movieDetailsViewModel.removeMovie(movieId: movieDetailsViewModel.id!, completionHandler: { response in
-                    switch response {
-                    case .success(_) :
-                        _ = self.navigationController?.popViewController(animated: true)
-                    case let .error(error) :
-                        log.error(error)
+                
+                let alert = UIAlertController(title: "Confirm removal", message: "Do you want to remove movie\nfrom library?", preferredStyle: UIAlertControllerStyle.alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .default
+                    , handler: { action in
+                    switch action.style {
+                    case .default:
+                        self.movieDetailsViewModel.removeMovie(movieId: self.movieDetailsViewModel.id!, completionHandler: { response in
+                            switch response {
+                            case .success(_) :
+                                _ = self.navigationController?.popViewController(animated: true)
+                            case let .error(error) :
+                                log.error(error)
+                            }
+                        })
+                        
+                    case .cancel:
+                        break
+                    default:
+                        break
                     }
-                })
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
             }else if fromViewController == String(describing: MovieListTableViewController.self){
                 showStoragePopUp()
             }

@@ -89,19 +89,25 @@ class StorageSelectionViewController: UIViewController {
             }
         }
         
-        let storageSelectionViewModel = StorageSelectionViewModel()
-        storageSelectionViewModel.saveStoragePreference(movieId: movieId!, title: movieTitle!, posterPath: posterPath!, releasedDate: releasedDate!, storageMethods: storageMethods, completionHandler: { response in
-            switch response {
-            case .success(_):
-                DispatchQueue.main.async {
-                    self.removeAnimate()
-                    NotificationCenterUtil.postNotification(name: "StorageMethodsSaved", value: [:])
+        if storageMethods.isEmpty {
+            let alert = UIAlertController(title: "Error", message: "No storage method is selected \nor filled in", preferredStyle: UIAlertControllerStyle.alert)
+            self.present(alert, animated: true, completion: nil)
+            alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+        } else {
+            let storageSelectionViewModel = StorageSelectionViewModel()
+            storageSelectionViewModel.saveStoragePreference(movieId: movieId!, title: movieTitle!, posterPath: posterPath!, releasedDate: releasedDate!, storageMethods: storageMethods, completionHandler: { response in
+                switch response {
+                case .success(_):
+                    DispatchQueue.main.async {
+                        self.removeAnimate()
+                        NotificationCenterUtil.postNotification(name: "StorageMethodsSaved", value: [:])
+                    }
+                    
+                case .error(_):
+                    print("Error ocurred")
                 }
-                
-            case .error(_):
-                print("Error ocurred")
-            }
-        })
+            })
+        }
     }
 }
 

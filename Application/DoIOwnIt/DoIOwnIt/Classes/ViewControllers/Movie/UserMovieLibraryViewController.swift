@@ -31,6 +31,10 @@ class UserMovieLibraryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         Analytics.logEvent("view_screen", parameters: ["screen_name": "user_movies"])
+        getUserMovies()
+    }
+    
+    internal func getUserMovies() {
         userMovieLibraryViewModel.getUserMovies(completionHandler: { response in
             switch response {
             case .success(_):

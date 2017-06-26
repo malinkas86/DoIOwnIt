@@ -22,6 +22,7 @@ class MovieListTableViewController: UIViewController {
     let showMovieSegueIdentifier = "showMovieFromSearch"
     var selectedIndex : IndexPath?
     var searchText : String?
+    var userMovies: [Int : String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,6 +68,7 @@ class MovieListTableViewController: UIViewController {
             movieListViewModel.searchMovies(query: query, completionHandler: {response in
                 switch response {
                 case .success(_) :
+                    self.userMovies = self.movieListViewModel.localUserMovies
                     self.tableView.reloadData()
                 case let .error(error) :
                     log.error(error)
@@ -135,10 +137,10 @@ extension MovieListTableViewController : UITableViewDataSource {
         
         let movie = movieListViewModel.movies[indexPath.row]
         
-        let userMovies = movieListViewModel.localUserMovies
+        
         cell.addedLabel.isHidden = true
         cell.isOwnedButton.isHidden = false
-        if userMovies[movie.id!] != nil {
+        if self.userMovies[movie.id!] != nil {
             cell.addedLabel.isHidden = false
             cell.isOwnedButton.isHidden = true
             movie.isOwned = true

@@ -35,8 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         }
         
-        
-        
         window?.tintColor = themeColor
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, // DIN Condensed
                                                             NSBackgroundColorAttributeName: navbarColor,
@@ -76,7 +74,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         Analytics.logEvent("app_terminated", parameters: nil)
     }
-
 
 }
 

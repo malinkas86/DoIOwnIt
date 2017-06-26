@@ -28,11 +28,12 @@ class StorageSelectionViewModel: NSObject {
                     switch userMovieResponse {
                     case let .success(movies):
                         userMovies = movies as! [Movie]
+                        completionHandler(Response.success(true))
                     case .error(_):
                         completionHandler(Response.error("Error occurred while retreiving data"))
                     }
                 })
-                completionHandler(Response.success(true))
+                
             case .error(_):
                 Analytics.logEvent("save_storage_preferences", parameters: ["status": "failure",
                                                                             "movie_id": movieId,
