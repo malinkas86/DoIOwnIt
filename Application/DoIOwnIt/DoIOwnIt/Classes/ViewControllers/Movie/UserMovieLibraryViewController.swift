@@ -19,6 +19,8 @@ class UserMovieLibraryViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tutorialContentView: UIView!
+    
     let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     var movies : [Movie] = []
 
@@ -30,6 +32,7 @@ class UserMovieLibraryViewController: UIViewController {
     @IBAction func unwindToUserLibraryViewController(segue: UIStoryboardSegue) { }
     
     override func viewDidAppear(_ animated: Bool) {
+        tutorialContentView.isHidden = true
         Analytics.logEvent("view_screen", parameters: ["screen_name": "user_movies"])
         getUserMovies()
     }
@@ -39,6 +42,11 @@ class UserMovieLibraryViewController: UIViewController {
             switch response {
             case .success(_):
                 self.movies = userMovies
+                if !userMovies.isEmpty {
+                    self.tutorialContentView.isHidden = true
+                } else {
+                   self.tutorialContentView.isHidden = false
+                }
                 self.collectionView.reloadData()
                 for movie in self.movies {
                     log.debug(movie.title)
@@ -111,16 +119,6 @@ extension UserMovieLibraryViewController : UICollectionViewDelegate {
         performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
     }
 }
-
-/*extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (collectionView.bounds.size.width-((iphoneRowCount-1)*minimumInteritemSpacing))/iphoneRowCount
-        
-        
-        let height = width*3/2
-        return CGSize(width: width, height: CGFloat(height))
-    }
-}*/
 
 extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
     //1. is responsible for telling the layout the size of a given cell

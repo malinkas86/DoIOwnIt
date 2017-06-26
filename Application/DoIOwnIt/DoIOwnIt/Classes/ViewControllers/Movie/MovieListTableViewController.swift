@@ -13,6 +13,8 @@ import SDWebImage
 class MovieListTableViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var searchTutorialContentView: UIView!
+    @IBOutlet weak var noResultsFoundView: UIView!
     
     let movieListViewModel = MovieListViewModel()
     var isFetchingData = false
@@ -32,7 +34,8 @@ class MovieListTableViewController: UIViewController {
             // Handle notification
             self.getMovies(bySearchQuery: self.searchQuery)
         }
-        
+        searchTutorialContentView.isHidden = false
+        noResultsFoundView.isHidden = true
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -66,8 +69,15 @@ class MovieListTableViewController: UIViewController {
         if query.characters.count != 0 {
             isFetchingData = true
             movieListViewModel.searchMovies(query: query, completionHandler: {response in
+                self.searchTutorialContentView.isHidden = true
                 switch response {
                 case .success(_) :
+                    if self.movieListViewModel.movies.isEmpty {
+                        self.noResultsFoundView.isHidden = false
+                    } else {
+                        self.noResultsFoundView.isHidden = true
+                    }
+                    
                     self.userMovies = self.movieListViewModel.localUserMovies
                     self.tableView.reloadData()
                 case let .error(error) :

@@ -85,11 +85,51 @@
                                     <outlet property="delegate" destination="ngo-SH-lbc" id="Jh0-qQ-sb9"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP2-c0-9Cc">
+                                <rect key="frame" x="0.0" y="51" width="414" height="621"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search movies you want to add" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-yk-PJe">
+                                        <rect key="frame" x="88" y="300" width="239" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="hcs-yk-PJe" firstAttribute="centerX" secondItem="VP2-c0-9Cc" secondAttribute="centerX" id="aKI-Wm-7hB"/>
+                                    <constraint firstItem="hcs-yk-PJe" firstAttribute="centerY" secondItem="VP2-c0-9Cc" secondAttribute="centerY" id="nwE-MO-dx6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHo-cU-yMg">
+                                <rect key="frame" x="0.0" y="51" width="414" height="621"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results Found" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-mP-qbo">
+                                        <rect key="frame" x="139" y="300" width="135" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="6x6-mP-qbo" firstAttribute="centerX" secondItem="lHo-cU-yMg" secondAttribute="centerX" id="Sge-Ca-X7a"/>
+                                    <constraint firstItem="6x6-mP-qbo" firstAttribute="centerY" secondItem="lHo-cU-yMg" secondAttribute="centerY" id="cVK-xQ-m1H"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235289999995" green="0.070588235289999995" blue="0.070588235289999995" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Pcj-bK-5V2" firstAttribute="leading" secondItem="2gl-P8-O6F" secondAttribute="leading" id="7FO-Np-TwG"/>
+                            <constraint firstAttribute="trailing" secondItem="VP2-c0-9Cc" secondAttribute="trailing" id="Iwu-U4-Bnu"/>
+                            <constraint firstItem="lHo-cU-yMg" firstAttribute="leading" secondItem="2gl-P8-O6F" secondAttribute="leading" id="NJJ-XI-vDm"/>
+                            <constraint firstAttribute="trailing" secondItem="lHo-cU-yMg" secondAttribute="trailing" id="Nyi-Or-Qds"/>
                             <constraint firstItem="Pcj-bK-5V2" firstAttribute="top" secondItem="2gl-P8-O6F" secondAttribute="top" id="Ui1-VI-zeB"/>
+                            <constraint firstItem="VP2-c0-9Cc" firstAttribute="top" secondItem="nE7-9G-BIn" secondAttribute="bottom" constant="51" id="X8X-o4-4va"/>
+                            <constraint firstItem="R1X-D2-vJy" firstAttribute="top" secondItem="lHo-cU-yMg" secondAttribute="bottom" id="hdz-sO-9vz"/>
+                            <constraint firstItem="R1X-D2-vJy" firstAttribute="top" secondItem="VP2-c0-9Cc" secondAttribute="bottom" id="kLA-by-lis"/>
+                            <constraint firstItem="lHo-cU-yMg" firstAttribute="top" secondItem="nE7-9G-BIn" secondAttribute="bottom" constant="51" id="rpr-TK-hIu"/>
+                            <constraint firstItem="VP2-c0-9Cc" firstAttribute="leading" secondItem="2gl-P8-O6F" secondAttribute="leading" id="sGr-8A-mKA"/>
                             <constraint firstItem="R1X-D2-vJy" firstAttribute="top" secondItem="Pcj-bK-5V2" secondAttribute="bottom" id="sdn-5d-5lQ"/>
                             <constraint firstAttribute="trailing" secondItem="Pcj-bK-5V2" secondAttribute="trailing" id="uPO-dS-w9F"/>
                         </constraints>
@@ -103,6 +143,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="noResultsFoundView" destination="lHo-cU-yMg" id="HN7-qm-iap"/>
+                        <outlet property="searchTutorialContentView" destination="VP2-c0-9Cc" id="CA8-xa-ZeW"/>
                         <outlet property="tableView" destination="Pcj-bK-5V2" id="qg1-PZ-2jg"/>
                         <segue destination="lpn-YK-l9u" kind="show" identifier="showMovieFromSearch" id="daF-qM-FAf"/>
                     </connections>
@@ -110,7 +152,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2f4-Wf-RM5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="cEj-el-fHO" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="-574"/>
+            <point key="canvasLocation" x="1621.7391304347827" y="-574.72826086956525"/>
         </scene>
         <!--Storage Selection View Controller-->
         <scene sceneID="yGu-kF-IFF">
@@ -450,7 +492,7 @@
             </objects>
             <point key="canvasLocation" x="878" y="-574"/>
         </scene>
-        <!--DO I OWN IT?-->
+        <!--DO I OWN THAT?-->
         <scene sceneID="qgM-D5-dDp">
             <objects>
                 <viewController id="6Fn-93-j9V" customClass="UserMovieLibraryViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
@@ -503,16 +545,36 @@
                                     <outlet property="delegate" destination="6Fn-93-j9V" id="mzl-yl-vtB"/>
                                 </connections>
                             </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWt-HT-Qjw">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tutorial content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J1-m0-sNq">
+                                        <rect key="frame" x="147" y="326" width="120" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="1J1-m0-sNq" firstAttribute="centerX" secondItem="vWt-HT-Qjw" secondAttribute="centerX" id="jaK-3D-vfP"/>
+                                    <constraint firstItem="1J1-m0-sNq" firstAttribute="centerY" secondItem="vWt-HT-Qjw" secondAttribute="centerY" id="mDb-2N-fT4"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="Icz-a3-9Rt"/>
+                            <constraint firstItem="vWt-HT-Qjw" firstAttribute="top" secondItem="ktD-Eg-zhG" secondAttribute="bottom" id="NZm-tb-8w8"/>
+                            <constraint firstAttribute="trailing" secondItem="vWt-HT-Qjw" secondAttribute="trailing" id="QrW-8B-TfD"/>
+                            <constraint firstItem="vWt-HT-Qjw" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="WBD-yK-gjG"/>
+                            <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="vWt-HT-Qjw" secondAttribute="bottom" id="YQd-Nf-xoI"/>
                             <constraint firstAttribute="trailing" secondItem="dwB-iD-R2L" secondAttribute="trailing" id="bpy-Vd-ZEm"/>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="top" secondItem="ktD-Eg-zhG" secondAttribute="bottom" id="fPW-bH-MDV"/>
                             <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="dwB-iD-R2L" secondAttribute="bottom" id="y2Z-d4-c0u"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="DO I OWN IT?" id="8ZC-Mp-1iu">
+                    <navigationItem key="navigationItem" title="DO I OWN THAT?" id="8ZC-Mp-1iu">
                         <barButtonItem key="backBarButtonItem" title="Back" id="EWB-sY-Okm"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="CT7-iN-CjR">
                             <connections>
@@ -522,6 +584,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dwB-iD-R2L" id="SNO-GY-Sqr"/>
+                        <outlet property="tutorialContentView" destination="vWt-HT-Qjw" id="wYk-Gh-YOL"/>
                         <segue destination="lpn-YK-l9u" kind="show" identifier="showMovieFromLibrary" id="YAM-Mg-77X"/>
                     </connections>
                 </viewController>
