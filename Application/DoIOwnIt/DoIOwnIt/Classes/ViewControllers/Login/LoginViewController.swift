@@ -33,13 +33,6 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            
-        }catch let signoutError as NSError {
-            print(signoutError)
-        }
         
         if Auth.auth().currentUser != nil {
             Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
