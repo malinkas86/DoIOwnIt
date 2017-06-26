@@ -53,14 +53,18 @@ class MovieDetailsViewController: UIViewController {
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
             notification in
             // Handle notification
-            self.editBarButton.isEnabled = true
+            if let editBarButton = self.editBarButton {
+                editBarButton.isEnabled = true
+            }
             self.getMovie()
         }
         
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsCancelled"),object:nil, queue:nil) {
             notification in
             // Handle notification
-            self.editBarButton.isEnabled = true
+            if let editBarButton = self.editBarButton {
+                editBarButton.isEnabled = true
+            }
         }
         
     }
@@ -151,7 +155,10 @@ class MovieDetailsViewController: UIViewController {
         popoverVc.view.frame = self.view.frame
         self.view.addSubview(popoverVc.view)
         popoverVc.didMove(toParentViewController: self)
-        editBarButton.isEnabled = false
+        if let editBarButton = editBarButton {
+            editBarButton.isEnabled = false
+        }
+        
     }
 
     func prepareAttributedString() -> NSAttributedString {
