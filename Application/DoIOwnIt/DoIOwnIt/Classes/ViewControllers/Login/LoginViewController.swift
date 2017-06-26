@@ -23,10 +23,24 @@ class LoginViewController: UIViewController {
         fbLoginButtonView.readPermissions = ["public_profile", "email"]
         
         headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
+        
+        for const in fbLoginButtonView.constraints {
+            if const.firstAttribute == NSLayoutAttribute.height && const.constant == 28{
+                fbLoginButtonView.removeConstraint(const)
+            }
+        }
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+        }catch let signoutError as NSError {
+            print(signoutError)
+        }
+        
         if Auth.auth().currentUser != nil {
             Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
