@@ -20,12 +20,36 @@ class UserMovieLibraryViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tutorialContentView: UIView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
     let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     var movies : [Movie] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+//        searchController.searchResultsUpdater = self
+        searchBar.delegate = self
+        
+        searchBar.barTintColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.13, alpha: 1.0)
+        
+        for view in searchBar.subviews {
+            for subview in view.subviews {
+                if subview is UITextField {
+                    let textField: UITextField = subview as! UITextField
+                    textField.backgroundColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.03, alpha: 1.0)
+                    textField.textColor = themeColor
+                } else if subview is UIButton {
+                    let cancelButton: UIButton = subview as! UIButton
+                    cancelButton.setTitleColor(themeColor, for: .normal)
+                } else{
+                    subview.backgroundColor = navbarColor
+                }
+            }
+        }
+        
+        definesPresentationContext = true
+//        collectionView = searchController.searchBar
        
     }
     
@@ -42,10 +66,35 @@ class UserMovieLibraryViewController: UIViewController {
             switch response {
             case .success(_):
                 self.movies = userMovies
-                if !userMovies.isEmpty {
+                if !self.movies.isEmpty {
                     self.tutorialContentView.isHidden = true
                 } else {
                    self.tutorialContentView.isHidden = false
+                }
+                self.collectionView.reloadData()
+                for movie in self.movies {
+                    log.debug(movie.title)
+                    log.debug(movie.posterPath)
+                    
+                    let storageMethods = movie.storageMethods
+                    for (key, value) in storageMethods! {
+                        log.debug("key \(key) methods \(String(describing: value.methods))")
+                    }
+                }
+            default : break
+            }
+        })
+    }
+    
+    internal func getUserMovies(byQuery query: String) {
+        userMovieLibraryViewModel.getUserMovies(byQuery: query, completionHandler: { response in
+            switch response {
+            case .success(_):
+                self.movies = self.userMovieLibraryViewModel.searchMovies
+                if !self.movies.isEmpty {
+                    self.tutorialContentView.isHidden = true
+                } else {
+                    self.tutorialContentView.isHidden = false
                 }
                 self.collectionView.reloadData()
                 for movie in self.movies {
@@ -83,9 +132,7 @@ class UserMovieLibraryViewController: UIViewController {
             movieDetailsViewController.id = userMovies[(selectedIndex?.row)!].id
             movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
         }
-        
     }
-    
 
 }
 
@@ -93,7 +140,7 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieLibraryCollectionViewCell
         
-        let movie = userMovies[indexPath.row]
+        let movie = movies[indexPath.row]
         cell.movieImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
         
         cell.backgroundColor = UIColor.black
@@ -104,12 +151,16 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
         
     }
     
+//    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        searchController.searchBar.sizeToFit()
+//    }
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return userMovies.count
+        return movies.count
     }
 }
 
@@ -175,4 +226,29 @@ extension UserMovieLibraryViewController : UITableViewDelegate {
         selectedIndex = indexPath
         performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
     }
+}
+
+// Handles search actions
+extension UserMovieLibraryViewController : UISearchBarDelegate {
+    
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
+        //retrieve all the books of the user hits on cancel.
+        searchBar.resignFirstResponder()
+        Analytics.logEvent("cancel_library_movie_search", parameters: nil)
+        
+    }
+    
+    public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+        let searchQuery = searchBar.text!
+        searchBar.resignFirstResponder()
+        getUserMovies(byQuery: searchQuery)
+    }
+    
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            getUserMovies()
+        }
+    }
+    
+    
 }

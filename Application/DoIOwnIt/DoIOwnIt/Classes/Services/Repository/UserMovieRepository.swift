@@ -31,6 +31,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
         if let user = Auth.auth().currentUser {
+            
             ref.child("user-movies").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
                 // Get user value
                 var movies = [Movie]()
@@ -49,6 +50,29 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
             }) { (error) in
                 completionHandler(Response.error(error))
             }
+        }
+    }
+    
+    
+    func getUserMovies(byQuery query: String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+        
+        self.ref = Database.database().reference()
+        self.ref.keepSynced(true)
+        if let user = Auth.auth().currentUser {
+            
+            let query = ref.child("user-movies").child(user.uid).queryOrdered(byChild: "title").queryStarting(atValue: query).queryEnding(atValue: query+"\u{f8ff}")
+            query.observe(.value, with: { (snapshot) in
+                var movies = [Movie]()
+                for childSnapshot in snapshot.children {
+                    
+                    if let childSnapshot = childSnapshot as? DataSnapshot,
+                        let movieDictionary = childSnapshot.value as? [String : Any] {
+                        movies.append(Movie(withDictionary: movieDictionary))
+                    }
+                }
+                completionHandler(Response.success(movies))
+            })
+            
         }
     }
     

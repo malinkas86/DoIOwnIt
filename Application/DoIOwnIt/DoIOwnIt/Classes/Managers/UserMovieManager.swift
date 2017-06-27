@@ -36,6 +36,21 @@ class UserMovieManager: UserMovieManagerProtocol {
         userMovieRepositoryQueue.addOperation(operation)
     }
     
+    func getUserMovies(byQuery query: String, completionHandler : @escaping (Response<Any>) -> ()){
+        let operation = UserMovieRepositoryOperation(userMovieOperationType: .searchUserMovies, userMovieRepository: self.userMovieRepository!, completionHandler: { response in
+            switch response {
+            case let .success(movies as [Movie]) :
+                completionHandler(Response.success(movies))
+            case let .error(error) :
+                completionHandler(Response.error(error))
+            default : break
+                
+            }
+        })
+        operation.searchQuery = query
+        userMovieRepositoryQueue.addOperation(operation)
+    }
+    
     func getUserMovieById(movieId : Int, completionHandler : @escaping (Response<Any>) -> ()){
         let operation = UserMovieRepositoryOperation(userMovieOperationType: .getusermoviebyid, userMovieRepository: self.userMovieRepository!, completionHandler: { response in
             switch response {

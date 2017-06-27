@@ -18,6 +18,7 @@ class UserMovieRepositoryOperation: AsynchronousOperation {
     var posterPath : String?
     var releasedDate : String?
     var storageMethods : [StorageType : StorageMethod]?
+    var searchQuery: String?
     
     init(userMovieOperationType : UserMovieOperationType, userMovieRepository : UserMovieRespositoryProtocol, completionHandler : @escaping (_ response : Response<Any>) -> ()){
         self.userMovieOperationType = userMovieOperationType
@@ -51,6 +52,15 @@ class UserMovieRepositoryOperation: AsynchronousOperation {
                 self.completionHandler(response)
                 self.completeOperation()
             })
+        case .searchUserMovies:
+            if let searchQuery = searchQuery {
+                userMovieRepository.getUserMovies(byQuery: searchQuery, completionHandler: { response in
+                    self.completionHandler(response)
+                    self.completeOperation()
+                })
+            } else {
+                self.completeOperation()
+            }
         }
     }
 }

@@ -44,11 +44,12 @@ class MovieListTableViewController: UIViewController {
         
         for view in searchController.searchBar.subviews {
             for subview in view.subviews {
+                
                 if subview is UITextField {
                     let textField: UITextField = subview as! UITextField
                     textField.backgroundColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.03, alpha: 1.0)
                     textField.textColor = themeColor
-                }else{
+                } else{
                     subview.backgroundColor = navbarColor
                 }
             }
@@ -200,6 +201,5 @@ extension MovieListTableViewController : UISearchBarDelegate {
         movieListViewModel.totalPages = 0
         getMovies(bySearchQuery: searchQuery)
     }
-    
     
 }
