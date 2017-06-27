@@ -59,7 +59,7 @@ class MovieDetailsViewController: UIViewController {
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
         Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
         
