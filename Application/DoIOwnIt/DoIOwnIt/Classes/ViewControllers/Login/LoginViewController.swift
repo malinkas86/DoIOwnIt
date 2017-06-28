@@ -57,8 +57,6 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
             return
         }
         
-        print(FBSDKAccessToken.current().tokenString)
-        
         if !result.isCancelled {
             let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
@@ -74,7 +72,6 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
         } else {
             Analytics.logEvent("fb_cancel_login", parameters: nil)
         }
-        
         
     }
     
