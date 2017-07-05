@@ -95,6 +95,12 @@
 		70749B861E66579900F2CC8C /* StorageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */; };
 		7081781E1EA5E4E4008AB7D5 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */; };
 		70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */; };
+		70CC1E4E1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
+		70CC1E4F1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
+		70CC1E501F0DB35D00ED20AA /* DIN Condensed-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4C1F0DB35D00ED20AA /* DIN Condensed-Light.otf */; };
+		70CC1E511F0DB35D00ED20AA /* DIN Condensed-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4C1F0DB35D00ED20AA /* DIN Condensed-Light.otf */; };
+		70CC1E521F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4D1F0DB35D00ED20AA /* DIN Condensed-Medium.otf */; };
+		70CC1E531F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4D1F0DB35D00ED20AA /* DIN Condensed-Medium.otf */; };
 		70DC75121E5627D900115439 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75111E5627D900115439 /* AppDelegate.swift */; };
 		70DC75191E5627D900115439 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75181E5627D900115439 /* Assets.xcassets */; };
 		70DC75271E5627D900115439 /* DoIOwnItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DC75261E5627D900115439 /* DoIOwnItTests.swift */; };
@@ -169,6 +175,9 @@
 		70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewController.swift; path = Classes/ViewControllers/Movie/StorageSelectionViewController.swift; sourceTree = "<group>"; };
 		7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Classes/Utils/StringUtil.swift; sourceTree = "<group>"; };
 		70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterUtil.swift; path = Classes/Utils/NotificationCenterUtil.swift; sourceTree = "<group>"; };
+		70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Regular.otf"; sourceTree = "<group>"; };
+		70CC1E4C1F0DB35D00ED20AA /* DIN Condensed-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Light.otf"; sourceTree = "<group>"; };
+		70CC1E4D1F0DB35D00ED20AA /* DIN Condensed-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Medium.otf"; sourceTree = "<group>"; };
 		70DC750E1E5627D900115439 /* DoIOwnIt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoIOwnIt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DC75111E5627D900115439 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70DC75181E5627D900115439 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -313,6 +322,25 @@
 			name = Movie;
 			sourceTree = "<group>";
 		};
+		70CC1E491F0DB2D000ED20AA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				70CC1E4A1F0DB2E000ED20AA /* Fonts */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		70CC1E4A1F0DB2E000ED20AA /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */,
+				70CC1E4C1F0DB35D00ED20AA /* DIN Condensed-Light.otf */,
+				70CC1E4D1F0DB35D00ED20AA /* DIN Condensed-Medium.otf */,
+			);
+			name = Fonts;
+			path = Resources/Fonts;
+			sourceTree = "<group>";
+		};
 		70DC75051E5627D900115439 = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +365,7 @@
 		70DC75101E5627D900115439 /* DoIOwnIt */ = {
 			isa = PBXGroup;
 			children = (
+				70CC1E491F0DB2D000ED20AA /* Resources */,
 				70DC75361E56336300115439 /* Classes */,
 				70DC75311E56316E00115439 /* Storyboards */,
 				70DC75111E5627D900115439 /* AppDelegate.swift */,
@@ -612,8 +641,11 @@
 				702013041EFF0552002E2132 /* GoogleService-Info.plist in Resources */,
 				702013051EFF0552002E2132 /* Assets.xcassets in Resources */,
 				702013061EFF0552002E2132 /* config_default.plist in Resources */,
+				70CC1E531F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */,
 				702013071EFF0552002E2132 /* GoogleService-beta-Info.plist in Resources */,
+				70CC1E511F0DB35D00ED20AA /* DIN Condensed-Light.otf in Resources */,
 				702013081EFF0552002E2132 /* LaunchScreen.storyboard in Resources */,
+				70CC1E4F1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -628,8 +660,11 @@
 				70DC753C1E5638CA00115439 /* GoogleService-Info.plist in Resources */,
 				70DC75191E5627D900115439 /* Assets.xcassets in Resources */,
 				70749B661E5BE6F400F2CC8C /* config_default.plist in Resources */,
+				70CC1E521F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */,
 				702012CC1EFEF738002E2132 /* GoogleService-beta-Info.plist in Resources */,
+				70CC1E501F0DB35D00ED20AA /* DIN Condensed-Light.otf in Resources */,
 				70DC75331E5631EB00115439 /* LaunchScreen.storyboard in Resources */,
+				70CC1E4E1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
