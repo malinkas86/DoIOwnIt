@@ -22,6 +22,8 @@ class UserMovieLibraryViewController: UIViewController {
     @IBOutlet weak var tutorialContentView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
     
+    var isInitialLoad = false
+    
     
     let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     var movies : [Movie] = []
@@ -30,6 +32,7 @@ class UserMovieLibraryViewController: UIViewController {
         super.viewDidLoad()
 //        searchController.searchResultsUpdater = self
         searchBar.delegate = self
+        isInitialLoad = true
         
         searchBar.barTintColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.13, alpha: 1.0)
         
@@ -58,7 +61,15 @@ class UserMovieLibraryViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         tutorialContentView.isHidden = true
         Analytics.logEvent("view_screen", parameters: ["screen_name": "user_movies"])
-        getUserMovies()
+        if isInitialLoad {
+            isInitialLoad = false
+            getUserMovies()
+        } else {
+            if let serachQuery = searchBar.text {
+                getUserMovies(byQuery: serachQuery)
+            }
+        }
+        
     }
     
     internal func getUserMovies() {
