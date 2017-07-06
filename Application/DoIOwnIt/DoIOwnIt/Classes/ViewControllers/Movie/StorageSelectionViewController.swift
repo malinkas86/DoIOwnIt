@@ -41,7 +41,7 @@ class StorageSelectionViewController: UIViewController {
         //mainView.layer.borderColor = UIColor.gray.cgColor
         //mainView.layer.borderWidth = 0.5
         mainView.clipsToBounds = true
-        KeyboardAvoiding.avoidingView = self.mainView
+        KeyboardAvoiding.avoidingView = self.view
         
     }
     
