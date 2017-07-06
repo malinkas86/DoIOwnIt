@@ -129,7 +129,7 @@ class UserMovieLibraryViewController: UIViewController {
         // Pass the selected object to the new view controller.
         if segue.identifier == "showMovieFromLibrary" {
             let movieDetailsViewController = segue.destination as! MovieDetailsViewController
-            movieDetailsViewController.id = userMovies[(selectedIndex?.row)!].id
+            movieDetailsViewController.id = self.movies[(selectedIndex?.row)!].id
             movieDetailsViewController.fromViewController = String(describing: UserMovieLibraryViewController.self)
         }
     }
