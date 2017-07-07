@@ -62,14 +62,24 @@ class MovieDetailsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
-        
+
+        self.overviewLabel.text = ""
+        self.overviewLabel.sizeToFit()
+        self.castLabel.text = ""
+        self.castLabel.sizeToFit()
+        self.directorsLabel.text = ""
+        self.directorsLabel.sizeToFit()
+        self.titleLabel.text = ""
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
         getMovie()
         titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
         ownTitle.font = labelFont
         plotTitle.font = labelFont
         castTitle.font = labelFont
         directorTitle.font = labelFont
-    
     }
     
     @IBAction func didTapEdit(_ sender: Any) {
