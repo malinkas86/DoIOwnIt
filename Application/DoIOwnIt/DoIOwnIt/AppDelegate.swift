@@ -40,6 +40,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                             NSBackgroundColorAttributeName: navbarColor,
                                                             NSKernAttributeName : 5.0]
         
+        //get app version number
+        let appInfo = Bundle.main.infoDictionary! as Dictionary<String,AnyObject>
+        let shortVersionString = appInfo["CFBundleShortVersionString"] as! String
+        let bundleVersion = appInfo["CFBundleVersion"] as! String
+        let applicationVersion = shortVersionString + "." + bundleVersion
+        
+        let defaults = UserDefaults.standard
+            defaults.set(applicationVersion, forKey: "application_version")
+            defaults.synchronize()
+        
+        
         return true
     }
     
