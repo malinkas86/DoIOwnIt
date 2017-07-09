@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bcX-Np-10e">
-    <device id="retina4_0" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -20,23 +20,23 @@
                         <viewControllerLayoutGuide type="bottom" id="tlJ-NO-0ds"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jPH-ZO-QdV">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.75" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Blurry Photo Grid" translatesAutoresizingMaskIntoConstraints="NO" id="o7M-wQ-Iry">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="16" y="498" width="288" height="50"/>
+                                <rect key="frame" x="16" y="410" width="288" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="kBN-86-AAc"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-j7-IEW">
-                                <rect key="frame" x="32" y="20" width="256" height="394"/>
+                                <rect key="frame" x="48" y="20" width="224" height="358.5"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="App Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
-                                        <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" image="App Icon Splash" translatesAutoresizingMaskIntoConstraints="NO" id="Dfx-yf-LZg">
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="224"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="100" id="9He-mO-996"/>
                                             <constraint firstAttribute="width" secondItem="Dfx-yf-LZg" secondAttribute="height" multiplier="1:1" id="TP8-K3-SQe"/>
@@ -48,16 +48,16 @@
                                         </variation>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="esI-SM-5zg">
-                                        <rect key="frame" x="0.0" y="264" width="256" height="130"/>
+                                        <rect key="frame" x="0.0" y="232" width="224" height="126.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO I OWN IT?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-g2-48e">
-                                                <rect key="frame" x="0.0" y="0.0" width="256" height="57.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DO I OWN THAT?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="16" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ils-g2-48e">
+                                                <rect key="frame" x="0.0" y="0.0" width="224" height="57.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="42"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Catalog all your movies no matter where you store them… cloud, digital or disc we’ve got you covered. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-eK-pbk">
-                                                <rect key="frame" x="0.0" y="65.5" width="256" height="64.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="Catalog all your movies no matter where you store them… cloud, digital or disc we’ve got you covered. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MR1-eK-pbk">
+                                                <rect key="frame" x="0.0" y="65.5" width="224" height="61"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
@@ -65,6 +65,11 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="subviews">
+                                        <include reference="Dfx-yf-LZg"/>
+                                    </mask>
+                                </variation>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,8 +83,12 @@
                             <constraint firstItem="lrk-j7-IEW" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" id="QMW-Hn-aXn"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="ftt-G5-Vo2"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="jPH-ZO-QdV" secondAttribute="centerX" id="he9-Yo-dYq"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="lrk-j7-IEW" secondAttribute="trailing" constant="16" id="ljg-CJ-Jh8"/>
-                            <constraint firstItem="lrk-j7-IEW" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="16" id="qBc-ve-26Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lrk-j7-IEW" secondAttribute="trailing" constant="16" id="ljg-CJ-Jh8">
+                                <variation key="heightClass=regular-widthClass=compact" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="lrk-j7-IEW" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="16" id="qBc-ve-26Q">
+                                <variation key="heightClass=regular-widthClass=compact" constant="32"/>
+                            </constraint>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -105,7 +114,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="App Icon" width="252" height="252"/>
+        <image name="App Icon Splash" width="252" height="252"/>
         <image name="Blurry Photo Grid" width="464" height="738"/>
     </resources>
 </document>
