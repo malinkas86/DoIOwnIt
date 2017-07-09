@@ -245,6 +245,7 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         //retrieve all the books of the user hits on cancel.
         searchBar.resignFirstResponder()
+        searchBar.setShowsCancelButton(false, animated: true)
         Analytics.logEvent("cancel_library_movie_search", parameters: nil)
         
     }
@@ -260,6 +261,12 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
             getUserMovies()
         }
     }
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    
     
     
 }
