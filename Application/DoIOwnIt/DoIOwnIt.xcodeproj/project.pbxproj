@@ -95,6 +95,8 @@
 		70749B861E66579900F2CC8C /* StorageSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */; };
 		7080F64E1F0FEEB3003E5AA5 /* DoIOwnIt-beta.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E541F0FEA8900ED20AA /* DoIOwnIt-beta.entitlements */; };
 		7080F64F1F0FEEBA003E5AA5 /* DoIOwnIt.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E551F0FEA9D00ED20AA /* DoIOwnIt.entitlements */; };
+		7080F6511F12A5E3003E5AA5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7080F6501F12A5E3003E5AA5 /* Settings.bundle */; };
+		7080F6521F12A5E3003E5AA5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7080F6501F12A5E3003E5AA5 /* Settings.bundle */; };
 		7081781E1EA5E4E4008AB7D5 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */; };
 		70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */; };
 		70CC1E4E1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
@@ -175,6 +177,7 @@
 		70749B811E65CEC100F2CC8C /* StorageType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageType.swift; path = Classes/Models/StorageType.swift; sourceTree = "<group>"; };
 		70749B831E65D00800F2CC8C /* StorageMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageMethod.swift; path = Classes/Models/StorageMethod.swift; sourceTree = "<group>"; };
 		70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewController.swift; path = Classes/ViewControllers/Movie/StorageSelectionViewController.swift; sourceTree = "<group>"; };
+		7080F6501F12A5E3003E5AA5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
 		7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Classes/Utils/StringUtil.swift; sourceTree = "<group>"; };
 		70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterUtil.swift; path = Classes/Utils/NotificationCenterUtil.swift; sourceTree = "<group>"; };
 		70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Regular.otf"; sourceTree = "<group>"; };
@@ -329,6 +332,7 @@
 		70CC1E491F0DB2D000ED20AA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				7080F6501F12A5E3003E5AA5 /* Settings.bundle */,
 				70CC1E4A1F0DB2E000ED20AA /* Fonts */,
 			);
 			name = Resources;
@@ -657,6 +661,7 @@
 				702013131EFF1395002E2132 /* Info.plist in Resources */,
 				702013031EFF0552002E2132 /* Main.storyboard in Resources */,
 				702013041EFF0552002E2132 /* GoogleService-Info.plist in Resources */,
+				7080F6521F12A5E3003E5AA5 /* Settings.bundle in Resources */,
 				702013051EFF0552002E2132 /* Assets.xcassets in Resources */,
 				702013061EFF0552002E2132 /* config_default.plist in Resources */,
 				70CC1E531F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */,
@@ -677,6 +682,7 @@
 				702013121EFF1394002E2132 /* Info.plist in Resources */,
 				70DC75351E56322900115439 /* Main.storyboard in Resources */,
 				70DC753C1E5638CA00115439 /* GoogleService-Info.plist in Resources */,
+				7080F6511F12A5E3003E5AA5 /* Settings.bundle in Resources */,
 				70DC75191E5627D900115439 /* Assets.xcassets in Resources */,
 				70749B661E5BE6F400F2CC8C /* config_default.plist in Resources */,
 				70CC1E521F0DB35D00ED20AA /* DIN Condensed-Medium.otf in Resources */,
