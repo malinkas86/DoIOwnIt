@@ -54,13 +54,13 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     }
     
     
-    func getUserMovies(byQuery query: String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func getUserMovies(byQuery searchQuery: String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
         if let user = Auth.auth().currentUser {
             
-            let query = ref.child("user-movies").child(user.uid).queryOrdered(byChild: "title").queryStarting(atValue: query).queryEnding(atValue: query+"\u{f8ff}")
+            let query = ref.child("user-movies").child(user.uid).queryOrdered(byChild: "title").queryStarting(atValue: searchQuery.lowercased()).queryEnding(atValue: searchQuery.lowercased()+"\u{f8ff}")
             query.observe(.value, with: { (snapshot) in
                 var movies = [Movie]()
                 for childSnapshot in snapshot.children {

@@ -77,7 +77,7 @@ class Movie: NSObject {
             dictionary["id"] = self.id
         }
         if self.title != nil {
-            dictionary["title"] = self.title
+            dictionary["title"] = self.title?.lowercased()
         }
         if self.posterPath != nil {
             dictionary["poster_path"] = self.posterPath

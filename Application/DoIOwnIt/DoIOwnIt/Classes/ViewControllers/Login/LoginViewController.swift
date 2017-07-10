@@ -58,6 +58,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
         }
         
         if !result.isCancelled {
+            fbLoginButtonView.isHidden = true
             let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
             
             loginViewModel.signInUser(withCredential: credential, completionHandler: { response in
@@ -70,6 +71,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
                 }
             })
         } else {
+            fbLoginButtonView.isHidden = false
             Analytics.logEvent("fb_cancel_login", parameters: nil)
         }
         

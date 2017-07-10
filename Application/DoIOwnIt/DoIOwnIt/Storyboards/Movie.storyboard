@@ -107,10 +107,10 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VP2-c0-9Cc">
-                                <rect key="frame" x="0.0" y="51" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="453"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search movie titles you want to add to your library." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcs-yk-PJe">
-                                        <rect key="frame" x="92" y="290.33333333333326" width="230" height="40.666666666666686"/>
+                                        <rect key="frame" x="45" y="206" width="230" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="230" id="UoA-MF-D4r"/>
                                         </constraints>
@@ -126,10 +126,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHo-cU-yMg">
-                                <rect key="frame" x="0.0" y="51" width="414" height="621"/>
+                                <rect key="frame" x="0.0" y="51" width="320" height="453"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results Found." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6x6-mP-qbo">
-                                        <rect key="frame" x="137" y="300" width="139.33333333333331" height="21"/>
+                                        <rect key="frame" x="90" y="216" width="139.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
@@ -157,12 +157,6 @@
                             <constraint firstItem="R1X-D2-vJy" firstAttribute="top" secondItem="Pcj-bK-5V2" secondAttribute="bottom" id="sdn-5d-5lQ"/>
                             <constraint firstAttribute="trailing" secondItem="Pcj-bK-5V2" secondAttribute="trailing" id="uPO-dS-w9F"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="VP2-c0-9Cc"/>
-                                <exclude reference="lHo-cU-yMg"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Add to library" id="uTW-LR-nE8">
                         <barButtonItem key="backBarButtonItem" title="Back" id="YLP-Z2-uM6"/>
@@ -572,9 +566,13 @@
                                         </view>
                                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="RSN-DQ-hK2" secondAttribute="trailing" id="8C8-R5-gp7"/>
+                                            <constraint firstItem="RSN-DQ-hK2" firstAttribute="top" secondItem="E83-OF-0bK" secondAttribute="top" id="A1I-Rh-JiT"/>
                                             <constraint firstItem="RSN-DQ-hK2" firstAttribute="top" secondItem="E83-OF-0bK" secondAttribute="top" id="B7N-Db-KmF"/>
                                             <constraint firstAttribute="trailing" secondItem="RSN-DQ-hK2" secondAttribute="trailing" id="K5H-0r-cNI"/>
                                             <constraint firstAttribute="bottom" secondItem="RSN-DQ-hK2" secondAttribute="bottom" id="Uhx-Ol-Yl3"/>
+                                            <constraint firstAttribute="bottom" secondItem="RSN-DQ-hK2" secondAttribute="bottom" id="UuC-ne-aqZ"/>
+                                            <constraint firstItem="RSN-DQ-hK2" firstAttribute="leading" secondItem="E83-OF-0bK" secondAttribute="leading" id="YPp-bG-kMI"/>
                                             <constraint firstItem="RSN-DQ-hK2" firstAttribute="leading" secondItem="E83-OF-0bK" secondAttribute="leading" id="wJI-IX-aaP"/>
                                         </constraints>
                                         <size key="customSize" width="150" height="225"/>
@@ -592,14 +590,14 @@
                                 <rect key="frame" x="0.0" y="44" width="320" height="460"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Film Icon" translatesAutoresizingMaskIntoConstraints="NO" id="Vd5-Vd-ygD">
-                                        <rect key="frame" x="120.5" y="97" width="80" height="100"/>
+                                        <rect key="frame" x="120" y="97" width="80" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="Mbu-hX-9Ix"/>
                                             <constraint firstAttribute="width" constant="80" id="g7k-FJ-fYD"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap the + button to add your first movie." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1J1-m0-sNq">
-                                        <rect key="frame" x="60.5" y="224" width="200" height="41"/>
+                                        <rect key="frame" x="60" y="224" width="200" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="200" id="92H-Vr-GAn"/>
                                         </constraints>
@@ -624,21 +622,41 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Uu-NN-jdZ">
+                                <rect key="frame" x="0.0" y="44" width="320" height="460"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Results Found." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FeU-7s-kUk">
+                                        <rect key="frame" x="90" y="219.5" width="140" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="FeU-7s-kUk" firstAttribute="centerY" secondItem="2Uu-NN-jdZ" secondAttribute="centerY" id="Ys0-p7-oie"/>
+                                    <constraint firstItem="FeU-7s-kUk" firstAttribute="centerX" secondItem="2Uu-NN-jdZ" secondAttribute="centerX" id="cBa-co-NHC"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.070588235294117646" green="0.070588235294117646" blue="0.070588235294117646" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="top" secondItem="zbc-7d-GyI" secondAttribute="bottom" id="GW8-TU-5cD"/>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="Icz-a3-9Rt"/>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="top" secondItem="zbc-7d-GyI" secondAttribute="bottom" id="KgS-bJ-W4s"/>
+                            <constraint firstAttribute="trailing" secondItem="2Uu-NN-jdZ" secondAttribute="trailing" id="KoJ-kl-nOq"/>
+                            <constraint firstItem="2Uu-NN-jdZ" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="OZj-Wp-AnG"/>
                             <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="dwB-iD-R2L" secondAttribute="bottom" id="Oaw-Jr-GRr"/>
                             <constraint firstAttribute="trailing" secondItem="vWt-HT-Qjw" secondAttribute="trailing" id="QrW-8B-TfD"/>
                             <constraint firstAttribute="trailing" secondItem="dwB-iD-R2L" secondAttribute="trailing" id="RF7-rb-J9G"/>
+                            <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="2Uu-NN-jdZ" secondAttribute="bottom" id="T38-Dz-C5k"/>
                             <constraint firstItem="vWt-HT-Qjw" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="WBD-yK-gjG"/>
                             <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="vWt-HT-Qjw" secondAttribute="bottom" id="YQd-Nf-xoI"/>
                             <constraint firstItem="vWt-HT-Qjw" firstAttribute="top" secondItem="zbc-7d-GyI" secondAttribute="bottom" id="Z1m-04-ieN"/>
                             <constraint firstAttribute="trailing" secondItem="dwB-iD-R2L" secondAttribute="trailing" id="bpy-Vd-ZEm"/>
                             <constraint firstItem="zbc-7d-GyI" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="eNj-0h-0db"/>
                             <constraint firstItem="dwB-iD-R2L" firstAttribute="leading" secondItem="htR-WU-3hI" secondAttribute="leading" id="fbE-vT-DhQ"/>
+                            <constraint firstItem="2Uu-NN-jdZ" firstAttribute="top" secondItem="zbc-7d-GyI" secondAttribute="bottom" id="mgp-7G-v90"/>
                             <constraint firstItem="zbc-7d-GyI" firstAttribute="top" secondItem="ktD-Eg-zhG" secondAttribute="bottom" id="p9T-hi-KqZ"/>
                             <constraint firstAttribute="trailing" secondItem="zbc-7d-GyI" secondAttribute="trailing" id="rQf-bk-3Ns"/>
                             <constraint firstItem="YqX-Pz-K6Y" firstAttribute="top" secondItem="dwB-iD-R2L" secondAttribute="bottom" id="y2Z-d4-c0u"/>
@@ -654,6 +672,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="dwB-iD-R2L" id="SNO-GY-Sqr"/>
+                        <outlet property="noResultsFoundView" destination="2Uu-NN-jdZ" id="utj-2w-rrK"/>
                         <outlet property="searchBar" destination="zbc-7d-GyI" id="TrP-G0-V2d"/>
                         <outlet property="tutorialContentView" destination="vWt-HT-Qjw" id="wYk-Gh-YOL"/>
                         <segue destination="lpn-YK-l9u" kind="show" identifier="showMovieFromLibrary" id="YAM-Mg-77X"/>
@@ -661,7 +680,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zua-kZ-afs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4.3478260869565224" y="77.445652173913047"/>
+            <point key="canvasLocation" x="-5.625" y="77.112676056338032"/>
         </scene>
         <!--Library-->
         <scene sceneID="Y1f-dE-vjc">

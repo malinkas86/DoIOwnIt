@@ -21,6 +21,7 @@ class UserMovieLibraryViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var tutorialContentView: UIView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var noResultsFoundView: UIView!
     
     var isInitialLoad = false
     
@@ -31,6 +32,7 @@ class UserMovieLibraryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        searchController.searchResultsUpdater = self
+        noResultsFoundView.isHidden = true
         searchBar.delegate = self
         isInitialLoad = true
         
@@ -103,9 +105,9 @@ class UserMovieLibraryViewController: UIViewController {
             case .success(_):
                 self.movies = self.userMovieLibraryViewModel.searchMovies
                 if !self.movies.isEmpty {
-                    self.tutorialContentView.isHidden = true
+                    self.noResultsFoundView.isHidden = true
                 } else {
-                    self.tutorialContentView.isHidden = false
+                    self.noResultsFoundView.isHidden = false
                 }
                 self.collectionView.reloadData()
                 for movie in self.movies {
