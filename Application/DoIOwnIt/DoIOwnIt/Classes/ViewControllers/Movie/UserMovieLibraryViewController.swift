@@ -75,6 +75,7 @@ class UserMovieLibraryViewController: UIViewController {
     }
     
     internal func getUserMovies() {
+        self.noResultsFoundView.isHidden = true
         userMovieLibraryViewModel.getUserMovies(completionHandler: { response in
             switch response {
             case .success(_):
@@ -249,6 +250,7 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
         Analytics.logEvent("cancel_library_movie_search", parameters: nil)
+        getUserMovies()
         
     }
     
@@ -267,8 +269,5 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(true, animated: true)
     }
-    
-    
-    
     
 }
