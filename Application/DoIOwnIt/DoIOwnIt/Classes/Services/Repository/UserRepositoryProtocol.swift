@@ -14,8 +14,12 @@ enum UserOperationType {
 }
 
 protocol UserRepositoryProtocol {
-    func checkUserAndSave(user : User, username : String, completionHandler : @escaping (_ response : Response<Any>) -> ())
-    func saveUserInfo(user : User, username : String, firstName : String, lastName : String, completionHandler : @escaping (_ response : Response<Any>) -> ())
-    func signInUser(withEmail email : String, password : String, completionHandler : @escaping (_ response : Response<Any>) -> ())
-    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ())
+    func checkUserAndSave(user: User, username: String,
+                          completionHandler: @escaping (_ response: Response<Any>) -> ())
+    func saveUserInfo(user: User, username: String, firstName: String, lastName: String,
+                      completionHandler: @escaping (_ response: Response<Any>) -> ())
+    func signInUser(withEmail email: String, password: String,
+                    completionHandler: @escaping (_ response: Response<Any>) -> ())
+    func signInUser(withCredential credential: AuthCredential,
+                    completionHandler: @escaping (_ response : Response<Any>) -> ())
 }

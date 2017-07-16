@@ -18,17 +18,17 @@ class LoginViewModel: NSObject {
         userManager.signInUser(withEmail: email, password: password, completionHandler: { response in
             switch response {
             case let .success(user as User):
-                Analytics.setUserID(user.uid)
-                Analytics.setUserProperty(user.uid, forName: "user_id")
-                Analytics.logEvent("login", parameters: ["status": "success",
+                analyticsManager.setUserID(user.uid)
+                analyticsManager.setUserProperty(userProperty: user.uid, userPropertyValue: "user_id")
+                analyticsManager.logEvent("login", parameters: ["status": "success",
                                                          "user_id": email])
                 completionHandler(Response.success(user))
             case let .error(error) :
-                Analytics.logEvent("login", parameters: ["status": "failure",
+                analyticsManager.logEvent("login", parameters: ["status": "failure",
                                                          "username": email])
                 completionHandler(Response.error(error))
             default:
-                Analytics.logEvent("login", parameters: ["status": "failure",
+                analyticsManager.logEvent("login", parameters: ["status": "failure",
                                                          "username": email])
             }
         })
@@ -38,15 +38,15 @@ class LoginViewModel: NSObject {
         userManager.signInUser(withCredential: credential, completionHandler: {response in
             switch response {
             case let .success(user as User):
-                Analytics.setUserID(user.uid)
-                Analytics.setUserProperty(user.uid, forName: "user_id")
-                Analytics.logEvent("login", parameters: ["status": "success",
+                analyticsManager.setUserID(user.uid)
+                analyticsManager.setUserProperty(userProperty: user.uid, userPropertyValue: "user_id")
+                analyticsManager.logEvent("login", parameters: ["status": "success",
                                                          "user_id": user.uid])
                 completionHandler(Response.success(user))
             case let .error(error) :
                 completionHandler(Response.error(error))
             default:
-                Analytics.logEvent("login", parameters: ["status": "failure"])
+                analyticsManager.logEvent("login", parameters: ["status": "failure"])
             }
         })
     }

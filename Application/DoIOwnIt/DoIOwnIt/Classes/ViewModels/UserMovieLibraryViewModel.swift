@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class UserMovieLibraryViewModel: NSObject {
     
@@ -38,12 +37,12 @@ class UserMovieLibraryViewModel: NSObject {
             case let .success(movies as [Movie]):
                 self.searchMovies = movies
                 log.info("movie count\(self.searchMovies.count)")
-                Analytics.logEvent("search_user_movie", parameters: ["status": "success",
+                analyticsManager.logEvent("search_user_movie", parameters: ["status": "success",
                                                                 "query": query,
                                                                 "result_count": self.searchMovies.count])
                 completionHandler(Response.success(true))
             case .error(_) :
-                Analytics.logEvent("search_user_movie", parameters: ["status": "failure",
+                analyticsManager.logEvent("search_user_movie", parameters: ["status": "failure",
                                                                      "query": query])
                 completionHandler(Response.error("Error occurred while retreiving data"))
             default :
@@ -58,11 +57,11 @@ class UserMovieLibraryViewModel: NSObject {
         userMovieManager.removeUserMovie(movieId: movieId, completionHandler: { response in
             switch response {
             case .success(_):
-                Analytics.logEvent("remove_movie", parameters: ["status": "success",
+                analyticsManager.logEvent("remove_movie", parameters: ["status": "success",
                                                                 "movie_id": movieId])
                 completionHandler(Response.success(true))
             case .error(_) :
-                Analytics.logEvent("remove_movie", parameters: ["status": "failure",
+                analyticsManager.logEvent("remove_movie", parameters: ["status": "failure",
                                                                 "movie_id": movieId])
 
                 completionHandler(Response.error("Error occurred while retreiving data"))

@@ -11,10 +11,10 @@ import Firebase
 
 class UserRepository: UserRepositoryProtocol {
     
-    var ref: DatabaseReference!
+    private var ref: DatabaseReference!
     
-
-    func checkUserAndSave(user : User, username : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func checkUserAndSave(user: User, username: String,
+                          completionHandler: @escaping (_ response: Response<Any>) -> ()){
         self.ref = Database.database().reference()
         
         self.ref.child("users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -28,12 +28,13 @@ class UserRepository: UserRepositoryProtocol {
                 return
             }
             
-            self.saveUserInfo(user : user, username : username, firstName: firstName, lastName: lastName, completionHandler: completionHandler)
+            self.saveUserInfo(user: user, username: username, firstName: firstName, lastName: lastName, completionHandler: completionHandler)
         })
     }
     
     
-    func saveUserInfo(user : User, username : String, firstName : String, lastName : String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func saveUserInfo(user: User, username: String, firstName: String, lastName: String,
+                      completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         
@@ -52,7 +53,8 @@ class UserRepository: UserRepositoryProtocol {
     }
     
     
-    func signInUser(withEmail email : String, password : String, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func signInUser(withEmail email: String, password: String,
+                    completionHandler: @escaping (_ response: Response<Any>) -> ()){
         Auth.auth().signIn(withEmail: email, password: password, completion: { (user,error) in
             guard let user = user, error == nil else {
                 print(error!.localizedDescription)
@@ -64,7 +66,8 @@ class UserRepository: UserRepositoryProtocol {
         })
     }
     
-    func signInUser(withCredential credential : AuthCredential, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func signInUser(withCredential credential: AuthCredential,
+                    completionHandler: @escaping (_ response: Response<Any>) -> ()){
         Auth.auth().signIn(with: credential) { (user, error) in
             
             guard let user = user, error == nil else {
@@ -72,10 +75,7 @@ class UserRepository: UserRepositoryProtocol {
                 completionHandler(Response.error((error?.localizedDescription)!))
                 return
             }
-            
-            self.checkUserAndSave(user : user, username : user.email!, completionHandler : completionHandler)
-            
-            
+            self.checkUserAndSave(user: user, username: user.email!, completionHandler: completionHandler)
         }
     }
 }

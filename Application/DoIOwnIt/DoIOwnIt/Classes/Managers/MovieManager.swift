@@ -9,6 +9,7 @@
 import UIKit
 
 class MovieManager: MovieManagerProtocol {
+    
     lazy var movieOperationQueue : OperationQueue = {
         var queue = OperationQueue()
         queue.maxConcurrentOperationCount = 1
@@ -20,12 +21,19 @@ class MovieManager: MovieManagerProtocol {
     init(httpRequest : HTTPRequestProtocol) {
        self.httpRequest = httpRequest
     }
-    func searchMovies(query : String , page : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    
+    func searchMovies(query: String , page: Int,
+                      completionHandler: @escaping (_ response: Response<Any>) -> ()){
         let operation = NetworkOperation()
         operation.method = .get
         operation.httpRquestProtocol = httpRequest
         operation.url = APIList.MOVIE_SEARCH_API
-        operation.parameters = ["query": query, "page" : String(page), "include_adult" : "true", "language" : "en-US", "api_key" : ConfigUtil.sharedInstance.movieDBApiKey!]
+        
+        if let movieDBApiKey = ConfigUtil.sharedInstance.movieDBApiKey {
+            operation.parameters = ["query": query, "page": String(page),
+                                    "include_adult": "true", "language": "en-US",
+                                    "api_key" : movieDBApiKey]
+        }
         operation.completionHandler = { response in
             switch response {
             case let .success(responseData):
@@ -34,20 +42,25 @@ class MovieManager: MovieManagerProtocol {
             case let .error(error):
                 completionHandler(Response.error(error))
             }
-            
-            
         }
         movieOperationQueue.addOperation(operation)
+        
     }
     
-    func getMovieDetailsById(id : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func getMovieDetailsById(id: Int,
+                             completionHandler: @escaping (_ response : Response<Any>) -> ()){
+        
         let operation = NetworkOperation()
         operation.method = .get
         operation.httpRquestProtocol = httpRequest
-        print("url \(APIList.MOVIE_DETAILS_API)")
+        
         let url = "\(APIList.MOVIE_DETAILS_API)\(id)"
         operation.url = url
-        operation.parameters = ["api_key" : ConfigUtil.sharedInstance.movieDBApiKey!]
+        
+        if let movieDBApiKey = ConfigUtil.sharedInstance.movieDBApiKey {
+            operation.parameters = ["api_key": movieDBApiKey]
+        }
+        
         operation.completionHandler = { response in
             switch response {
             case let .success(responseData):
@@ -69,19 +82,22 @@ class MovieManager: MovieManagerProtocol {
             case let .error(error):
                 completionHandler(Response.error(error))
             }
-            
-            
         }
         movieOperationQueue.addOperation(operation)
     }
     
-    func getMovieCreditsById(id : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func getMovieCreditsById(id: Int,
+                             completionHandler: @escaping (_ response: Response<Any>) -> ()){
         let operation = NetworkOperation()
         operation.method = .get
         operation.httpRquestProtocol = httpRequest
         let url = String(format: APIList.MOVIE_CREDITS_API, id)
         operation.url = url
-        operation.parameters = ["api_key" : ConfigUtil.sharedInstance.movieDBApiKey!]
+        
+        if let movieDBApiKey = ConfigUtil.sharedInstance.movieDBApiKey {
+            operation.parameters = ["api_key": movieDBApiKey]
+        }
+        
         operation.completionHandler = { response in
             switch response {
             case let .success(responseData):
@@ -104,7 +120,7 @@ class MovieManager: MovieManagerProtocol {
                     }
                 }
 
-                completionHandler(Response.success(["cast" : castList, "crew" : crewList]))
+                completionHandler(Response.success(["cast": castList, "crew": crewList]))
             case let .error(error):
                 completionHandler(Response.error(error))
             }
@@ -113,4 +129,5 @@ class MovieManager: MovieManagerProtocol {
         }
         movieOperationQueue.addOperation(operation)
     }
+    
 }

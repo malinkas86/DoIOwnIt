@@ -9,6 +9,7 @@
 import UIKit
 
 class StorageManager: NSObject {
+    
     lazy var userMovieRepositoryQueue : OperationQueue = {
         var queue = OperationQueue()
         queue.name = "userMovieRepositoryQueue"
@@ -16,13 +17,19 @@ class StorageManager: NSObject {
         return queue
     }()
     
-    var userMovieRepository : UserMovieRespositoryProtocol?
+    var userMovieRepository: UserMovieRespositoryProtocol?
     
-    init(userMovieRepository : UserMovieRespositoryProtocol){
+    init(userMovieRepository: UserMovieRespositoryProtocol){
         self.userMovieRepository = userMovieRepository
     }
     
-    func saveMovieStoragePreferences(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : String], completionHandler : @escaping (_ response : Response<Any>) -> ()){
+    func saveMovieStoragePreferences(movieId: Int,
+                                     title: String,
+                                     posterPath: String,
+                                     releasedDate: String,
+                                     storageMethods: [StorageType : String],
+                                     completionHandler: @escaping (_ response: Response<Any>) -> ()){
+        
         var refactoredStorageMethods : [StorageType : StorageMethod] = [:]
         for (type, string) in storageMethods {
             refactoredStorageMethods[type] = StorageMethod(storageType: type, methods: string)

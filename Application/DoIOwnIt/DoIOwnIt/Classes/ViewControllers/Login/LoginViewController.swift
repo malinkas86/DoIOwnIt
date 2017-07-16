@@ -13,32 +13,36 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var headerLabel: UILabel!
-    @IBOutlet weak var fbLoginButtonView: FBSDKLoginButton!
-    let loginViewModel = LoginViewModel()
+    @IBOutlet fileprivate var headerLabel: UILabel!
+    @IBOutlet fileprivate weak var fbLoginButtonView: FBSDKLoginButton!
+    
+    fileprivate let loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        if let currentUser = Auth.auth().currentUser {
+            analyticsManager.setUserProperty(userProperty: currentUser.uid, userPropertyValue: "user_id")
+            self.performSegue(withIdentifier: "ShowApplication", sender: nil)
+        } else {
+            analyticsManager.logEvent("view_screen", parameters: ["screen_name": "login"])
+        }
+    }
+    
+    func configure() {
         fbLoginButtonView.delegate = self
         fbLoginButtonView.readPermissions = ["public_profile", "email"]
         
         headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
         
         for const in fbLoginButtonView.constraints {
-            if const.firstAttribute == NSLayoutAttribute.height && const.constant == 28{
+            if const.firstAttribute == NSLayoutAttribute.height && const.constant == 28 {
                 fbLoginButtonView.removeConstraint(const)
             }
-        }
-
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        if Auth.auth().currentUser != nil {
-            Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
-            self.performSegue(withIdentifier: "ShowApplication", sender: nil)
-        } else {
-            Analytics.logEvent("view_screen", parameters: ["screen_name": "login"])
         }
     }
     
@@ -72,7 +76,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
             })
         } else {
             fbLoginButtonView.isHidden = false
-            Analytics.logEvent("fb_cancel_login", parameters: nil)
+            analyticsManager.logEvent("fb_cancel_login", parameters: nil)
         }
         
     }
@@ -84,14 +88,13 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User logged out from FB")
         let firebaseAuth = Auth.auth()
-        Analytics.logEvent("fb_logout", parameters: nil)
+        analyticsManager.logEvent("fb_logout", parameters: nil)
         
         do {
             try firebaseAuth.signOut()
             
-        }catch let signoutError as NSError {
+        } catch let signoutError as NSError {
             print(signoutError)
         }
     }
 }
-

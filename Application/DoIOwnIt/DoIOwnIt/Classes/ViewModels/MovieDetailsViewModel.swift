@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class MovieDetailsViewModel: NSObject {
     var id : Int?
@@ -37,7 +36,7 @@ class MovieDetailsViewModel: NSObject {
                 let castList = movie.castList
                 self.formattedCastString = ""
                 
-                Analytics.logEvent("view_movie_details", parameters: ["status": "success",
+                analyticsManager.logEvent("view_movie_details", parameters: ["status": "success",
                                                                       "movie_id": movie.id ?? "",
                                                                       "title": movie.title ?? ""])
                 
@@ -72,7 +71,7 @@ class MovieDetailsViewModel: NSObject {
                 
                 
             case .error(_) :
-                Analytics.logEvent("view_movie_details", parameters: ["status": "failure",
+                analyticsManager.logEvent("view_movie_details", parameters: ["status": "failure",
                                                                       "movie_id": id])
                 completionHandler(Response.error("Error occurred while retrieving data"))
             default : break
@@ -85,7 +84,7 @@ class MovieDetailsViewModel: NSObject {
         userMovieManager.removeUserMovie(movieId: movieId, completionHandler: { response in
             switch response {
             case .success(_):
-                Analytics.logEvent("remove_movie", parameters: ["status": "success",
+                analyticsManager.logEvent("remove_movie", parameters: ["status": "success",
                                                                       "movie_id": movieId])
                 self.userMovieManager.getUserMovies(completionHandler: { userMovieResponse in
                     switch userMovieResponse {
@@ -97,7 +96,7 @@ class MovieDetailsViewModel: NSObject {
                 })
                 completionHandler(Response.success(true))
             case .error(_) :
-                Analytics.logEvent("remove_movie", parameters: ["status": "failure",
+                analyticsManager.logEvent("remove_movie", parameters: ["status": "failure",
                                                                 "movie_id": movieId])
                 completionHandler(Response.error("Error occurred while retreiving data"))
                 
