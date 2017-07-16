@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import SDWebImage
 
 class MovieDetailsViewController: UIViewController {
@@ -41,7 +40,7 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
+        analyticsManager.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
 
         self.overviewLabel.text = ""
         self.overviewLabel.sizeToFit()
@@ -86,7 +85,7 @@ class MovieDetailsViewController: UIViewController {
     }
     
     @IBAction func didTapEdit(_ sender: Any) {
-        Analytics.logEvent("edit_storage_methods", parameters: ["movie_id": self.id!])
+        analyticsManager.logEvent("edit_storage_methods", parameters: ["movie_id": self.id!])
         showStoragePopUp()
     }
 

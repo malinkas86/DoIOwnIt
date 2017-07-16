@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import IHKeyboardAvoiding
 
 class StorageSelectionViewController: UIViewController {
@@ -31,7 +30,7 @@ class StorageSelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "storage_methods",
+        analyticsManager.logEvent("view_screen", parameters: ["screen_name": "storage_methods",
                                                        "movie_id": movieId!])
         showAnimate()
         mainView.clipsToBounds = true
@@ -40,7 +39,7 @@ class StorageSelectionViewController: UIViewController {
     }
     
     @IBAction func closeAction(_ sender: Any) {
-        Analytics.logEvent("close_storage_preferences", parameters: nil)
+        analyticsManager.logEvent("close_storage_preferences", parameters: nil)
         NotificationCenterUtil.postNotification(name: "StorageMethodsCancelled", value: [:])
         removeAnimate()
     }

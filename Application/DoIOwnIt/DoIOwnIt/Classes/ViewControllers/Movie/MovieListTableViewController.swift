@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import SDWebImage
 
 class MovieListTableViewController: UIViewController {
@@ -31,7 +30,7 @@ class MovieListTableViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "search_movies"])
+        analyticsManager.logEvent("view_screen", parameters: ["screen_name": "search_movies"])
         getMovies(bySearchQuery: searchQuery)
     }
     
@@ -171,7 +170,7 @@ extension MovieListTableViewController : UISearchBarDelegate {
     public func searchBarCancelButtonClicked(_ searchBar: UISearchBar){
         //retrieve all the books of the user hits on cancel.
         isCancelled = true
-        Analytics.logEvent("cancel_movie_search", parameters: nil)
+        analyticsManager.logEvent("cancel_movie_search", parameters: nil)
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){

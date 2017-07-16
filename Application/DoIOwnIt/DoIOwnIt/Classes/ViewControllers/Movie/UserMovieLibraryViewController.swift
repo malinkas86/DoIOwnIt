@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 class UserMovieLibraryViewController: UIViewController {
     
@@ -56,7 +55,7 @@ class UserMovieLibraryViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         tutorialContentView.isHidden = true
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "user_movies"])
+        analyticsManager.logEvent("view_screen", parameters: ["screen_name": "user_movies"])
         if isInitialLoad {
             isInitialLoad = false
             getUserMovies()
@@ -239,7 +238,7 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
         //retrieve all the books of the user hits on cancel.
         searchBar.resignFirstResponder()
         searchBar.setShowsCancelButton(false, animated: true)
-        Analytics.logEvent("cancel_library_movie_search", parameters: nil)
+        analyticsManager.logEvent("cancel_library_movie_search", parameters: nil)
         getUserMovies()
     }
     

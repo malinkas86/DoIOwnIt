@@ -97,6 +97,12 @@
 		7080F64F1F0FEEBA003E5AA5 /* DoIOwnIt.entitlements in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E551F0FEA9D00ED20AA /* DoIOwnIt.entitlements */; };
 		7080F6511F12A5E3003E5AA5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7080F6501F12A5E3003E5AA5 /* Settings.bundle */; };
 		7080F6521F12A5E3003E5AA5 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7080F6501F12A5E3003E5AA5 /* Settings.bundle */; };
+		7080F6A71F1BC4B9003E5AA5 /* AnalyticsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6A61F1BC4B9003E5AA5 /* AnalyticsOperation.swift */; };
+		7080F6A81F1BC8E1003E5AA5 /* AnalyticsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6A61F1BC4B9003E5AA5 /* AnalyticsOperation.swift */; };
+		7080F6AA1F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6A91F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift */; };
+		7080F6AB1F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6A91F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift */; };
+		7080F6AD1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */; };
+		7080F6AE1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */; };
 		7081781E1EA5E4E4008AB7D5 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */; };
 		70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */; };
 		70CC1E4E1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
@@ -178,6 +184,9 @@
 		70749B831E65D00800F2CC8C /* StorageMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageMethod.swift; path = Classes/Models/StorageMethod.swift; sourceTree = "<group>"; };
 		70749B851E66579900F2CC8C /* StorageSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StorageSelectionViewController.swift; path = Classes/ViewControllers/Movie/StorageSelectionViewController.swift; sourceTree = "<group>"; };
 		7080F6501F12A5E3003E5AA5 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = Resources/Settings.bundle; sourceTree = "<group>"; };
+		7080F6A61F1BC4B9003E5AA5 /* AnalyticsOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsOperation.swift; path = Classes/Services/Operations/AnalyticsOperation.swift; sourceTree = "<group>"; };
+		7080F6A91F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsManagerProtocol.swift; path = Classes/Managers/AnalyticsManagerProtocol.swift; sourceTree = "<group>"; };
+		7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsManager.swift; path = Classes/Managers/AnalyticsManager.swift; sourceTree = "<group>"; };
 		7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Classes/Utils/StringUtil.swift; sourceTree = "<group>"; };
 		70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterUtil.swift; path = Classes/Utils/NotificationCenterUtil.swift; sourceTree = "<group>"; };
 		70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Regular.otf"; sourceTree = "<group>"; };
@@ -287,6 +296,8 @@
 				70EDA6521E6F859100A7FA42 /* StorageManagerProtocol.swift */,
 				70EDA6561E714BE100A7FA42 /* UserMovieManager.swift */,
 				70EDA6581E714EBB00A7FA42 /* UserMovieManagerProtocol.swift */,
+				7080F6A91F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift */,
+				7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -298,6 +309,7 @@
 				70DC75491E563F5600115439 /* UserRepositoryOperation.swift */,
 				70749B691E5BEA0400F2CC8C /* NetworkOperation.swift */,
 				70EDA64E1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift */,
+				7080F6A61F1BC4B9003E5AA5 /* AnalyticsOperation.swift */,
 			);
 			name = Operations;
 			sourceTree = "<group>";
@@ -872,7 +884,9 @@
 				702012E81EFF0552002E2132 /* AsynchronousOperation.swift in Sources */,
 				702012E91EFF0552002E2132 /* UserManagerProtocol.swift in Sources */,
 				702012EA1EFF0552002E2132 /* StorageType.swift in Sources */,
+				7080F6AB1F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift in Sources */,
 				702012EB1EFF0552002E2132 /* UserMovieLibraryViewModel.swift in Sources */,
+				7080F6A81F1BC8E1003E5AA5 /* AnalyticsOperation.swift in Sources */,
 				702012EC1EFF0552002E2132 /* AppDelegate.swift in Sources */,
 				702012ED1EFF0552002E2132 /* StorageManagerProtocol.swift in Sources */,
 				702012EE1EFF0552002E2132 /* MovieManagerProtocol.swift in Sources */,
@@ -885,6 +899,7 @@
 				702012F51EFF0552002E2132 /* HTTPRequestProtocol.swift in Sources */,
 				702012F61EFF0552002E2132 /* LoginViewModel.swift in Sources */,
 				702012F71EFF0552002E2132 /* UserManager.swift in Sources */,
+				7080F6AE1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */,
 				702012F81EFF0552002E2132 /* User.swift in Sources */,
 				702012F91EFF0552002E2132 /* NotificationCenterUtil.swift in Sources */,
 				702012FA1EFF0552002E2132 /* MovieLibraryCollectionViewCell.swift in Sources */,
@@ -926,7 +941,9 @@
 				70DC75471E563EF600115439 /* AsynchronousOperation.swift in Sources */,
 				706145871E5B8FD100A18A7E /* UserManagerProtocol.swift in Sources */,
 				70749B821E65CEC100F2CC8C /* StorageType.swift in Sources */,
+				7080F6AA1F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift in Sources */,
 				70EDA65B1E71507500A7FA42 /* UserMovieLibraryViewModel.swift in Sources */,
+				7080F6A71F1BC4B9003E5AA5 /* AnalyticsOperation.swift in Sources */,
 				70DC75121E5627D900115439 /* AppDelegate.swift in Sources */,
 				70EDA6531E6F859100A7FA42 /* StorageManagerProtocol.swift in Sources */,
 				70749B5B1E5BC15F00F2CC8C /* MovieManagerProtocol.swift in Sources */,
@@ -939,6 +956,7 @@
 				70749B601E5BE4BA00F2CC8C /* HTTPRequestProtocol.swift in Sources */,
 				70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */,
 				706145841E5B763500A18A7E /* UserManager.swift in Sources */,
+				7080F6AD1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */,
 				70DC754D1E563FD800115439 /* User.swift in Sources */,
 				70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */,
 				705D9E831EA04234007E9DE9 /* MovieLibraryCollectionViewCell.swift in Sources */,

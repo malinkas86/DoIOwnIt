@@ -25,11 +25,11 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        if Auth.auth().currentUser != nil {
-            Analytics.setUserProperty(Auth.auth().currentUser?.uid, forName: "user_id")
+        if let currentUser = Auth.auth().currentUser {
+            analyticsManager.setUserProperty(userProperty: currentUser.uid, userPropertyValue: "user_id")
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
         } else {
-            Analytics.logEvent("view_screen", parameters: ["screen_name": "login"])
+            analyticsManager.logEvent("view_screen", parameters: ["screen_name": "login"])
         }
     }
     
@@ -76,7 +76,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
             })
         } else {
             fbLoginButtonView.isHidden = false
-            Analytics.logEvent("fb_cancel_login", parameters: nil)
+            analyticsManager.logEvent("fb_cancel_login", parameters: nil)
         }
         
     }
@@ -88,7 +88,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         print("User logged out from FB")
         let firebaseAuth = Auth.auth()
-        Analytics.logEvent("fb_logout", parameters: nil)
+        analyticsManager.logEvent("fb_logout", parameters: nil)
         
         do {
             try firebaseAuth.signOut()
