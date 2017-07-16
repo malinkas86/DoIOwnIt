@@ -9,5 +9,8 @@
 import Foundation
 
 protocol StorageManagerProtocol {
-    func saveMovieStoragePreferences(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : String], completionHandler : @escaping (_ response : Response<Any>) -> ())
+    func saveMovieStoragePreferences(movieId: Int, title: String,
+                                     posterPath: String, releasedDate: String,
+                                     storageMethods: [StorageType : String],
+                                     completionHandler: @escaping (_ response: Response<Any>) -> ())
 }

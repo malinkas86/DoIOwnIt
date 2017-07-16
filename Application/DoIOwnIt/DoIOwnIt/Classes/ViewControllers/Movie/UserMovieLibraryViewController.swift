@@ -11,27 +11,23 @@ import Firebase
 
 class UserMovieLibraryViewController: UIViewController {
     
-    let showMovieSegueIdentifier = "showMovieFromLibrary"
-    var selectedIndex : IndexPath?
+    @IBOutlet fileprivate weak var collectionView: UICollectionView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var tutorialContentView: UIView!
+    @IBOutlet fileprivate weak var searchBar: UISearchBar!
+    @IBOutlet fileprivate weak var noResultsFoundView: UIView!
     
+    fileprivate let showMovieSegueIdentifier = "showMovieFromLibrary"
     fileprivate let sectionInsets = UIEdgeInsets(top: 10.0, left: 15.0, bottom: 10.0, right: 15.0) // cell padding
     fileprivate let itemsPerRow: CGFloat = 2
+    fileprivate let userMovieLibraryViewModel = UserMovieLibraryViewModel()
     
-    @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tutorialContentView: UIView!
-    @IBOutlet weak var searchBar: UISearchBar!
-    @IBOutlet weak var noResultsFoundView: UIView!
-    
-    var isInitialLoad = false
-    
-    
-    let userMovieLibraryViewModel = UserMovieLibraryViewModel()
-    var movies : [Movie] = []
+    fileprivate var movies : [Movie] = []
+    fileprivate var isInitialLoad = false
+    fileprivate var selectedIndex : IndexPath?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        searchController.searchResultsUpdater = self
         noResultsFoundView.isHidden = true
         searchBar.delegate = self
         isInitialLoad = true
@@ -54,8 +50,6 @@ class UserMovieLibraryViewController: UIViewController {
         }
         
         definesPresentationContext = true
-//        collectionView = searchController.searchBar
-       
     }
     
     @IBAction func unwindToUserLibraryViewController(segue: UIStoryboardSegue) { }
@@ -125,15 +119,10 @@ class UserMovieLibraryViewController: UIViewController {
         })
     }
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    
     
     // MARK: - Navigation
 
@@ -151,6 +140,7 @@ class UserMovieLibraryViewController: UIViewController {
 }
 
 extension UserMovieLibraryViewController : UICollectionViewDataSource {
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as! MovieLibraryCollectionViewCell
         
@@ -162,12 +152,7 @@ extension UserMovieLibraryViewController : UICollectionViewDataSource {
         cell.clipsToBounds = true
         
         return cell
-        
     }
-    
-//    public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        searchController.searchBar.sizeToFit()
-//    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -186,6 +171,7 @@ extension UserMovieLibraryViewController : UICollectionViewDelegate {
 }
 
 extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
+    
     //1. is responsible for telling the layout the size of a given cell
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -211,9 +197,11 @@ extension UserMovieLibraryViewController : UICollectionViewDelegateFlowLayout {
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return sectionInsets.left
     }
+    
 }
 
 extension UserMovieLibraryViewController : UITableViewDataSource{
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return userMovies.count
     }
@@ -231,15 +219,17 @@ extension UserMovieLibraryViewController : UITableViewDataSource{
         cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
     
         return cell
-        
     }
+    
 }
 
 extension UserMovieLibraryViewController : UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedIndex = indexPath
         performSegue(withIdentifier: showMovieSegueIdentifier, sender: self)
     }
+    
 }
 
 // Handles search actions
@@ -251,7 +241,6 @@ extension UserMovieLibraryViewController : UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         Analytics.logEvent("cancel_library_movie_search", parameters: nil)
         getUserMovies()
-        
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){

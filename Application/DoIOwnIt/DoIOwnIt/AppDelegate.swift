@@ -25,32 +25,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        if  let infoPlist = Bundle.main.infoDictionary,
-            let googleInfoPlistLocation = infoPlist["GoogleInfoPlist"] as? String,
-            let filePath = Bundle.main.path(forResource:googleInfoPlistLocation, ofType: "plist"),
-            let firbaseOptions = FirebaseOptions(contentsOfFile: filePath) {
-            
-            FirebaseApp.configure(options: firbaseOptions)
-            Database.database().isPersistenceEnabled = true
-            
-        }
+        ConfigUtil.sharedInstance.initFirebase()
+        ConfigUtil.sharedInstance.initSettingsBundle()
         
         window?.tintColor = themeColor
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, // DIN Condensed
                                                             NSBackgroundColorAttributeName: navbarColor,
                                                             NSKernAttributeName : 5.0]
-        
-        //get app version number
-        let appInfo = Bundle.main.infoDictionary! as Dictionary<String,AnyObject>
-        let shortVersionString = appInfo["CFBundleShortVersionString"] as! String
-        let bundleVersion = appInfo["CFBundleVersion"] as! String
-        let applicationVersion = shortVersionString + "." + bundleVersion
-        
-        let defaults = UserDefaults.standard
-            defaults.set(applicationVersion, forKey: "application_version")
-            defaults.synchronize()
-        
-        
         return true
     }
     

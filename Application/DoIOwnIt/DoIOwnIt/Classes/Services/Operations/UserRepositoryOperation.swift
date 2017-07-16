@@ -57,9 +57,7 @@ class UserRepositoryOperation: AsynchronousOperation {
                 self.completionHandler(response)
                 self.completeOperation()
             })
-            
         }
     }
-    
     
 }

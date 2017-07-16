@@ -19,7 +19,7 @@ class StorageSelectionViewController: UIViewController {
 
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    let storageTypeCells : [StorageTypeCell] = [StorageTypeCell(title : .cloud, placeHolder : "iCloud"), StorageTypeCell(title : .disk, placeHolder : "Bluray"), StorageTypeCell(title : .digital, placeHolder : "Hard drive")]
+    let storageTypeCells : [StorageTypeCell] = [StorageTypeCell(title : .cloud, placeHolder : "Cloud"), StorageTypeCell(title : .disk, placeHolder : "Bluray"), StorageTypeCell(title : .digital, placeHolder : "Digital")]
     
     var movieId : Int?
     var movieTitle : String?
@@ -34,12 +34,6 @@ class StorageSelectionViewController: UIViewController {
         Analytics.logEvent("view_screen", parameters: ["screen_name": "storage_methods",
                                                        "movie_id": movieId!])
         showAnimate()
-        print("releasedDate \(String(describing: releasedDate))")
-        // Do any additional setup after loading the view.
-        //mainView.backgroundColor = UIColor.white
-//        mainView.layer.cornerRadius = 10.0
-        //mainView.layer.borderColor = UIColor.gray.cgColor
-        //mainView.layer.borderWidth = 0.5
         mainView.clipsToBounds = true
         KeyboardAvoiding.avoidingView = self.view
         

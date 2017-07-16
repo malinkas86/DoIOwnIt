@@ -10,14 +10,10 @@ import UIKit
 
 class NotificationCenterUtil: NSObject {
 
-    static func postNotification(name : String, value : [String : Any]){
+    static func postNotification(name: String, value: [String : Any]){
         let nc = NotificationCenter.default
         nc.post(name:Notification.Name(rawValue: name),
                 object: nil,
                 userInfo: value)
     }
-    
-//    static func addObserver(name : String, completion : (Notification)-> ()){
-//        
-//    }
 }

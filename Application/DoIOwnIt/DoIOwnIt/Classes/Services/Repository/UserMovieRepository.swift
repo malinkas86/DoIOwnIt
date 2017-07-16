@@ -14,8 +14,12 @@ enum RepositoryError<T> : Error {
 }
 
 class UserMovieRepository: UserMovieRespositoryProtocol {
-    var ref: DatabaseReference!
-    func saveUserMovie(movieId : Int, title : String, posterPath : String, releasedDate : String,storageMethods : [StorageType : StorageMethod], completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    
+    private var ref: DatabaseReference!
+    
+    func saveUserMovie(movieId: Int, title: String, posterPath: String,
+                       releasedDate: String, storageMethods: [StorageType : StorageMethod],
+                       completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
@@ -26,7 +30,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
         completionHandler(Response.success(user))
     }
     
-    func getUserMovies(completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func getUserMovies(completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
@@ -45,8 +49,6 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
                 }
                 completionHandler(Response.success(movies))
                 
-                
-                // ...
             }) { (error) in
                 completionHandler(Response.error(error))
             }
@@ -54,7 +56,8 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
     }
     
     
-    func getUserMovies(byQuery searchQuery: String, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func getUserMovies(byQuery searchQuery: String,
+                       completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
@@ -72,11 +75,11 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
                 }
                 completionHandler(Response.success(movies))
             })
-            
         }
     }
     
-    func getUserMovieById(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func getUserMovieById(movieId: Int,
+                          completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
@@ -96,7 +99,8 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
         
     }
     
-    func removeUserMovie(movieId : Int, completionHandler : @escaping (_ response : Response<Any>) -> ()) {
+    func removeUserMovie(movieId: Int,
+                         completionHandler: @escaping (_ response: Response<Any>) -> ()) {
         
         self.ref = Database.database().reference()
         self.ref.keepSynced(true)
@@ -108,7 +112,7 @@ class UserMovieRepository: UserMovieRespositoryProtocol {
                     completionHandler(Response.success(true))
                 }
             })
-            
         }
     }
+    
 }

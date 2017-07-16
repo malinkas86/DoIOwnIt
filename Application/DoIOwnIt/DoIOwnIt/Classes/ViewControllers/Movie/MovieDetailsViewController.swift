@@ -12,22 +12,22 @@ import SDWebImage
 
 class MovieDetailsViewController: UIViewController {
     
-    @IBOutlet weak var posterImageView: UIImageView!
-    @IBOutlet weak var ownStatusLabel: UILabel!
-    @IBOutlet weak var plotTitle: UILabel!
-    @IBOutlet weak var overviewLabel: UILabel!
-    @IBOutlet weak var castTitle: UILabel!
-    @IBOutlet weak var castLabel: UILabel!
-    @IBOutlet weak var directorTitle: UILabel!
-    @IBOutlet weak var directorsLabel: UILabel!
-    @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var ownLabel: UILabel!
-    @IBOutlet weak var ownTitle: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
-    @IBOutlet weak var editBarButton: UIBarButtonItem!
-    @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet private weak var posterImageView: UIImageView!
+    @IBOutlet private weak var ownStatusLabel: UILabel!
+    @IBOutlet private weak var plotTitle: UILabel!
+    @IBOutlet private weak var overviewLabel: UILabel!
+    @IBOutlet private weak var castTitle: UILabel!
+    @IBOutlet private weak var castLabel: UILabel!
+    @IBOutlet private weak var directorTitle: UILabel!
+    @IBOutlet private weak var directorsLabel: UILabel!
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var ownLabel: UILabel!
+    @IBOutlet private weak var ownTitle: UILabel!
+    @IBOutlet private weak var actionButton: UIButton!
+    @IBOutlet private weak var editBarButton: UIBarButtonItem!
+    @IBOutlet private weak var yearLabel: UILabel!
     
-    let labelFont = UIFont(name: "DINCond-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
+    private let labelFont = UIFont(name: "DINCond-Medium", size: 14) ?? UIFont.systemFont(ofSize: 14)
     
     var fromViewController : String!
     var id : Int?
@@ -36,7 +36,34 @@ class MovieDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.navigationItem.backBarButtonItem?.title = "Back"
+        configure()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
+
+        self.overviewLabel.text = ""
+        self.overviewLabel.sizeToFit()
+        self.castLabel.text = ""
+        self.castLabel.sizeToFit()
+        self.directorsLabel.text = ""
+        self.directorsLabel.sizeToFit()
+        self.titleLabel.text = ""
+    
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        getMovie()
+    }
+    
+    private func configure() {
+        titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
+        ownTitle.font = labelFont
+        plotTitle.font = labelFont
+        castTitle.font = labelFont
+        directorTitle.font = labelFont
+        
         self.editBarButton.isEnabled = false
         
         let nc = NotificationCenter.default // Note that default is now a property, not a method call
@@ -56,30 +83,6 @@ class MovieDetailsViewController: UIViewController {
                 editBarButton.isEnabled = true
             }
         }
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "movie_details"])
-
-        self.overviewLabel.text = ""
-        self.overviewLabel.sizeToFit()
-        self.castLabel.text = ""
-        self.castLabel.sizeToFit()
-        self.directorsLabel.text = ""
-        self.directorsLabel.sizeToFit()
-        self.titleLabel.text = ""
-    
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        getMovie()
-        titleLabel.font = UIFont(name: "DINCond-Light", size: 36) ?? UIFont.systemFont(ofSize: 36)
-        ownTitle.font = labelFont
-        plotTitle.font = labelFont
-        castTitle.font = labelFont
-        directorTitle.font = labelFont
     }
     
     @IBAction func didTapEdit(_ sender: Any) {
@@ -96,7 +99,11 @@ class MovieDetailsViewController: UIViewController {
         movieDetailsViewModel.getMovie(id: self.id!, completionHandler: { response in
             switch response {
             case .success(_) :
-                self.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, self.movieDetailsViewModel.posterPath!)))
+                if let imageURL = ConfigUtil.sharedInstance.movieDBImageBaseURL,
+                    let posterPath = self.movieDetailsViewModel.posterPath {
+                   self.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", imageURL , posterPath)))
+                }
+                
                 self.overviewLabel.text = self.movieDetailsViewModel.overview
                 self.overviewLabel.sizeToFit()
                 self.castLabel.text = self.movieDetailsViewModel.formattedCastString
@@ -105,8 +112,10 @@ class MovieDetailsViewController: UIViewController {
                 self.directorsLabel.sizeToFit()
                 self.titleLabel.text = self.movieDetailsViewModel.title
                 
-                self.yearLabel.text = StringUtil.formatReleaseDate(strValue: self.movieDetailsViewModel.releasedDate!, offsetBy: 4)
-            
+                if let releasedDate = self.movieDetailsViewModel.releasedDate {
+                    self.yearLabel.text = StringUtil.formatReleaseDate(strValue: releasedDate, offsetBy: 4)
+                }
+                
                 // set label Attribute
                 self.ownLabel.attributedText = self.prepareAttributedString()
                 
@@ -126,8 +135,6 @@ class MovieDetailsViewController: UIViewController {
                     }
                     
                 }
-                
-                
                 
             case .error(_):
                 let alert = UIAlertController(title: "Error", message: "Having problems retreiving information\nPlease check your network connectivity", preferredStyle: UIAlertControllerStyle.alert)
@@ -157,15 +164,16 @@ class MovieDetailsViewController: UIViewController {
                     , handler: { action in
                     switch action.style {
                     case .default:
-                        self.movieDetailsViewModel.removeMovie(movieId: self.movieDetailsViewModel.id!, completionHandler: { response in
-                            switch response {
-                            case .success(_) :
-                                _ = self.navigationController?.popViewController(animated: true)
-                            case let .error(error) :
-                                log.error(error)
-                            }
-                        })
-                        
+                        if let movieId = self.movieDetailsViewModel.id {
+                            self.movieDetailsViewModel.removeMovie(movieId: movieId, completionHandler: { response in
+                                switch response {
+                                case .success(_) :
+                                    _ = self.navigationController?.popViewController(animated: true)
+                                case let .error(error) :
+                                    log.error(error)
+                                }
+                            })
+                        }
                     case .cancel:
                         break
                     default:

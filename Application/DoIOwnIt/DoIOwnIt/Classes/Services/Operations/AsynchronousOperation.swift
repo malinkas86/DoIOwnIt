@@ -24,7 +24,7 @@ extension NSLock {
     }
 }
 
-class AsynchronousOperation : Operation {
+class AsynchronousOperation: Operation {
     override public var isAsynchronous: Bool { return true }
     
     private let stateLock = NSLock()
