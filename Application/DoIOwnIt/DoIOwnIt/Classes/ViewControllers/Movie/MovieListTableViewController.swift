@@ -12,22 +12,30 @@ import SDWebImage
 
 class MovieListTableViewController: UIViewController {
     
-    @IBOutlet var tableView: UITableView!
-    @IBOutlet weak var searchTutorialContentView: UIView!
-    @IBOutlet weak var noResultsFoundView: UIView!
+    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet fileprivate weak var searchTutorialContentView: UIView!
+    @IBOutlet fileprivate weak var noResultsFoundView: UIView!
     
-    let movieListViewModel = MovieListViewModel()
-    var isFetchingData = false
-    var isCancelled = false
-    var searchQuery = ""
-    let searchController = UISearchController(searchResultsController: nil)
-    let showMovieSegueIdentifier = "showMovieFromSearch"
-    var selectedIndex : IndexPath?
-    var searchText : String?
-    var userMovies: [Int : String] = [:]
+    fileprivate let movieListViewModel = MovieListViewModel()
+    fileprivate var isFetchingData = false
+    fileprivate var isCancelled = false
+    fileprivate var searchQuery = ""
+    fileprivate let searchController = UISearchController(searchResultsController: nil)
+    fileprivate let showMovieSegueIdentifier = "showMovieFromSearch"
+    fileprivate var selectedIndex : IndexPath?
+    fileprivate var userMovies: [Int : String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configure()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        Analytics.logEvent("view_screen", parameters: ["screen_name": "search_movies"])
+        getMovies(bySearchQuery: searchQuery)
+    }
+    
+    private func configure() {
         let nc = NotificationCenter.default // Note that default is now a property, not a method call
         nc.addObserver(forName:Notification.Name(rawValue:"StorageMethodsSaved"),object:nil, queue:nil) {
             notification in
@@ -36,17 +44,13 @@ class MovieListTableViewController: UIViewController {
         }
         searchTutorialContentView.isHidden = false
         noResultsFoundView.isHidden = true
-        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         searchController.dimsBackgroundDuringPresentation = false
-        
         searchController.searchBar.barTintColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.13, alpha: 1.0)
         
         for view in searchController.searchBar.subviews {
             for subview in view.subviews {
-                
-                if subview is UITextField {
-                    let textField: UITextField = subview as! UITextField
+                if let textField: UITextField = subview as? UITextField {
                     textField.backgroundColor = UIColor(hue: 0.0, saturation: 0.0, brightness: 0.03, alpha: 1.0)
                     textField.textColor = themeColor
                 } else{
@@ -54,17 +58,12 @@ class MovieListTableViewController: UIViewController {
                 }
             }
         }
-
+        
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-        
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        Analytics.logEvent("view_screen", parameters: ["screen_name": "search_movies"])
-        getMovies(bySearchQuery: searchQuery)
-    }
+    
     
     func getMovies(bySearchQuery query : String){
         if query.characters.count != 0 {
@@ -101,7 +100,7 @@ class MovieListTableViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        if segue.identifier == "showMovieFromSearch" {
+        if segue.identifier == showMovieSegueIdentifier {
             print(movieListViewModel.movies[(selectedIndex?.row)!].isOwned ?? "")
             let movieDetailsViewController = segue.destination as! MovieDetailsViewController
             movieDetailsViewController.isOwned = movieListViewModel.movies[(selectedIndex?.row)!].isOwned!
@@ -111,7 +110,6 @@ class MovieListTableViewController: UIViewController {
         
     }
     
-
 }
 
 extension MovieListTableViewController : UIScrollViewDelegate {
@@ -144,26 +142,19 @@ extension MovieListTableViewController : UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as! MovieListTableViewCell
         
         let movie = movieListViewModel.movies[indexPath.row]
         
-        
-        cell.addedLabel.isHidden = true
-        cell.isOwnedButton.isHidden = false
         if self.userMovies[movie.id!] != nil {
-            cell.addedLabel.isHidden = false
-            cell.isOwnedButton.isHidden = true
             movie.isOwned = true
         }
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "MovieListCell", for: indexPath) as? MovieListTableViewCell {
+            cell.configure(movie: movie)
+            cell.movieListViewController = self
+            return cell
+        }
         
-        cell.titleLabel.text = movie.title
-        cell.movieId = movie.id
-        cell.movieListViewController = self
-        cell.posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
-        cell.releasedDateLabel.text = StringUtil.formatReleaseDate(strValue: movie.releasedDate!, offsetBy: 4)
-        
-        return cell
+        return UITableViewCell()
     }
 }
 
@@ -174,15 +165,6 @@ extension MovieListTableViewController : UITableViewDelegate {
     }
 }
 
-extension MovieListTableViewController: UISearchResultsUpdating {
-    /// Retreives books based on search criteria
-    func updateSearchResults(for searchController: UISearchController) {
-        
-        
-        
-    }
-}
-
 // Handles search actions
 extension MovieListTableViewController : UISearchBarDelegate {
     
@@ -190,12 +172,12 @@ extension MovieListTableViewController : UISearchBarDelegate {
         //retrieve all the books of the user hits on cancel.
         isCancelled = true
         Analytics.logEvent("cancel_movie_search", parameters: nil)
-        
     }
     
     public func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
-        searchQuery = searchBar.text!
-        
+        if let text = searchBar.text {
+            searchQuery = text
+        }
         movieListViewModel.movies = []
         movieListViewModel.currentPage = 1
         movieListViewModel.totalPages = 0

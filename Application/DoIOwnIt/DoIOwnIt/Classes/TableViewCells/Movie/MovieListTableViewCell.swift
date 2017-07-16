@@ -26,6 +26,21 @@ class MovieListTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    public func configure(movie: Movie) {
+        addedLabel.isHidden = true
+        isOwnedButton.isHidden = false
+        if let isOwned = movie.isOwned, isOwned {
+            addedLabel.isHidden = false
+            isOwnedButton.isHidden = true
+        }
+        
+        titleLabel.text = movie.title
+        movieId = movie.id
+        posterImageView.sd_setImage(with: URL(string: String(format : "%@%@", ConfigUtil.sharedInstance.movieDBImageBaseURL!, movie.posterPath!)))
+        releasedDateLabel.text = StringUtil.formatReleaseDate(strValue: movie.releasedDate!, offsetBy: 4)
+        
+    }
 
     @IBAction func didTapIsOwned(_ sender: RadioButton) {
         print("did tap is owned")

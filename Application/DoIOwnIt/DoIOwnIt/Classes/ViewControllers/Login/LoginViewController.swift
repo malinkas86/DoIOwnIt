@@ -13,23 +13,14 @@ import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet var headerLabel: UILabel!
-    @IBOutlet weak var fbLoginButtonView: FBSDKLoginButton!
-    let loginViewModel = LoginViewModel()
+    @IBOutlet fileprivate var headerLabel: UILabel!
+    @IBOutlet fileprivate weak var fbLoginButtonView: FBSDKLoginButton!
+    
+    fileprivate let loginViewModel = LoginViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fbLoginButtonView.delegate = self
-        fbLoginButtonView.readPermissions = ["public_profile", "email"]
-        
-        headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
-        
-        for const in fbLoginButtonView.constraints {
-            if const.firstAttribute == NSLayoutAttribute.height && const.constant == 28{
-                fbLoginButtonView.removeConstraint(const)
-            }
-        }
-
+        configure()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,6 +30,19 @@ class LoginViewController: UIViewController {
             self.performSegue(withIdentifier: "ShowApplication", sender: nil)
         } else {
             Analytics.logEvent("view_screen", parameters: ["screen_name": "login"])
+        }
+    }
+    
+    func configure() {
+        fbLoginButtonView.delegate = self
+        fbLoginButtonView.readPermissions = ["public_profile", "email"]
+        
+        headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
+        
+        for const in fbLoginButtonView.constraints {
+            if const.firstAttribute == NSLayoutAttribute.height && const.constant == 28 {
+                fbLoginButtonView.removeConstraint(const)
+            }
         }
     }
     
@@ -89,9 +93,8 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
         do {
             try firebaseAuth.signOut()
             
-        }catch let signoutError as NSError {
+        } catch let signoutError as NSError {
             print(signoutError)
         }
     }
 }
-
