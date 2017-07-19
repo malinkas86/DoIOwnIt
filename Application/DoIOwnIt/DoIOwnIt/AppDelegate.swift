@@ -9,6 +9,9 @@
 import UIKit
 import FBSDKCoreKit
 import XCGLogger
+import GoogleSignIn
+import Firebase
+
 let log = XCGLogger.default
 let analyticsManager = AnalyticsManager()
 
@@ -18,7 +21,7 @@ let navbarFont = UIFont(name: "DINCond-Medium", size: 22) ?? UIFont.systemFont(o
 var userMovies : [Movie] = []
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     var window: UIWindow?
 
@@ -27,6 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         ConfigUtil.sharedInstance.initFirebase()
         ConfigUtil.sharedInstance.initSettingsBundle()
+        
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance().delegate = self
         
         window?.tintColor = themeColor
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, // DIN Condensed
@@ -38,9 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, sourceApplication: sourceApplication, annotation: annotation)
+        
+        GIDSignIn.sharedInstance().handle(url,
+                                          sourceApplication: sourceApplication,
+                                          annotation: annotation)
+        
         return handled
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -65,6 +76,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         analyticsManager.logEvent("app_terminated", parameters: nil)
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        LoginViewModel().signInUser(withCredential: credential, completionHandler: { response in
+            switch response {
+            case let .success(responseData) :
+                print(responseData)
+                NotificationCenterUtil.postNotification(name: "GoogleSignIn", value: ["status": "success"])
+            case let .error(errorMessage) :
+                print(errorMessage)
+                NotificationCenterUtil.postNotification(name: "GoogleSignIn", value: ["status": "failure"])
+            }
+        })
+    }
+    
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        NotificationCenterUtil.postNotification(name: "GoogleSignIn", value: ["status": "failure"])
     }
 
 }

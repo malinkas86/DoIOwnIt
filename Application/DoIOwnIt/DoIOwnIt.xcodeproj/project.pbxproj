@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3791BE81A5A51BFC792A639D /* Pods_DoIOwnIt_beta.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B95D9B044265CE004353F5 /* Pods_DoIOwnIt_beta.framework */; };
+		47BD5812538EB7A4DF20C986 /* Pods_DoIOwnIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */; };
 		492B4C68C1DE2EA097C9678C /* Pods_DoIOwnIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */; };
 		702012CC1EFEF738002E2132 /* GoogleService-beta-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 702012CB1EFEF738002E2132 /* GoogleService-beta-Info.plist */; };
 		702012D01EFF0552002E2132 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B7B1E5F371100F2CC8C /* MovieDetailsViewModel.swift */; };
@@ -56,7 +58,6 @@
 		702012FC1EFF0552002E2132 /* UserMovieRepositoryOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70EDA64E1E6F66BA00A7FA42 /* UserMovieRepositoryOperation.swift */; };
 		702012FD1EFF0552002E2132 /* MovieListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B761E5D328B00F2CC8C /* MovieListTableViewCell.swift */; };
 		702012FE1EFF0552002E2132 /* Crew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70749B7F1E61F06600F2CC8C /* Crew.swift */; };
-		702013001EFF0552002E2132 /* Pods_DoIOwnIt.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */; };
 		702013021EFF0552002E2132 /* Movie.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75501E5658F100115439 /* Movie.storyboard */; };
 		702013031EFF0552002E2132 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70DC75341E56322900115439 /* Main.storyboard */; };
 		702013041EFF0552002E2132 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 70DC753B1E5638CA00115439 /* GoogleService-Info.plist */; };
@@ -152,7 +153,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.release.xcconfig"; sourceTree = "<group>"; };
+		11156A63874A42AB8E214477 /* Pods-DoIOwnIt-beta.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt-beta.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta.debug.xcconfig"; sourceTree = "<group>"; };
+		17B95D9B044265CE004353F5 /* Pods_DoIOwnIt_beta.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIOwnIt_beta.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1EABB1962986137913AAE8D3 /* Pods-DoIOwnIt.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.release.xcconfig"; sourceTree = "<group>"; };
+		40BC28994E8DB79FABDA1A4B /* Pods-DoIOwnIt-beta.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt-beta.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta.release.xcconfig"; sourceTree = "<group>"; };
 		4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.release.xcconfig"; sourceTree = "<group>"; };
 		6C726D724955055D6F069773 /* Pods-DoIOwnItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		702012CB1EFEF738002E2132 /* GoogleService-beta-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-beta-Info.plist"; sourceTree = "<group>"; };
@@ -226,8 +230,8 @@
 		70EDA65C1E71BA0200A7FA42 /* UserMovieLibraryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMovieLibraryViewController.swift; path = Classes/ViewControllers/Movie/UserMovieLibraryViewController.swift; sourceTree = "<group>"; };
 		70EDA65E1E71F59F00A7FA42 /* MovieLibraryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MovieLibraryTableViewCell.swift; path = Classes/TableViewCells/Movie/MovieLibraryTableViewCell.swift; sourceTree = "<group>"; };
 		7899E2F13DEAFF2E443F2BB9 /* Pods_DoIOwnItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIOwnItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1D17D30A4C91173DEC659B5 /* Pods-DoIOwnIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.debug.xcconfig"; sourceTree = "<group>"; };
 		C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DoIOwnIt.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C5F1AE820646C27BF605864A /* Pods-DoIOwnIt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DoIOwnIt.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,7 +239,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				702013001EFF0552002E2132 /* Pods_DoIOwnIt.framework in Frameworks */,
+				3791BE81A5A51BFC792A639D /* Pods_DoIOwnIt_beta.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				492B4C68C1DE2EA097C9678C /* Pods_DoIOwnIt.framework in Frameworks */,
+				47BD5812538EB7A4DF20C986 /* Pods_DoIOwnIt.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,10 +266,12 @@
 		2306BC444F2F8E4BEF22D5E0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C1D17D30A4C91173DEC659B5 /* Pods-DoIOwnIt.debug.xcconfig */,
-				3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */,
 				6C726D724955055D6F069773 /* Pods-DoIOwnItTests.debug.xcconfig */,
 				4A3C85C8257F0A4CCA267735 /* Pods-DoIOwnItTests.release.xcconfig */,
+				C5F1AE820646C27BF605864A /* Pods-DoIOwnIt.debug.xcconfig */,
+				1EABB1962986137913AAE8D3 /* Pods-DoIOwnIt.release.xcconfig */,
+				11156A63874A42AB8E214477 /* Pods-DoIOwnIt-beta.debug.xcconfig */,
+				40BC28994E8DB79FABDA1A4B /* Pods-DoIOwnIt-beta.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -537,6 +544,7 @@
 			children = (
 				C2DB8370076BA69528393976 /* Pods_DoIOwnIt.framework */,
 				7899E2F13DEAFF2E443F2BB9 /* Pods_DoIOwnItTests.framework */,
+				17B95D9B044265CE004353F5 /* Pods_DoIOwnIt_beta.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -548,12 +556,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7020130B1EFF0552002E2132 /* Build configuration list for PBXNativeTarget "DoIOwnIt-beta" */;
 			buildPhases = (
-				702012CE1EFF0552002E2132 /* [CP] Check Pods Manifest.lock */,
+				D85020B8A8C051E3E8799B9E /* [CP] Check Pods Manifest.lock */,
 				702012CF1EFF0552002E2132 /* Sources */,
 				702012FF1EFF0552002E2132 /* Frameworks */,
 				702013011EFF0552002E2132 /* Resources */,
-				702013091EFF0552002E2132 /* [CP] Embed Pods Frameworks */,
-				7020130A1EFF0552002E2132 /* [CP] Copy Pods Resources */,
+				1A54F597B89E96D6CD3D2933 /* [CP] Embed Pods Frameworks */,
+				B29A26F0845221335A13DFD6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -619,6 +627,9 @@
 						DevelopmentTeam = 3Y57FJF6PJ;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -730,37 +741,7 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		3B0874DF682B70A753720397 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		702012CE1EFF0552002E2132 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		702013091EFF0552002E2132 /* [CP] Embed Pods Frameworks */ = {
+		1A54F597B89E96D6CD3D2933 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -772,10 +753,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoIOwnIt/Pods-DoIOwnIt-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7020130A1EFF0552002E2132 /* [CP] Copy Pods Resources */ = {
+		3B0874DF682B70A753720397 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -805,6 +786,21 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		B29A26F0845221335A13DFD6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C5D6E99F7856DD6562EBF12C /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -818,6 +814,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DoIOwnItTests/Pods-DoIOwnItTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D85020B8A8C051E3E8799B9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		FAB1D1D587C41F476C30EC41 /* [CP] Embed Pods Frameworks */ = {
@@ -988,7 +999,7 @@
 /* Begin XCBuildConfiguration section */
 		7020130C1EFF0552002E2132 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D17D30A4C91173DEC659B5 /* Pods-DoIOwnIt.debug.xcconfig */;
+			baseConfigurationReference = 11156A63874A42AB8E214477 /* Pods-DoIOwnIt-beta.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DoIOwnIt/DoIOwnIt-beta.entitlements";
@@ -1008,7 +1019,7 @@
 		};
 		7020130D1EFF0552002E2132 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */;
+			baseConfigurationReference = 40BC28994E8DB79FABDA1A4B /* Pods-DoIOwnIt-beta.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "DoIOwnIt/DoIOwnIt-beta.entitlements";
@@ -1119,7 +1130,7 @@
 		};
 		70DC752C1E5627D900115439 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C1D17D30A4C91173DEC659B5 /* Pods-DoIOwnIt.debug.xcconfig */;
+			baseConfigurationReference = C5F1AE820646C27BF605864A /* Pods-DoIOwnIt.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DoIOwnIt/DoIOwnIt.entitlements;
@@ -1135,7 +1146,7 @@
 		};
 		70DC752D1E5627D900115439 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3400611429ED1FAE7D28151E /* Pods-DoIOwnIt.release.xcconfig */;
+			baseConfigurationReference = 1EABB1962986137913AAE8D3 /* Pods-DoIOwnIt.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = DoIOwnIt/DoIOwnIt.entitlements;
