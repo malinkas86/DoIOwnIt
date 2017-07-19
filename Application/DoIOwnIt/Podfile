@@ -1,23 +1,33 @@
 # Uncomment the next line to define a global platform for your project
 # platform :ios, '9.0'
+use_frameworks!
+
+def shared_pods
+    pod 'XCGLogger', '5.0.1'
+    pod 'Alamofire', '4.4.0'
+    pod 'Firebase/Core', '4.0.0'
+    pod 'Firebase/Database', '4.0.0'
+    pod 'Firebase/Auth', '4.0.0'
+    pod 'FirebaseUI/Database', '4.0.0'
+    pod 'FBSDKLoginKit', '4.23.0'
+    pod 'GoogleSignIn', '4.0.2'
+    pod 'SDWebImage', '4.0.0'
+    pod 'IHKeyboardAvoiding'
+end
 
 target 'DoIOwnIt' do
-  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for DoIOwnIt
-  pod 'XCGLogger', '5.0.1'
-  pod 'Alamofire', '4.4.0'
-  pod 'Firebase/Core', '4.0.0'
-  pod 'Firebase/Database', '4.0.0'
-  pod 'Firebase/Auth', '4.0.0'
-  pod 'FirebaseUI/Database', '4.0.0'
-  pod 'FBSDKLoginKit'
-  pod 'SDWebImage', '4.0.0'
-  pod 'IHKeyboardAvoiding'
+    # Pods for DoIOwnIt
+  shared_pods
+  
   target 'DoIOwnItTests' do
     inherit! :search_paths
     # Pods for testing
   end
 
+end
+
+target 'DoIOwnIt-beta' do
+    # Pods for DoIOwnIt
+    shared_pods
+    
 end

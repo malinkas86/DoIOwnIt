@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -27,9 +26,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6MP-LY-wza" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="20" y="666" width="374" height="50"/>
+                                <rect key="frame" x="20" y="666" width="374" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="kBN-86-AAc"/>
+                                    <constraint firstAttribute="height" constant="40" id="kBN-86-AAc"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lrk-j7-IEW">
@@ -71,6 +70,16 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg0-CX-oKj" customClass="GIDSignInButton">
+                                <rect key="frame" x="20" y="596" width="374" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="tIp-jD-mnm"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didTapGoogleSignIn:" destination="bcX-Np-10e" eventType="touchUpInside" id="597-2K-c0l"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.10980392160000001" green="0.10980392160000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="tintColor" red="0.92156862750000001" green="0.72941176470000002" blue="0.035294117649999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -78,9 +87,11 @@
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leading" id="29X-bC-7og"/>
                             <constraint firstItem="o7M-wQ-Iry" firstAttribute="top" secondItem="jPH-ZO-QdV" secondAttribute="top" id="7BO-gs-jyQ"/>
                             <constraint firstAttribute="trailing" secondItem="o7M-wQ-Iry" secondAttribute="trailing" id="9jE-zM-6X6"/>
-                            <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="20" id="FDx-RN-52G"/>
+                            <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="6MP-LY-wza" secondAttribute="bottom" constant="30" id="FDx-RN-52G"/>
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="o7M-wQ-Iry" secondAttribute="bottom" id="JUc-q6-5uB"/>
+                            <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="Dg0-CX-oKj" secondAttribute="bottom" constant="20" id="Pap-YT-aFA"/>
                             <constraint firstItem="lrk-j7-IEW" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" id="QMW-Hn-aXn"/>
+                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="trailing" secondItem="6MP-LY-wza" secondAttribute="trailing" id="QaV-sT-zKp"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="ftt-G5-Vo2"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="jPH-ZO-QdV" secondAttribute="centerX" id="he9-Yo-dYq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lrk-j7-IEW" secondAttribute="trailing" constant="16" id="ljg-CJ-Jh8">
@@ -89,6 +100,7 @@
                             <constraint firstItem="lrk-j7-IEW" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="16" id="qBc-ve-26Q">
                                 <variation key="heightClass=regular-widthClass=compact" constant="32"/>
                             </constraint>
+                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="leading" secondItem="6MP-LY-wza" secondAttribute="leading" id="rqD-jx-Yuc"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
@@ -96,13 +108,14 @@
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="fbLoginButtonView" destination="6MP-LY-wza" id="SRG-Ew-OJ7"/>
+                        <outlet property="googleSignInButtonView" destination="Dg0-CX-oKj" id="ldM-tI-nYp"/>
                         <outlet property="headerLabel" destination="Ils-g2-48e" id="thd-tR-S9T"/>
                         <segue destination="RZw-Q2-guW" kind="show" identifier="ShowApplication" id="izN-fL-MN2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="auI-3K-ztr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="174.96251874062969"/>
+            <point key="canvasLocation" x="117.39130434782609" y="174.45652173913044"/>
         </scene>
         <!--Movie-->
         <scene sceneID="4wx-G8-WK5">

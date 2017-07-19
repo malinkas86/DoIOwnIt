@@ -10,11 +10,14 @@ import UIKit
 import Firebase
 import FBSDKCoreKit
 import FBSDKLoginKit
+import GoogleSignIn
 
 class LoginViewController: UIViewController {
 
     @IBOutlet fileprivate var headerLabel: UILabel!
     @IBOutlet fileprivate weak var fbLoginButtonView: FBSDKLoginButton!
+    
+    @IBOutlet fileprivate weak var googleSignInButtonView: GIDSignInButton!
     
     fileprivate let loginViewModel = LoginViewModel()
     
@@ -27,15 +30,28 @@ class LoginViewController: UIViewController {
         
         if let currentUser = Auth.auth().currentUser {
             analyticsManager.setUserProperty(userProperty: currentUser.uid, userPropertyValue: "user_id")
-            self.performSegue(withIdentifier: "ShowApplication", sender: nil)
+            showApplication()
         } else {
             analyticsManager.logEvent("view_screen", parameters: ["screen_name": "login"])
         }
     }
     
+    func showApplication() {
+        self.performSegue(withIdentifier: "ShowApplication", sender: nil)
+    }
+    
     func configure() {
         fbLoginButtonView.delegate = self
         fbLoginButtonView.readPermissions = ["public_profile", "email"]
+        
+        GIDSignIn.sharedInstance().uiDelegate = self
+        
+        let nc = NotificationCenter.default // Note that default is now a property, not a method call
+        nc.addObserver(forName:Notification.Name(rawValue:"GoogleSignIn"),object:nil, queue:nil) {
+            notification in
+            // Handle notification
+            self.showApplication()
+        }
         
         headerLabel.font = UIFont(name: "DINCond-Medium", size: 42)
         
@@ -44,6 +60,17 @@ class LoginViewController: UIViewController {
                 fbLoginButtonView.removeConstraint(const)
             }
         }
+        
+        for const in googleSignInButtonView.constraints {
+            if const.firstAttribute == NSLayoutAttribute.height {
+                googleSignInButtonView.removeConstraint(const)
+            }
+        }
+    }
+    
+    
+    @IBAction func didTapGoogleSignIn(_ sender: GIDSignInButton) {
+        GIDSignIn.sharedInstance().signIn()
     }
     
     override func didReceiveMemoryWarning() {
@@ -69,7 +96,7 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
                 switch response {
                 case let .success(responseData) :
                     print(responseData)
-                    self.performSegue(withIdentifier: "ShowApplication", sender: nil)
+                    self.showApplication()
                 case let .error(errorMessage) :
                     print(errorMessage)
                 }
@@ -97,4 +124,30 @@ extension LoginViewController : FBSDKLoginButtonDelegate {
             print(signoutError)
         }
     }
+}
+
+extension LoginViewController: GIDSignInUIDelegate {
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+        // ...
+        if let error = error {
+            // ...
+            print(error.localizedDescription)
+            return
+        }
+        
+        guard let authentication = user.authentication else { return }
+        let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
+                                                       accessToken: authentication.accessToken)
+        loginViewModel.signInUser(withCredential: credential, completionHandler: { response in
+            switch response {
+            case let .success(responseData) :
+                print(responseData)
+                self.showApplication()
+            case let .error(errorMessage) :
+                print(errorMessage)
+            }
+        })
+    }
+    
 }
