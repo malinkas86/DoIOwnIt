@@ -1373,3 +1373,13 @@ Application/DoIOwnIt/Pods/XCGLogger/Sources/XCGLogger/LogFormatters/PrePostFixLo
 Application/DoIOwnIt/Pods/XCGLogger/Sources/XCGLogger/LogFormatters/XcodeColorsLogFormatter.swift
 Application/DoIOwnIt/Pods/XCGLogger/Sources/XCGLogger/Misc/HelperFunctions.swift
 Application/DoIOwnIt/Pods/XCGLogger/Sources/XCGLogger/Misc/LogDetails.swift
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Info.plist
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-acknowledgements.markdown
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-acknowledgements.plist
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-dummy.m
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-frameworks.sh
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-resources.sh
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta-umbrella.h
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta.debug.xcconfig
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta.modulemap
+Application/DoIOwnIt/Pods/Target Support Files/Pods-DoIOwnIt-beta/Pods-DoIOwnIt-beta.release.xcconfig
