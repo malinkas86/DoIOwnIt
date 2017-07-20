@@ -13,7 +13,7 @@
         <!--Login View Controller-->
         <scene sceneID="dcu-hy-iRR">
             <objects>
-                <viewController id="bcX-Np-10e" customClass="LoginViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginViewController" id="bcX-Np-10e" customClass="LoginViewController" customModule="DoIOwnIt" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="9Db-VU-WuX"/>
                         <viewControllerLayoutGuide type="bottom" id="tlJ-NO-0ds"/>
@@ -71,7 +71,7 @@
                                 </variation>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dg0-CX-oKj" customClass="GIDSignInButton">
-                                <rect key="frame" x="20" y="596" width="374" height="50"/>
+                                <rect key="frame" x="18" y="596" width="380" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="tIp-jD-mnm"/>
@@ -91,7 +91,7 @@
                             <constraint firstItem="tlJ-NO-0ds" firstAttribute="top" secondItem="o7M-wQ-Iry" secondAttribute="bottom" id="JUc-q6-5uB"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="top" secondItem="Dg0-CX-oKj" secondAttribute="bottom" constant="20" id="Pap-YT-aFA"/>
                             <constraint firstItem="lrk-j7-IEW" firstAttribute="top" secondItem="9Db-VU-WuX" secondAttribute="bottom" id="QMW-Hn-aXn"/>
-                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="trailing" secondItem="6MP-LY-wza" secondAttribute="trailing" id="QaV-sT-zKp"/>
+                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="trailing" secondItem="6MP-LY-wza" secondAttribute="trailing" constant="4" id="QaV-sT-zKp"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" id="ftt-G5-Vo2"/>
                             <constraint firstItem="6MP-LY-wza" firstAttribute="centerX" secondItem="jPH-ZO-QdV" secondAttribute="centerX" id="he9-Yo-dYq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="lrk-j7-IEW" secondAttribute="trailing" constant="16" id="ljg-CJ-Jh8">
@@ -100,7 +100,7 @@
                             <constraint firstItem="lrk-j7-IEW" firstAttribute="leading" secondItem="jPH-ZO-QdV" secondAttribute="leadingMargin" constant="16" id="qBc-ve-26Q">
                                 <variation key="heightClass=regular-widthClass=compact" constant="32"/>
                             </constraint>
-                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="leading" secondItem="6MP-LY-wza" secondAttribute="leading" id="rqD-jx-Yuc"/>
+                            <constraint firstItem="Dg0-CX-oKj" firstAttribute="leading" secondItem="6MP-LY-wza" secondAttribute="leading" constant="-2" id="rqD-jx-Yuc"/>
                         </constraints>
                     </view>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>

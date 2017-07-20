@@ -105,6 +105,8 @@
 		7080F6AD1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */; };
 		7080F6AE1F1BCA67003E5AA5 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */; };
 		7081781E1EA5E4E4008AB7D5 /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */; };
+		7083B4081F215FE3004D8E12 /* UIViewController+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083B4071F215FE3004D8E12 /* UIViewController+Shake.swift */; };
+		7083B4091F215FE3004D8E12 /* UIViewController+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7083B4071F215FE3004D8E12 /* UIViewController+Shake.swift */; };
 		70925E701E752FFB00A5B42C /* NotificationCenterUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */; };
 		70CC1E4E1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
 		70CC1E4F1F0DB35D00ED20AA /* DIN Condensed-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */; };
@@ -192,6 +194,7 @@
 		7080F6A91F1BCA3A003E5AA5 /* AnalyticsManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsManagerProtocol.swift; path = Classes/Managers/AnalyticsManagerProtocol.swift; sourceTree = "<group>"; };
 		7080F6AC1F1BCA67003E5AA5 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AnalyticsManager.swift; path = Classes/Managers/AnalyticsManager.swift; sourceTree = "<group>"; };
 		7081781D1EA5E4E4008AB7D5 /* StringUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtil.swift; path = Classes/Utils/StringUtil.swift; sourceTree = "<group>"; };
+		7083B4071F215FE3004D8E12 /* UIViewController+Shake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewController+Shake.swift"; path = "Classes/ViewControllers/UIViewController+Shake.swift"; sourceTree = "<group>"; };
 		70925E6F1E752FFB00A5B42C /* NotificationCenterUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NotificationCenterUtil.swift; path = Classes/Utils/NotificationCenterUtil.swift; sourceTree = "<group>"; };
 		70CC1E4B1F0DB35D00ED20AA /* DIN Condensed-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Regular.otf"; sourceTree = "<group>"; };
 		70CC1E4C1F0DB35D00ED20AA /* DIN Condensed-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DIN Condensed-Light.otf"; sourceTree = "<group>"; };
@@ -448,6 +451,7 @@
 			children = (
 				70DC75521E56594500115439 /* Movie */,
 				70DC75381E56337700115439 /* Login */,
+				7083B4071F215FE3004D8E12 /* UIViewController+Shake.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -906,6 +910,7 @@
 				702012F11EFF0552002E2132 /* JSON.swift in Sources */,
 				702012F21EFF0552002E2132 /* RadioButton.swift in Sources */,
 				702012F31EFF0552002E2132 /* UserMovieRespositoryProtocol.swift in Sources */,
+				7083B4091F215FE3004D8E12 /* UIViewController+Shake.swift in Sources */,
 				702012F41EFF0552002E2132 /* MovieList.swift in Sources */,
 				702012F51EFF0552002E2132 /* HTTPRequestProtocol.swift in Sources */,
 				702012F61EFF0552002E2132 /* LoginViewModel.swift in Sources */,
@@ -963,6 +968,7 @@
 				70EDA6551E7127D400A7FA42 /* JSON.swift in Sources */,
 				70EDA6471E6E1C0800A7FA42 /* RadioButton.swift in Sources */,
 				70EDA6511E6F671E00A7FA42 /* UserMovieRespositoryProtocol.swift in Sources */,
+				7083B4081F215FE3004D8E12 /* UIViewController+Shake.swift in Sources */,
 				70749B721E5D08F800F2CC8C /* MovieList.swift in Sources */,
 				70749B601E5BE4BA00F2CC8C /* HTTPRequestProtocol.swift in Sources */,
 				70DC753F1E563C7400115439 /* LoginViewModel.swift in Sources */,
