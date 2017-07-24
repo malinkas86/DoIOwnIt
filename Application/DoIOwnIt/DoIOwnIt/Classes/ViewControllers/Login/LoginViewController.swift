@@ -70,7 +70,9 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func didTapGoogleSignIn(_ sender: GIDSignInButton) {
-        GIDSignIn.sharedInstance().signIn()
+        self.dismiss(animated: true) {
+            GIDSignIn.sharedInstance().signIn()
+        }
     }
     
     override func didReceiveMemoryWarning() {
